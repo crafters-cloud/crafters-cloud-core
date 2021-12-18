@@ -1,0 +1,89 @@
+variables:
+  BuildConfiguration: release
+  BuildPlatform: any cpu
+  buildVersion: 1.0.0-$(Build.BuildNumber)
+  buildVersionDescription: $(buildVersion)-$(Build.SourceBranchName)-$(buildSourceVersionShort)
+  dotnetCoreSdkVersion: 6.0.100
+  NUGET_PACKAGES: $(Pipeline.Workspace)/.nuget/packages
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+  
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - 'master'
+    - 'release'
+
+pool:
+  vmImage: windows-2022
+
+jobs:
+- job: build
+  displayName: 'Build'
+  
+  steps:
+  - powershell: |
+     $commitId= "$env:BUILD_SOURCEVERSION"
+     
+     $definitionName= "$env:BUILD_DEFINITIONNAME"
+     
+     $shortId= $commitId.Substring(0, 7)
+     
+     Write-Host ("##vso[task.setvariable variable=buildSourceVersionShort]$shortId")
+    displayName: 'Update build number'
+  
+  - task: UseDotNet@2
+    enabled: false
+    displayName: 'Use .NET Core sdk'
+    inputs:
+      version: '$(dotnetCoreSdkVersion)'
+
+  - task: NuGetCommand@2
+    enabled: false
+    displayName: 'Restore NuGets'
+    inputs:
+      command: 'restore'
+      restoreSolution: '**/*.sln'
+
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      projects: '**/*.csproj'
+      arguments: '/property:Version=$(buildVersion);TreatWarningsAsErrors=true --configuration $(BuildConfiguration)'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'Run Tests'
+    inputs:
+      command: test
+      projects: '**/*Tests/*.csproj'
+      arguments: '--filter "TestCategory=unit|TestCategory=smoke" --configuration $(BuildConfiguration) --no-build'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'Build Nugets'
+    inputs:
+      command: 'pack'
+      packagesToPack: '**/CraftersCloud.Core.*.csproj'
+      versioningScheme: 'byEnvVar'
+      versionEnvVar: 'buildVersion'
+      includesymbols: true
+      includesource: true
+
+  - task: PublishSymbols@2
+    displayName: 'Publish Symbols'
+    inputs:
+      SearchPattern: '**/bin/**/*.pdb'
+      SymbolServerType: 'TeamServices'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'Publish Nugets'
+    inputs:
+      command: 'push'
+      packagesToPush: '$(Build.ArtifactStagingDirectory)/*symbols.nupkg'
+      nuGetFeedType: 'internal'
+      publishVstsFeed: '34066b65-ecd4-4ac7-817d-751eaeccd223'
+  
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact'
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
