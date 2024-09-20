@@ -19,11 +19,6 @@ internal class CustomSwaggerSchemaNameGenerator : DefaultSchemaNameGenerator
 
     private static void GetAllDeclaringTypes(IList<Type> declaringTypes, Type type)
     {
-        if (declaringTypes == null)
-        {
-            throw new ArgumentNullException(nameof(declaringTypes));
-        }
-
         while (true)
         {
             if (type.DeclaringType != null)

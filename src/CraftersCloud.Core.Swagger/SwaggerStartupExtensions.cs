@@ -45,15 +45,21 @@ public static class SwaggerStartupExtensions
             }
         });
     }
-
+    
     /// <summary>
     ///     Adds services required for OpenAPI 3.0 generation
     /// </summary>
     /// <param name="services">The container to which to register Swagger services</param>
     /// <param name="appTitle">The title of th application</param>
     /// <param name="appVersion">The version of the application</param>
-    public static void AddCoreSwagger(this IServiceCollection services, string appTitle, string appVersion = "v1") =>
-        services.AddOpenApiDocument(settings => settings.SetBasicSwaggerSettings(appTitle, appVersion));
+    /// <param name="configureSettings">
+    ///     Action to configure the OpenApi document generator settings after the initial settings
+    ///     have been configured.
+    /// </param>
+    public static void AddCoreSwagger(this IServiceCollection services, string appTitle, string appVersion = "v1",
+        Action<AspNetCoreOpenApiDocumentGeneratorSettings>? configureSettings = null) =>
+        services.AddOpenApiDocument(settings =>
+            settings.ConfigureSwaggerSettings(appTitle, appVersion, configureSettings));
 
     /// <summary>
     ///     Adds services required for OpenAPI 3.0 generation, and appends the OAuth2 security scheme and requirement to the
@@ -66,13 +72,18 @@ public static class SwaggerStartupExtensions
     /// <param name="tokenUrl">The OAuth2 Token Url</param>
     /// <param name="scopes">The available OAuth2 Scopes</param>
     /// <param name="appVersion">The version of the application</param>
+    /// <param name="configureSettings">
+    ///     Action to configure the OpenApi document generator settings after the initial settings
+    ///     have been configured.
+    /// </param>
     public static void AddCoreSwaggerWithAuthorizationCode(
         this IServiceCollection services,
         string appTitle,
         string authorizationUrl,
         string tokenUrl,
         Dictionary<string, string> scopes,
-        string appVersion = "v1")
+        string appVersion = "v1",
+        Action<AspNetCoreOpenApiDocumentGeneratorSettings>? configureSettings = null)
     {
         if (string.IsNullOrEmpty(authorizationUrl))
         {
@@ -91,7 +102,7 @@ public static class SwaggerStartupExtensions
 
         services.AddOpenApiDocument(settings =>
         {
-            settings.SetBasicSwaggerSettings(appTitle, appVersion);
+            settings.ConfigureSwaggerSettings(appTitle, appVersion, configureSettings);
             settings.AddSecurity("oauth2",
                 new OpenApiSecurityScheme
                 {
@@ -121,13 +132,18 @@ public static class SwaggerStartupExtensions
     /// <param name="tokenUrl">The OAuth2 Token Url</param>
     /// <param name="scopes">The available OAuth2 Scopes</param>
     /// <param name="appVersion">The version of the application</param>
+    /// <param name="configureSettings">
+    ///     Action to configure the OpenApi document generator settings after the initial settings
+    ///     have been configured.
+    /// </param>
     public static void AddCoreSwaggerWithImplicitGrant(
         this IServiceCollection services,
         string appTitle,
         string authorizationUrl,
         string tokenUrl,
         Dictionary<string, string> scopes,
-        string appVersion = "v1")
+        string appVersion = "v1",
+        Action<AspNetCoreOpenApiDocumentGeneratorSettings>? configureSettings = null)
     {
         if (string.IsNullOrEmpty(authorizationUrl))
         {
@@ -146,7 +162,7 @@ public static class SwaggerStartupExtensions
 
         services.AddOpenApiDocument(settings =>
         {
-            settings.SetBasicSwaggerSettings(appTitle, appVersion);
+            settings.ConfigureSwaggerSettings(appTitle, appVersion, configureSettings);
             settings.AddSecurity("oauth2",
                 new OpenApiSecurityScheme
                 {
@@ -163,14 +179,5 @@ public static class SwaggerStartupExtensions
                 });
             settings.OperationProcessors.Add(new OperationSecurityScopeProcessor("oauth2"));
         });
-    }
-
-    private static void SetBasicSwaggerSettings(this AspNetCoreOpenApiDocumentGeneratorSettings settings,
-        string appTitle, string appVersion)
-    {
-        settings.DocumentName = appVersion;
-        settings.Title = appTitle;
-        settings.Version = appVersion;
-        settings.SchemaSettings.SchemaNameGenerator = new CustomSwaggerSchemaNameGenerator();
     }
 }
