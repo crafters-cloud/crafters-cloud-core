@@ -14,7 +14,7 @@ public static class SwaggerStartupExtensions
     /// </summary>
     /// <param name="app">The application to configure</param>
     /// <param name="path">The internal swagger route (must start with '/')</param>
-    public static void AppUseSwagger(this IApplicationBuilder app, string path = "")
+    public static void UseCoreSwagger(this IApplicationBuilder app, string path = "")
     {
         app.UseOpenApi();
         app.UseSwaggerUi(c => c.Path = path);
@@ -27,7 +27,7 @@ public static class SwaggerStartupExtensions
     /// <param name="clientId">The Client Id used by the OAuth2 Client</param>
     /// <param name="clientSecret">The optional Client Secret used by the OAuth2 Client</param>
     /// <param name="path">The internal swagger route (must start with '/')</param>
-    public static void AppUseSwaggerWithOAuth2Client(this IApplicationBuilder app, string clientId,
+    public static void UseCoreSwaggerWithOAuth2Client(this IApplicationBuilder app, string clientId,
         string clientSecret = "", string path = "")
     {
         app.UseOpenApi();
@@ -52,7 +52,7 @@ public static class SwaggerStartupExtensions
     /// <param name="services">The container to which to register Swagger services</param>
     /// <param name="appTitle">The title of th application</param>
     /// <param name="appVersion">The version of the application</param>
-    public static void AppAddSwagger(this IServiceCollection services, string appTitle, string appVersion = "v1") =>
+    public static void AddCoreSwagger(this IServiceCollection services, string appTitle, string appVersion = "v1") =>
         services.AddOpenApiDocument(settings => settings.SetBasicSwaggerSettings(appTitle, appVersion));
 
     /// <summary>
@@ -66,7 +66,7 @@ public static class SwaggerStartupExtensions
     /// <param name="tokenUrl">The OAuth2 Token Url</param>
     /// <param name="scopes">The available OAuth2 Scopes</param>
     /// <param name="appVersion">The version of the application</param>
-    public static void AppAddSwaggerWithAuthorizationCode(
+    public static void AddCoreSwaggerWithAuthorizationCode(
         this IServiceCollection services,
         string appTitle,
         string authorizationUrl,
@@ -121,7 +121,7 @@ public static class SwaggerStartupExtensions
     /// <param name="tokenUrl">The OAuth2 Token Url</param>
     /// <param name="scopes">The available OAuth2 Scopes</param>
     /// <param name="appVersion">The version of the application</param>
-    public static void AppAddSwaggerWithImplicitGrant(
+    public static void AddCoreSwaggerWithImplicitGrant(
         this IServiceCollection services,
         string appTitle,
         string authorizationUrl,
