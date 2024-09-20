@@ -38,6 +38,8 @@ exec { & dotnet test -c Release --no-build -l trx --verbosity=normal }
 
 exec { & dotnet pack .\src\CraftersCloud.Core\CraftersCloud.Core.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\CraftersCloud.Core.AspNetCore\CraftersCloud.Core.AspNetCore.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\CraftersCloud.Core.AspNetCore.Tests.SystemTextJson\CraftersCloud.Core.AspNetCore.Tests.SystemTextJson.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\CraftersCloud.Core.AspNetCore.Tests.Utilities\CraftersCloud.Core.AspNetCore.Tests.Utilities.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\CraftersCloud.Core.EntityFramework\CraftersCloud.Core.EntityFramework.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\CraftersCloud.Core.EntityFramework.Infrastructure\CraftersCloud.Core.EntityFramework.Infrastructure.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\CraftersCloud.Core.EventBus\CraftersCloud.Core.EventBus.csproj -c Release -o $artifacts --no-build }
