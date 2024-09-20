@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <Product>CraftersCloud.Core.EventBus</Product>
+    <Description>EventBus Building Block</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac"/>
+    <PackageReference Include="Azure.Messaging.ServiceBus"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All"/>
+    <PackageReference Include="Newtonsoft.Json"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CraftersCloud.Core.IntegrationEvents\CraftersCloud.Core.IntegrationEvents.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

@@ -4,16 +4,27 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Features>strict</Features>
 
     <Authors>Srdjan Zivojinoci</Authors>
     <Copyright>Copyright © 2024 Crafters Cloud. All rights reserved.</Copyright>
     <Company>Crafters Cloud</Company>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <!--    <PackageIcon>icon-192x192.png</PackageIcon>-->
-    <PackageProjectUrl>https://github.com/crafters-cloud/crafters-cloud-core</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>CraftersCloud;Core</PackageTags>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <RepositoryUrl>https://github.com/crafters-cloud/crafters-cloud-core</RepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    
+    <PackageProjectUrl>https://github.com/crafters-cloud/crafters-cloud-core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/crafters-cloud/crafters-cloud-core.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
 
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -22,9 +33,6 @@
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisLevel>8.0</AnalysisLevel>
     <LangVersion>latest</LangVersion>
-
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
 </Project>

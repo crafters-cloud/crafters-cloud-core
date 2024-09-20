@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <Product>CraftersCloud.Core.AspNetCore.Tests</Product>
+    <Description>Core for the AspNetCore Tests projects</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FakeItEasy"/>
+    <PackageReference Include="FluentAssertions"/>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client"/>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core"/>
+    <PackageReference Include="Microsoft.Rest.ClientRuntime"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All"/>
+    <PackageReference Include="Newtonsoft.Json"/>
+    <PackageReference Include="NUnit"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\CraftersCloud.Core\CraftersCloud.Core.csproj" />
+  </ItemGroup>
+  
+
+</Project>
