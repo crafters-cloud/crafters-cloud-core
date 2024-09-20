@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using System.Text.Json.Serialization;
+using Argon;
 using JetBrains.Annotations;
 
 namespace CraftersCloud.Core.SmartEnums.VerifyTests;
