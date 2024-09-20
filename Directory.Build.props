@@ -6,8 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Features>strict</Features>
 
-    <Authors>Srdjan Zivojinoci</Authors>
-    <Copyright>Copyright © 2024 Crafters Cloud. All rights reserved.</Copyright>
+    <Authors>Srdjan Zivojinovic</Authors>
+    <Copyright>Copyright © 2024 Crafters Cloud</Copyright>
     <Company>Crafters Cloud</Company>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <!--    <PackageIcon>icon-192x192.png</PackageIcon>-->

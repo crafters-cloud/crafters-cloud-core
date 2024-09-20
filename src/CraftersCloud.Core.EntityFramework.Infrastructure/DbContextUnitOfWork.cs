@@ -6,42 +6,37 @@ using Microsoft.Extensions.Logging;
 namespace CraftersCloud.Core.EntityFramework.Infrastructure;
 
 [UsedImplicitly]
-public class DbContextUnitOfWork : IUnitOfWork
+public class DbContextUnitOfWork(DbContext context, ILogger<DbContextUnitOfWork> logger) : IUnitOfWork
 {
-    private readonly DbContext _context;
-    private readonly ILogger<DbContextUnitOfWork> _logger;
     private bool _cancelSaving;
 
-    public DbContextUnitOfWork(DbContext context, ILogger<DbContextUnitOfWork> logger)
-    {
-        _context = context;
-        _logger = logger;
-    }
-
-    public void SaveChanges()
+    public int SaveChanges()
     {
         if (_cancelSaving)
         {
-            _logger.LogWarning("Not saving database changes since saving was cancelled.");
-            return;
+            logger.LogWarning("Not saving database changes since saving was cancelled.");
+            return 0;
         }
 
-        var numberOfChanges = _context.SaveChanges();
-        _logger.LogDebug(
-            $"{numberOfChanges} of changed were saved to database {_context.Database.GetDbConnection().Database}");
+        var numberOfChanges = context.SaveChanges();
+        logger.LogDebug(
+            "{NumberOfChanges} of changed were saved to database {Database}", numberOfChanges, context.Database.GetDbConnection().Database);
+
+        return numberOfChanges;
     }
 
-    public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
+    public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         if (_cancelSaving)
         {
-            _logger.LogWarning("Not saving database changes since saving was cancelled.");
-            return;
+            logger.LogWarning("Not saving database changes since saving was cancelled.");
+            return 0;
         }
 
-        var numberOfChanges = await _context.SaveChangesAsync(cancellationToken);
-        _logger.LogDebug(
-            $"{numberOfChanges} of changed were saved to database {_context.Database.GetDbConnection().Database}");
+        var numberOfChanges = await context.SaveChangesAsync(cancellationToken);
+        logger.LogDebug(
+            "{NumberOfChanges} of changed were saved to database {Database}", numberOfChanges, context.Database.GetDbConnection().Database);
+        return numberOfChanges;
     }
 
     public void CancelSaving() => _cancelSaving = true;

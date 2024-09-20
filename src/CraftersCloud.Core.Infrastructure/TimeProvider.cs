@@ -1,10 +1,13 @@
 ﻿using JetBrains.Annotations;
 
-namespace CraftersCloud.Core.Infrastructure;
-
-[UsedImplicitly]
-public class TimeProvider : ITimeProvider
+namespace CraftersCloud.Core.Infrastructure
 {
-    private readonly Lazy<DateTimeOffset> _now = new(() => DateTimeOffset.UtcNow);
-    public DateTimeOffset UtcNow => _now.Value;
+    [PublicAPI]
+    public class TimeProvider : ITimeProvider
+    {
+        private readonly Lazy<DateTimeOffset> _now = new(() => DateTimeOffset.UtcNow);
+
+        public DateTimeOffset FixedUtcNow => _now.Value;
+        public DateTimeOffset UtcNow => DateTimeOffset.UtcNow;
+    }
 }

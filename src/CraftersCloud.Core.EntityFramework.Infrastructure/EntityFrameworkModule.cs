@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using Autofac;
 using CraftersCloud.Core.Data;
-using CraftersCloud.Core.EntityFramework.Infrastructure.Security;
 using CraftersCloud.Core.Settings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -44,11 +43,6 @@ public class EntityFrameworkModule<TContext> : Module where TContext : DbContext
 
     protected override void Load(ContainerBuilder builder)
     {
-        if (builder == null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
-
         builder.RegisterGeneric(typeof(EntityFrameworkRepository<>))
             .As(typeof(IRepository<>))
             .InstancePerLifetimeScope();
@@ -69,9 +63,6 @@ public class EntityFrameworkModule<TContext> : Module where TContext : DbContext
         // needs to be registered both as self and as DbContext or the tests might not work as expected
         builder.RegisterType<TContext>().AsSelf().As<DbContext>().InstancePerLifetimeScope();
         builder.RegisterType<DbContextUnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
-
-        builder.RegisterType<DbContextAccessTokenProvider>().As<IDbContextAccessTokenProvider>()
-            .InstancePerLifetimeScope();
     }
 
     private static bool ImplementsInterface(Type interfaceType, Type concreteType) =>

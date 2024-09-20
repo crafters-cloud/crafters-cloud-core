@@ -1,11 +1,13 @@
-﻿using System.Runtime.CompilerServices;
+﻿using JetBrains.Annotations;
 using MediatR;
 
 namespace CraftersCloud.Core.MediatR;
 
+[PublicAPI]
 public class NullMediator : IMediator
 {
-    public Task Publish(object notification, CancellationToken cancellationToken = default) => Task.CompletedTask;
+    public Task Publish(object notification, CancellationToken cancellationToken = default) =>
+        Task.CompletedTask;
 
     public Task Publish<TNotification>(TNotification notification,
         CancellationToken cancellationToken = default) where TNotification : INotification =>
@@ -21,17 +23,11 @@ public class NullMediator : IMediator
     public Task<object?> Send(object request, CancellationToken cancellationToken = default) =>
         Task.FromResult(default(object));
 
-    public async IAsyncEnumerable<TResponse> CreateStream<TResponse>(IStreamRequest<TResponse> request,
-        [EnumeratorCancellation] CancellationToken cancellationToken = new())
-    {
-        await Task.CompletedTask;
-        yield break;
-    }
+    public IAsyncEnumerable<TResponse> CreateStream<TResponse>(IStreamRequest<TResponse> request,
+        CancellationToken cancellationToken = new()) =>
+        throw new NotImplementedException();
 
-    public async IAsyncEnumerable<object?> CreateStream(object request,
-        [EnumeratorCancellation] CancellationToken cancellationToken = new())
-    {
-        await Task.CompletedTask;
-        yield break;
-    }
+    public IAsyncEnumerable<object?> CreateStream(object request,
+        CancellationToken cancellationToken = new()) =>
+        throw new NotImplementedException();
 }

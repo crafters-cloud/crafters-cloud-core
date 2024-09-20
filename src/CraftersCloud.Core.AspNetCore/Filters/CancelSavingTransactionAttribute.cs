@@ -12,10 +12,12 @@ public sealed class CancelSavingTransactionAttribute : ActionFilterAttribute
 
     private static void CancelSavingIfModelInvalid(ActionContext context)
     {
-        if (!context.ModelState.IsValid)
+        if (context.ModelState.IsValid)
         {
-            var unitOfWork = context.HttpContext.Resolve<IUnitOfWork>();
-            unitOfWork.CancelSaving();
+            return;
         }
+
+        var unitOfWork = context.HttpContext.Resolve<IUnitOfWork>();
+        unitOfWork.CancelSaving();
     }
 }

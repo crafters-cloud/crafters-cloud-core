@@ -8,27 +8,32 @@ namespace CraftersCloud.Core.AspNetCore.Validation;
 
 public static class ActionContextExtensions
 {
-    public static BadRequestObjectResult CreateValidationProblemDetailsResponse(this HttpContext context,
-        ModelStateDictionary modelState)
+    public static BadRequestObjectResult CreateValidationProblemDetailsResponse(this HttpContext context, ModelStateDictionary modelState)
     {
         var problemDetails = CreateValidationProblemDetails(context, modelState);
         return ToBadRequestObjectResult(problemDetails);
     }
 
-    public static BadRequestObjectResult CreateValidationProblemDetailsResponse(this HttpContext context,
+    public static BadRequestObjectResult CreateValidationProblemDetailsResponse(this HttpContext context, ValidationException validationException)
+    {
+        var problemDetails = CreateValidationProblemDetails(context, validationException);
+        return ToBadRequestObjectResult(problemDetails);
+    }
+
+    public static ValidationProblemDetails CreateValidationProblemDetails(this HttpContext context,
         ValidationException validationException)
     {
         var problemDetails = CreateValidationProblemDetails(context);
         CopyErrorsFromValidationException(problemDetails, validationException.Errors);
-        return ToBadRequestObjectResult(problemDetails);
+        return problemDetails;
     }
 
     private static ValidationProblemDetails CreateValidationProblemDetails(HttpContext context,
         ModelStateDictionary? modelState = null)
     {
-        var details = modelState != null
-            ? new ValidationProblemDetails(modelState)
-            : new ValidationProblemDetails
+        var details = modelState != null ?
+            new ValidationProblemDetails(modelState) :
+            new ValidationProblemDetails
             {
                 Instance = context.Request.Path,
                 Status = StatusCodes.Status400BadRequest,
@@ -44,8 +49,7 @@ public static class ActionContextExtensions
             ContentTypes = { "application/problem+json", "application/problem+xml" }
         };
 
-    private static void CopyErrorsFromValidationException(ValidationProblemDetails problemDetails,
-        IEnumerable<ValidationFailure> validationExceptionErrors)
+    private static void CopyErrorsFromValidationException(ValidationProblemDetails problemDetails, IEnumerable<ValidationFailure> validationExceptionErrors)
     {
         foreach (var validationExceptionError in validationExceptionErrors)
         {

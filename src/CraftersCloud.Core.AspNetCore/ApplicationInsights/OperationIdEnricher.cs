@@ -1,4 +1,5 @@
-﻿using Serilog.Core;
+﻿using JetBrains.Annotations;
+using Serilog.Core;
 using Serilog.Events;
 
 namespace CraftersCloud.Core.AspNetCore.ApplicationInsights;
@@ -8,6 +9,8 @@ namespace CraftersCloud.Core.AspNetCore.ApplicationInsights;
 // https://github.com/serilog/serilog-sinks-applicationinsights#including-operation-id
 // and 
 // https://docs.microsoft.com/en-us/azure/azure-monitor/app/sampling#in-brief
+
+[PublicAPI]
 public class OperationIdEnricher : ILogEventEnricher
 {
     public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)

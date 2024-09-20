@@ -7,17 +7,17 @@ using Microsoft.EntityFrameworkCore;
 namespace CraftersCloud.Core.EntityFramework.Infrastructure;
 
 [UsedImplicitly]
-public class EntityFrameworkRepository<T> : IRepository<T> where T : Entity
+public class EntityFrameworkRepository<T>(DbContext context)
+    : EntityFrameworkRepository<T, Guid>(context), IRepository<T>
+    where T : EntityWithTypedId<Guid>;
+
+[UsedImplicitly]
+public class EntityFrameworkRepository<T, TId>(DbContext context) : IRepository<T, TId>
+    where T : EntityWithTypedId<TId>
 {
-    public EntityFrameworkRepository(DbContext context)
-    {
-        DbContext = context;
-        DbSet = context.Set<T>();
-    }
+    protected DbSet<T> DbSet { get; } = context.Set<T>();
 
-    protected DbSet<T> DbSet { get; }
-
-    protected DbContext DbContext { get; }
+    protected DbContext DbContext { get; } = context;
 
     public virtual IQueryable<T> QueryAll() => DbSet;
 
@@ -32,46 +32,7 @@ public class EntityFrameworkRepository<T> : IRepository<T> where T : Entity
             (current, includeProperty) => current.Include(includeProperty));
 
 
-    public virtual void Add(T entity)
-    {
-        if (entity == null)
-        {
-            throw new ArgumentNullException(nameof(entity));
-        }
-
-        DbSet.Add(entity);
-    }
-
-    public virtual async Task AddAsync(T item)
-    {
-        if (item == null)
-        {
-            throw new ArgumentNullException(nameof(item));
-        }
-
-        await DbSet.AddAsync(item);
-    }
-
-    public virtual void Delete(T item)
-    {
-        if (item == null)
-        {
-            throw new ArgumentNullException(nameof(item));
-        }
-
-        DbSet.Remove(item);
-    }
-
-    public virtual void DeleteRange(IEnumerable<T> entities) => DbSet.RemoveRange(entities);
-}
-
-[UsedImplicitly]
-public class EntityFrameworkRepository<T, TId> : EntityFrameworkRepository<T>, IRepository<T, TId>
-    where T : EntityWithTypedId<TId>
-{
-    public EntityFrameworkRepository(DbContext context) : base(context)
-    {
-    }
+    public virtual void Add(T entity) => DbSet.Add(entity);
 
     public virtual void Delete(TId id)
     {
@@ -81,6 +42,10 @@ public class EntityFrameworkRepository<T, TId> : EntityFrameworkRepository<T>, I
             Delete(item);
         }
     }
+    
+    public virtual void Delete(T item) => DbSet.Remove(item);
+
+    public virtual void DeleteRange(IEnumerable<T> entities) => DbSet.RemoveRange(entities);
 
     public virtual T? FindById(TId id) => DbSet.Find(id);
 

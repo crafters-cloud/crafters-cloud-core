@@ -52,6 +52,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\ci.yml = .github\workflows\ci.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.SmartEnums", "src\CraftersCloud.Core.SmartEnums\CraftersCloud.Core.SmartEnums.csproj", "{B41294EF-1780-4B8D-B91B-C9F4FE894E26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.SmartEnums.EntityFramework", "src\CraftersCloud.Core.SmartEnums.EntityFramework\CraftersCloud.Core.SmartEnums.EntityFramework.csproj", "{563B6A19-8FCE-435B-B1A4-F1E315856CDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.SmartEnums.Swagger", "src\CraftersCloud.Core.SmartEnums.Swagger\CraftersCloud.Core.SmartEnums.Swagger.csproj", "{9A1FFD5C-E23E-4F29-BFDA-CED4177978E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.SmartEnums.SystemTextJson", "src\CraftersCloud.Core.SmartEnums.SystemTextJson\CraftersCloud.Core.SmartEnums.SystemTextJson.csproj", "{A030F359-97B9-4427-998D-26F04D295734}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.SmartEnums.VerifyTests", "src\CraftersCloud.Core.SmartEnums.VerifyTests\CraftersCloud.Core.SmartEnums.VerifyTests.csproj", "{656F37B8-A143-493B-B17A-240F739E8C84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,6 +124,26 @@ Global
 		{E7A4F03B-83A6-4FE8-89ED-5B130A8C8D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7A4F03B-83A6-4FE8-89ED-5B130A8C8D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7A4F03B-83A6-4FE8-89ED-5B130A8C8D4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B41294EF-1780-4B8D-B91B-C9F4FE894E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B41294EF-1780-4B8D-B91B-C9F4FE894E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B41294EF-1780-4B8D-B91B-C9F4FE894E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B41294EF-1780-4B8D-B91B-C9F4FE894E26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{563B6A19-8FCE-435B-B1A4-F1E315856CDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{563B6A19-8FCE-435B-B1A4-F1E315856CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{563B6A19-8FCE-435B-B1A4-F1E315856CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{563B6A19-8FCE-435B-B1A4-F1E315856CDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A1FFD5C-E23E-4F29-BFDA-CED4177978E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A1FFD5C-E23E-4F29-BFDA-CED4177978E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A1FFD5C-E23E-4F29-BFDA-CED4177978E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A1FFD5C-E23E-4F29-BFDA-CED4177978E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A030F359-97B9-4427-998D-26F04D295734}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A030F359-97B9-4427-998D-26F04D295734}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A030F359-97B9-4427-998D-26F04D295734}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A030F359-97B9-4427-998D-26F04D295734}.Release|Any CPU.Build.0 = Release|Any CPU
+		{656F37B8-A143-493B-B17A-240F739E8C84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{656F37B8-A143-493B-B17A-240F739E8C84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{656F37B8-A143-493B-B17A-240F739E8C84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{656F37B8-A143-493B-B17A-240F739E8C84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,5 +167,10 @@ Global
 		{17D6B26F-2098-487B-B256-297CE2A5CA48} = {A06EBB9D-63A5-439B-BC34-D89B39D19625}
 		{E7A4F03B-83A6-4FE8-89ED-5B130A8C8D4E} = {A06EBB9D-63A5-439B-BC34-D89B39D19625}
 		{69702391-74BD-40BD-8F46-F48D2C9C3298} = {27B34D73-6CAA-42A8-9DB9-265EF5371A6D}
+		{B41294EF-1780-4B8D-B91B-C9F4FE894E26} = {18E0523E-397A-4487-BB9F-ABF9D1E36A01}
+		{563B6A19-8FCE-435B-B1A4-F1E315856CDD} = {18E0523E-397A-4487-BB9F-ABF9D1E36A01}
+		{9A1FFD5C-E23E-4F29-BFDA-CED4177978E5} = {18E0523E-397A-4487-BB9F-ABF9D1E36A01}
+		{A030F359-97B9-4427-998D-26F04D295734} = {18E0523E-397A-4487-BB9F-ABF9D1E36A01}
+		{656F37B8-A143-493B-B17A-240F739E8C84} = {18E0523E-397A-4487-BB9F-ABF9D1E36A01}
 	EndGlobalSection
 EndGlobal

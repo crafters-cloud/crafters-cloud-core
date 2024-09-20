@@ -43,7 +43,13 @@ exec { & dotnet pack .\src\CraftersCloud.Core.EntityFramework.Infrastructure\Cra
 exec { & dotnet pack .\src\CraftersCloud.Core.EventBus\CraftersCloud.Core.EventBus.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\CraftersCloud.Core.HealthChecks\CraftersCloud.Core.HealthChecks.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\CraftersCloud.Core.Infrastructure\CraftersCloud.Core.Infrastructure.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\CraftersCloud.Core.IntegrationEvents\CraftersCloud.Core.IntegrationEvents.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\CraftersCloud.Core.MediatR\CraftersCloud.Core.MediatR.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\CraftersCloud.Core.SmartEnums\CraftersCloud.Core.SmartEnums.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\CraftersCloud.Core.SmartEnums.EntityFramework\CraftersCloud.Core.SmartEnums.EntityFramework.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\CraftersCloud.Core.SmartEnums.Swagger\CraftersCloud.Core.SmartEnums.Swagger.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\CraftersCloud.Core.SmartEnums.SystemTextJson\CraftersCloud.Core.SmartEnums.SystemTextJson.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\CraftersCloud.Core.SmartEnums.VerifyTests\CraftersCloud.Core.SmartEnums.VerifyTests.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\CraftersCloud.Core.Swagger\CraftersCloud.Core.Swagger.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\CraftersCloud.Core.TestUtils\CraftersCloud.Core.TestUtils.csproj -c Release -o $artifacts --no-build }
 

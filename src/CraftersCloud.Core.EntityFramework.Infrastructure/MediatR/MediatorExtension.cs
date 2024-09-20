@@ -25,7 +25,7 @@ internal static class MediatorExtension
     }
 
     public static async Task DispatchDomainEventsAsync(this IMediator mediator,
-        IEnumerable<DomainEvent> domainEvents, ILogger logger)
+        IEnumerable<DomainEvent> domainEvents, ILogger logger, CancellationToken cancellationToken)
     {
         var stopWatch = Stopwatch.StartNew();
         // sequentially publish domain events to avoid problems with same DbContext used by different threads 
@@ -33,7 +33,7 @@ internal static class MediatorExtension
         // this happens when one event handler is doing DbContext saving while some other one is doing the reading
         foreach (var domainEvent in domainEvents)
         {
-            await mediator.Publish(domainEvent);
+            await mediator.Publish(domainEvent, cancellationToken);
             var ts = stopWatch.Elapsed;
 
             // Format and display the TimeSpan value.

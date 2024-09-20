@@ -9,11 +9,7 @@ namespace CraftersCloud.Core.AspNetCore.Validation;
 // E.g. Instead of 'UserName' we get 'userName'
 public static class CamelCasePropertyNameResolver
 {
-#pragma warning disable CA1801 // Review unused parameters
-#pragma warning disable IDE0060 // Remove unused parameter
-    public static string ResolvePropertyName(Type type, MemberInfo memberInfo, LambdaExpression? expression)
-#pragma warning restore IDE0060 // Remove unused parameter
-#pragma warning restore CA1801 // Review unused parameters
+    public static string ResolvePropertyName(Type _, MemberInfo memberInfo, LambdaExpression? expression)
     {
         var propertyName = DefaultPropertyNameResolver(memberInfo, expression);
 
@@ -26,11 +22,9 @@ public static class CamelCasePropertyNameResolver
         {
             var chain = PropertyChain.FromExpression(expression);
             if (chain.Count > 0)
-            {
                 return chain.ToString();
-            }
         }
 
-        return memberInfo != null ? memberInfo.Name : string.Empty;
+        return memberInfo.Name;
     }
 }

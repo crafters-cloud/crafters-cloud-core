@@ -12,7 +12,7 @@ public static class EntityQueryableExtensions
         CancellationToken cancellationToken = default)
     {
         var result = await query.SingleOrDefaultAsync(cancellationToken);
-        return result != null ? result : throw new EntityNotFoundException(typeof(T).Name);
+        return result ?? throw new EntityNotFoundException(typeof(T).Name);
     }
 
     public static async Task<TDestination> SingleOrDefaultMappedAsync<TSource, TDestination>(
@@ -36,13 +36,20 @@ public static class EntityQueryableExtensions
             throw new ArgumentNullException(nameof(request));
         }
 
-        var items = query
-            .OrderByDynamic(request.SortBy, request.SortDirection)
-            .Skip((request.PageNumber - 1) * request.PageSize)
-            .Take(request.PageSize)
-            .ToList();
+        var pagedQuery = query
+            .OrderByDynamic(request.SortBy, request.SortDirection);
 
-        var totalCount = query.Count();
+        var skipPaging = request.PageSize == Int32.MaxValue;
+
+        if (!skipPaging)
+        {
+            pagedQuery = pagedQuery.Skip((request.PageNumber - 1) * request.PageSize)
+                .Take(request.PageSize);
+        }
+
+        var items = pagedQuery.ToList();
+
+        var totalCount = skipPaging ? items.Count : query.Count();
 
         return new PagedResponse<T>
         {
@@ -53,8 +60,7 @@ public static class EntityQueryableExtensions
         };
     }
 
-    public static async Task<PagedResponse<T>> ToPagedResponseAsync<T>(this IQueryable<T> query,
-        IPagedRequest request,
+    public static async Task<PagedResponse<T>> ToPagedResponseAsync<T>(this IQueryable<T> query, IPagedRequest request,
         CancellationToken cancellationToken = default)
     {
         if (request == null)
@@ -62,13 +68,20 @@ public static class EntityQueryableExtensions
             throw new ArgumentNullException(nameof(request));
         }
 
-        var items = await query
-            .OrderByDynamic(request.SortBy, request.SortDirection)
-            .Skip((request.PageNumber - 1) * request.PageSize)
-            .Take(request.PageSize)
-            .ToListAsync(cancellationToken);
+        var pagedQuery = query
+            .OrderByDynamic(request.SortBy, request.SortDirection);
 
-        var totalCount = await query.CountAsync(cancellationToken);
+        var skipPaging = request.PageSize == Int32.MaxValue;
+
+        if (!skipPaging)
+        {
+            pagedQuery = pagedQuery.Skip((request.PageNumber - 1) * request.PageSize)
+                .Take(request.PageSize);
+        }
+
+        var items = await pagedQuery.ToListAsync(cancellationToken);
+
+        var totalCount = skipPaging ? items.Count : await query.CountAsync(cancellationToken);
 
         return new PagedResponse<T>
         {
@@ -79,7 +92,6 @@ public static class EntityQueryableExtensions
         };
     }
 
-    private static IQueryable<T> OrderByDynamic<T>(this IQueryable<T> query, string? orderBy,
-        string orderDirection = "asc") =>
+    private static IQueryable<T> OrderByDynamic<T>(this IQueryable<T> query, string? orderBy, string orderDirection = "asc") =>
         string.IsNullOrWhiteSpace(orderBy) ? query : query.OrderBy($"{orderBy} {orderDirection}");
 }
