@@ -17,6 +17,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core"/>
     <PackageReference Include="Microsoft.Rest.ClientRuntime"/>
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All"/>
+    <PackageReference Include="MinVer">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json"/>
     <PackageReference Include="NUnit"/>
   </ItemGroup>
