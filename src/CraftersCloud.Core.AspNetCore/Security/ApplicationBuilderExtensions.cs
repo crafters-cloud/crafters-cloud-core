@@ -7,7 +7,7 @@ namespace CraftersCloud.Core.AspNetCore.Security;
 [PublicAPI]
 public static class ApplicationBuilderExtensions
 {
-    public static void UsyCoreHttps(this IApplicationBuilder builder, IHostEnvironment environment)
+    public static void UseCoreHttps(this IApplicationBuilder builder, IHostEnvironment environment)
     {
         if (!environment.IsDevelopment())
         {
