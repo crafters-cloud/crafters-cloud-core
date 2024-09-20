@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\CraftersCloud.Core.TestUtils\CraftersCloud.Core.TestUtils.csproj" />
+    <ProjectReference Include="..\..\src\CraftersCloud.Core.TestUtils\CraftersCloud.Core.TestUtils.csproj"/>
   </ItemGroup>
 
 </Project>

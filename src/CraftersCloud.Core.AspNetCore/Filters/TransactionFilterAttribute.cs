@@ -14,6 +14,8 @@ public sealed class TransactionFilterAttribute : ActionFilterAttribute
         if (resultContext.Exception == null &&
             context.HttpContext.Response.StatusCode is >= 200 and < 300 &&
             context.ModelState.IsValid)
+        {
             await unitOfWork.SaveChangesAsync();
+        }
     }
 }

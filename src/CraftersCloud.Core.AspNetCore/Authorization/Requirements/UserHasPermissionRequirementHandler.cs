@@ -9,6 +9,7 @@ internal class UserHasPermissionRequirementHandler<TPermission>(
     : AuthenticatedUserRequirementHandler<UserHasPermissionRequirement<TPermission>>(logger)
     where TPermission : notnull
 {
-    protected override bool FulfillsRequirement(AuthorizationHandlerContext context, UserHasPermissionRequirement<TPermission> requirement) =>
+    protected override bool FulfillsRequirement(AuthorizationHandlerContext context,
+        UserHasPermissionRequirement<TPermission> requirement) =>
         authorizationProvider.AuthorizePermissions(requirement.Permissions);
 }

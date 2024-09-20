@@ -9,7 +9,8 @@ public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TReq
     : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IBaseRequest
 {
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
+        CancellationToken cancellationToken)
     {
         var results = await Task.WhenAll(validators
             .Select(async v => await v.ValidateAsync(request, cancellationToken)));

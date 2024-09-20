@@ -1,10 +1,9 @@
-﻿namespace CraftersCloud.Core.Paging
+﻿namespace CraftersCloud.Core.Paging;
+
+public interface IPagedRequest
 {
-    public interface IPagedRequest
-    {
-        int PageNumber { get; set; }
-        int PageSize { get; set; }
-        string SortBy { get; set; }
-        string SortDirection { get; set; }
-    }
+    int PageNumber { get; set; }
+    int PageSize { get; set; }
+    string SortBy { get; set; }
+    string SortDirection { get; set; }
 }

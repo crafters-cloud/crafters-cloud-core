@@ -25,7 +25,8 @@ public static class AuthorizationStartupExtensions
     /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
     /// <exception cref="ArgumentException">Thrown when the TPermission type can not be converted to or from string. You need to implement <see cref="System.ComponentModel.TypeConverter" /> when using custom permission type.</exception>
     /// <returns>The <see cref="AuthorizationBuilder"/> so that additional calls can be chained.</returns>
-    public static AuthorizationBuilder AddCoreAuthorization<TPermission>(this IServiceCollection services) where TPermission : notnull
+    public static AuthorizationBuilder AddCoreAuthorization<TPermission>(this IServiceCollection services)
+        where TPermission : notnull
     {
         PermissionTypeConverter<TPermission>.EnsureConversionToPolicyNameIsPossible();
 

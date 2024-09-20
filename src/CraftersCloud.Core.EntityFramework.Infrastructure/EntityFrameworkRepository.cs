@@ -42,7 +42,7 @@ public class EntityFrameworkRepository<T, TId>(DbContext context) : IRepository<
             Delete(item);
         }
     }
-    
+
     public virtual void Delete(T item) => DbSet.Remove(item);
 
     public virtual void DeleteRange(IEnumerable<T> entities) => DbSet.RemoveRange(entities);

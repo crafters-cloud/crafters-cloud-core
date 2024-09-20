@@ -22,7 +22,7 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <Deterministic>true</Deterministic>
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
-    
+
     <PackageProjectUrl>https://github.com/crafters-cloud/crafters-cloud-core</PackageProjectUrl>
     <RepositoryUrl>https://github.com/crafters-cloud/crafters-cloud-core.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

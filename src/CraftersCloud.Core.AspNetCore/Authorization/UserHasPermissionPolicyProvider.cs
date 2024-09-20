@@ -21,13 +21,14 @@ internal class UserHasPermissionPolicyProvider<TPermission>(IOptions<Authorizati
 
         var requirement =
             new UserHasPermissionRequirement<TPermission>(
-                PermissionTypeConverter<TPermission>.ConvertFromPolicyName(UserHasPermissionAttribute<TPermission>.PolicyPrefix, policyName));
+                PermissionTypeConverter<TPermission>.ConvertFromPolicyName(
+                    UserHasPermissionAttribute<TPermission>.PolicyPrefix, policyName));
 
         return Task.FromResult(new AuthorizationPolicyBuilder().AddRequirements(requirement).Build())!;
-
     }
 
-    public Task<AuthorizationPolicy> GetDefaultPolicyAsync() => _defaultPolicyProvider.GetDefaultPolicyAsync(); // DefaultPolicy is RequireAuthenticatedUser
+    public Task<AuthorizationPolicy> GetDefaultPolicyAsync() =>
+        _defaultPolicyProvider.GetDefaultPolicyAsync(); // DefaultPolicy is RequireAuthenticatedUser
 
     public Task<AuthorizationPolicy?> GetFallbackPolicyAsync() => _defaultPolicyProvider.GetFallbackPolicyAsync();
 }

@@ -30,7 +30,7 @@ public static class ServiceCollectionExtensions
 
         services.AddHttpsRedirection(options =>
         {
-            options.RedirectStatusCode = (int)redirection;
+            options.RedirectStatusCode = (int) redirection;
         });
     }
 }

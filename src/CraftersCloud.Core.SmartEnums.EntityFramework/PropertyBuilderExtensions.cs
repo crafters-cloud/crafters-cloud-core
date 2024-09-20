@@ -26,7 +26,7 @@ public static class PropertyBuilderExtensions
     public static void HasNullableSmartEnumConversion<TProperty>(this PropertyBuilder<TProperty?> propertyBuilder)
         where TProperty : SmartEnum<TProperty, int> =>
         propertyBuilder.HasConversion(
-            p => p == null ? (int?)null : p.Value,
+            p => p == null ? (int?) null : p.Value,
             p => p.HasValue ? SmartEnum<TProperty>.FromValue(p.Value) : null);
 
     /// <summary>

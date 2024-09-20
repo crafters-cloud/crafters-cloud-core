@@ -10,7 +10,8 @@ public class LoggingBehavior<TRequest, TResponse>(ILogger<LoggingBehavior<TReque
     : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IBaseRequest
 {
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
+        CancellationToken cancellationToken)
     {
         var requestType = typeof(TRequest).FullName;
         using (LogContext.PushProperty("MediatRRequestType", requestType))

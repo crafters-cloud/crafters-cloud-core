@@ -13,6 +13,7 @@ public class ApplicationInsightsSettings
 
     public string ConnectionString { get; set; } = string.Empty;
 
-    [Obsolete("Switch to new way of integrating AppInsights with Serilog - https://github.com/serilog-contrib/serilog-sinks-applicationinsights.")]
+    [Obsolete(
+        "Switch to new way of integrating AppInsights with Serilog - https://github.com/serilog-contrib/serilog-sinks-applicationinsights.")]
     public LogEventLevel SerilogLogsRestrictedToMinimumLevel { get; set; }
 }

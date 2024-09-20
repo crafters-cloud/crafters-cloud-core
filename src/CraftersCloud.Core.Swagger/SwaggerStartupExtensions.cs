@@ -45,7 +45,7 @@ public static class SwaggerStartupExtensions
             }
         });
     }
-    
+
     /// <summary>
     ///     Adds services required for OpenAPI 3.0 generation
     /// </summary>

@@ -45,6 +45,6 @@ internal static class PermissionTypeConverter<TPermission> where TPermission : n
             throw new ArgumentNullException(nameof(permissionString));
         }
 
-        return (TPermission)TypeConverter.ConvertFromString(permissionString)!;
+        return (TPermission) TypeConverter.ConvertFromString(permissionString)!;
     }
 }

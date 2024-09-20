@@ -45,7 +45,7 @@ public static class EntityTypeBuilderExtensions
         builder.Property(foreignKeySelector).HasSmartEnumConversion();
         builder.HasOne(referenceSelector)
             .WithMany()
-            .HasForeignKey(((MemberExpression)foreignKeySelector.Body).Member.Name)
+            .HasForeignKey(((MemberExpression) foreignKeySelector.Body).Member.Name)
             .OnDelete(DeleteBehavior.Restrict);
     }
 
@@ -69,7 +69,7 @@ public static class EntityTypeBuilderExtensions
         builder.Property(foreignKeySelector).HasNullableSmartEnumConversion();
         builder.HasOne(referenceSelector)
             .WithMany()
-            .HasForeignKey(((MemberExpression)foreignKeySelector.Body).Member.Name)
+            .HasForeignKey(((MemberExpression) foreignKeySelector.Body).Member.Name)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

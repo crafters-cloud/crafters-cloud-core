@@ -32,10 +32,12 @@ public static class ServiceCollectionExtensions
             "Available memory test", HealthStatus.Degraded);
     }
 
-    private static void InitializeTokenAuthorization(IServiceCollection services, HealthCheckSettings healthCheckSettings)
+    private static void InitializeTokenAuthorization(IServiceCollection services,
+        HealthCheckSettings healthCheckSettings)
     {
         services.AddAuthorizationBuilder()
-            .AddPolicy(TokenRequirement.Name, policy => policy.Requirements.Add(new TokenRequirement(healthCheckSettings.RequiredToken)));
+            .AddPolicy(TokenRequirement.Name,
+                policy => policy.Requirements.Add(new TokenRequirement(healthCheckSettings.RequiredToken)));
         services.AddSingleton<IAuthorizationHandler, TokenHandler>();
     }
 }

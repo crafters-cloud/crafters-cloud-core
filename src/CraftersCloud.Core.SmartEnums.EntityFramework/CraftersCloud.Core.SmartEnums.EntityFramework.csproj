@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ardalis.SmartEnum.EFCore" />
+    <PackageReference Include="Ardalis.SmartEnum.EFCore"/>
     <PackageReference Include="JetBrains.Annotations"/>
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All"/>
     <PackageReference Include="MinVer">
@@ -17,12 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CraftersCloud.Core.EntityFramework\CraftersCloud.Core.EntityFramework.csproj" />
-    <ProjectReference Include="..\CraftersCloud.Core.SmartEnums\CraftersCloud.Core.SmartEnums.csproj" />
+    <ProjectReference Include="..\CraftersCloud.Core.EntityFramework\CraftersCloud.Core.EntityFramework.csproj"/>
+    <ProjectReference Include="..\CraftersCloud.Core.SmartEnums\CraftersCloud.Core.SmartEnums.csproj"/>
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>

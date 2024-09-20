@@ -72,7 +72,7 @@ internal class ExceptionHandler
 
     private static async Task ExecuteResult(HttpContext context, IActionResult actionResult)
     {
-        RouteData routeData = context.GetRouteData();
+        var routeData = context.GetRouteData();
         var actionDescriptor = new ActionDescriptor();
         var actionContext = new ActionContext(context, routeData, actionDescriptor);
         await actionResult.ExecuteResultAsync(actionContext);

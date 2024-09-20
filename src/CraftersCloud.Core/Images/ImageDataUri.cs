@@ -46,10 +46,7 @@ public record ImageDataUri
         return new ImageDataUri(content);
     }
 
-    private ImageDataUri(string content)
-    {
-        _content = content;
-    }
+    private ImageDataUri(string content) => _content = content;
 
     public byte[] ToByteArray()
     {

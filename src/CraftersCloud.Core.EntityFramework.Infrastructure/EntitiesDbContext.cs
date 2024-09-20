@@ -13,7 +13,6 @@ public abstract class EntitiesDbContext(
     DbContextOptions options)
     : DbContext(options)
 {
-    
     private EntitiesDbContextOptions EntitiesDbContextOptions { get; init; } = entitiesDbContextOptions;
     public Action<ModelBuilder>? ModelBuilderConfigurator { get; set; }
 

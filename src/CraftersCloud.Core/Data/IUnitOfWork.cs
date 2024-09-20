@@ -1,11 +1,10 @@
-﻿namespace CraftersCloud.Core.Data
-{
-    public interface IUnitOfWork
-    {
-        int SaveChanges();
-        
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+﻿namespace CraftersCloud.Core.Data;
 
-        void CancelSaving();
-    }
+public interface IUnitOfWork
+{
+    int SaveChanges();
+
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+
+    void CancelSaving();
 }

@@ -31,7 +31,7 @@ internal class SmartEnumSwaggerSchemaProcessor : ISchemaProcessor
                 var valuePropertyInfo = type.GetRuntimeProperty("Value")!;
                 var namePropertyInfo = type.GetRuntimeProperty("Name")!;
                 var value = valuePropertyInfo.GetValue(smartEnum)!;
-                var name = (string)namePropertyInfo.GetValue(smartEnum)!;
+                var name = (string) namePropertyInfo.GetValue(smartEnum)!;
 
                 schema.Enumeration.Add(value);
                 schema.EnumerationNames.Add(name);

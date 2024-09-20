@@ -16,13 +16,16 @@ public static class HttpResponseMessageAssertionsExtensions
         PropertyNameCaseInsensitive = true
     };
 
-    public static AndConstraint<HttpResponseMessageAssertions> BeBadRequest(this HttpResponseMessageAssertions constraints, string because = "", params object[] becauseArgs) =>
+    public static AndConstraint<HttpResponseMessageAssertions> BeBadRequest(
+        this HttpResponseMessageAssertions constraints, string because = "", params object[] becauseArgs) =>
         constraints.HaveStatusCode(HttpStatusCode.BadRequest, because, becauseArgs);
 
-    public static AndConstraint<HttpResponseMessageAssertions> BeNotFound(this HttpResponseMessageAssertions constraints, string because = "", params object[] becauseArgs) =>
+    public static AndConstraint<HttpResponseMessageAssertions> BeNotFound(
+        this HttpResponseMessageAssertions constraints, string because = "", params object[] becauseArgs) =>
         constraints.HaveStatusCode(HttpStatusCode.NotFound, because, becauseArgs);
 
-    public static AndConstraint<HttpResponseMessageAssertions> ContainValidationError(this HttpResponseMessageAssertions constraints
+    public static AndConstraint<HttpResponseMessageAssertions> ContainValidationError(
+        this HttpResponseMessageAssertions constraints
         , string fieldName,
         string expectedValidationMessage = "", string because = "", params object[] becauseArgs)
     {

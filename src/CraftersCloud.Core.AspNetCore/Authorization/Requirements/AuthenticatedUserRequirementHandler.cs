@@ -26,13 +26,16 @@ internal abstract class AuthenticatedUserRequirementHandler<TRequirement>(
         }
         else
         {
-            _logger.LogWarning("{Requirement} has not been met for the resource path: {ResourcePath}.", requirement.ToString(), GetResourcePath(context));
+            _logger.LogWarning("{Requirement} has not been met for the resource path: {ResourcePath}.",
+                requirement.ToString(), GetResourcePath(context));
             context.Fail();
         }
+
         return Task.CompletedTask;
     }
 
     protected abstract bool FulfillsRequirement(AuthorizationHandlerContext context, TRequirement requirement);
 
-    protected static string? GetResourcePath(AuthorizationHandlerContext context) => (context.Resource as HttpContext)?.Request.Path;
+    protected static string? GetResourcePath(AuthorizationHandlerContext context) =>
+        (context.Resource as HttpContext)?.Request.Path;
 }

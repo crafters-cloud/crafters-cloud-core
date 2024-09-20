@@ -24,8 +24,8 @@ public class HttpResponseAssertions(HttpResponseMessage subject)
     private AndConstraint<HttpResponseAssertions> HaveStatusCode(HttpStatusCode expected, string because = "",
         params object[] becauseArgs)
     {
-        AssertionScope assertion = Execute.Assertion;
-        AssertionScope assertionScope =
+        var assertion = Execute.Assertion;
+        var assertionScope =
             assertion.ForCondition(Subject.StatusCode == expected).BecauseOf(because, becauseArgs);
         const string message = "Expected response to have HttpStatusCode {0}{reason}, but found {1}. Response: {2}";
         object[] failArgs = { expected, Subject.StatusCode, Subject.Content.ReadAsStringAsync().Result };
@@ -56,8 +56,8 @@ public class HttpResponseAssertions(HttpResponseMessage subject)
             Console.WriteLine(exception);
         }
 
-        AssertionScope assertion = Execute.Assertion;
-        AssertionScope assertionScope = assertion.ForCondition(errorFound).BecauseOf(because, becauseArgs);
+        var assertion = Execute.Assertion;
+        var assertionScope = assertion.ForCondition(errorFound).BecauseOf(because, becauseArgs);
         string message;
         object[] failArgs;
         if (string.IsNullOrEmpty(expectedValidationMessage))

@@ -12,7 +12,8 @@ public static class JsonConvertersExtensions
     /// </summary>
     /// <param name="converters">List of converters to add converters to</param>
     /// <param name="assembliesWithSmartEnums">Assemblies containing SmartEnums</param>
-    public static void EntryAddSmartEnumJsonConverters(this IList<JsonConverter> converters, IEnumerable<Assembly> assembliesWithSmartEnums)
+    public static void AddCoreSmartEnumJsonConverters(this IList<JsonConverter> converters,
+        IEnumerable<Assembly> assembliesWithSmartEnums)
     {
         var smartEnums = assembliesWithSmartEnums.FindSmartEnums();
 
@@ -20,7 +21,7 @@ public static class JsonConvertersExtensions
         {
             var converterType =
                 typeof(SmartEnumWriteOnlyJsonConverter<,>).MakeGenericType(smartEnum.EnumType, smartEnum.ValueType);
-            var converter = (JsonConverter)Activator.CreateInstance(converterType)!;
+            var converter = (JsonConverter) Activator.CreateInstance(converterType)!;
             converters.Add(converter);
         }
     }

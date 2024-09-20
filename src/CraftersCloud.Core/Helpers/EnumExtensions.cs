@@ -3,33 +3,32 @@ using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using JetBrains.Annotations;
 
-namespace CraftersCloud.Core.Helpers
+namespace CraftersCloud.Core.Helpers;
+
+[PublicAPI]
+public static class EnumExtensions
 {
-    [PublicAPI]
-    public static class EnumExtensions
+    public static string GetDisplayName(this Enum value)
     {
-        public static string GetDisplayName(this System.Enum value)
-        {
-            var attribute = value.GetAttribute<DisplayAttribute>();
+        var attribute = value.GetAttribute<DisplayAttribute>();
 
-            return attribute?.Name ?? string.Empty;
-        }
+        return attribute?.Name ?? string.Empty;
+    }
 
-        public static string GetDescription(this System.Enum value)
-        {
-            var attribute = value.GetAttribute<DescriptionAttribute>();
+    public static string GetDescription(this Enum value)
+    {
+        var attribute = value.GetAttribute<DescriptionAttribute>();
 
-            return attribute?.Description ?? string.Empty;
-        }
+        return attribute?.Description ?? string.Empty;
+    }
 
-        public static T? GetAttribute<T>(this System.Enum value)
-            where T : Attribute
-        {
-            var type = value.GetType();
-            var field = type.GetField(value.ToString());
-            var attribute = field?.GetCustomAttribute<T>();
+    public static T? GetAttribute<T>(this Enum value)
+        where T : Attribute
+    {
+        var type = value.GetType();
+        var field = type.GetField(value.ToString());
+        var attribute = field?.GetCustomAttribute<T>();
 
-            return attribute;
-        }
+        return attribute;
     }
 }

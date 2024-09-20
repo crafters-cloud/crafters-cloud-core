@@ -22,7 +22,9 @@ public static class CamelCasePropertyNameResolver
         {
             var chain = PropertyChain.FromExpression(expression);
             if (chain.Count > 0)
+            {
                 return chain.ToString();
+            }
         }
 
         return memberInfo.Name;

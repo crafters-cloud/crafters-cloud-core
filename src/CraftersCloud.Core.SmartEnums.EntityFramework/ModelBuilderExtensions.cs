@@ -11,6 +11,6 @@ public static class ModelBuilderExtensions
     /// Configure SmartEnums for EntityFramework
     /// </summary>
     /// <param name="modelBuilder"></param>
-    public static void EntryConfigureSmartEnums(this ModelBuilder modelBuilder)
+    public static void CoreConfigureSmartEnums(this ModelBuilder modelBuilder)
         => modelBuilder.ConfigureSmartEnum();
 }

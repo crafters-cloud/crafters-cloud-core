@@ -20,7 +20,8 @@ public class DbContextUnitOfWork(DbContext context, ILogger<DbContextUnitOfWork>
 
         var numberOfChanges = context.SaveChanges();
         logger.LogDebug(
-            "{NumberOfChanges} of changed were saved to database {Database}", numberOfChanges, context.Database.GetDbConnection().Database);
+            "{NumberOfChanges} of changed were saved to database {Database}", numberOfChanges,
+            context.Database.GetDbConnection().Database);
 
         return numberOfChanges;
     }
@@ -35,7 +36,8 @@ public class DbContextUnitOfWork(DbContext context, ILogger<DbContextUnitOfWork>
 
         var numberOfChanges = await context.SaveChangesAsync(cancellationToken);
         logger.LogDebug(
-            "{NumberOfChanges} of changed were saved to database {Database}", numberOfChanges, context.Database.GetDbConnection().Database);
+            "{NumberOfChanges} of changed were saved to database {Database}", numberOfChanges,
+            context.Database.GetDbConnection().Database);
         return numberOfChanges;
     }
 
