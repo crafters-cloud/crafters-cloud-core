@@ -3,14 +3,14 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Ardalis.SmartEnum" Version="8.0.0" />
-    <PackageVersion Include="Ardalis.SmartEnum.EFCore" Version="8.0.0" />
-    <PackageVersion Include="Ardalis.SmartEnum.SystemTextJson" Version="8.0.0" />
+    <PackageVersion Include="Ardalis.SmartEnum" Version="8.1.0" />
+    <PackageVersion Include="Ardalis.SmartEnum.EFCore" Version="8.1.0" />
+    <PackageVersion Include="Ardalis.SmartEnum.SystemTextJson" Version="8.1.0" />
     <PackageVersion Include="AspNetCore.HealthChecks.Publisher.ApplicationInsights" Version="8.0.1" />
     <PackageVersion Include="AspNetCore.HealthChecks.System" Version="8.0.1" />
     <PackageVersion Include="Autofac" Version="8.1.0" />
     <PackageVersion Include="AutoMapper" Version="13.0.1" />
-    <PackageVersion Include="Azure.Identity" Version="1.12.0" />
+    <PackageVersion Include="Azure.Identity" Version="1.12.1" />
     <PackageVersion Include="Azure.Messaging.ServiceBus" Version="7.18.1" />
     <PackageVersion Include="Ben.Demystifier" Version="0.4.1" />
     <PackageVersion Include="FakeItEasy" Version="8.3.0" />
@@ -42,11 +42,11 @@
     <PackageVersion Include="NSwag.Generation.AspNetCore" Version="14.1.0" />
     <PackageVersion Include="NUnit" Version="4.2.2" />
     <PackageVersion Include="Respawn" Version="6.2.1" />
-    <PackageVersion Include="Serilog" Version="4.0.1" />
+    <PackageVersion Include="Serilog" Version="4.0.2" />
     <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageVersion Include="System.Linq.Dynamic.Core" Version="1.4.5" />
     <PackageVersion Include="System.Net.Http.Json" Version="8.0.0" />
-    <PackageVersion Include="Verify" Version="26.5.0" />
+    <PackageVersion Include="Verify" Version="26.6.0" />
     <PackageVersion Include="Verify.NUnit" Version="26.2.0" />
   </ItemGroup>
 </Project>

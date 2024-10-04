@@ -7,27 +7,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac"/>
-    <PackageReference Include="Azure.Messaging.ServiceBus"/>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions"/>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All"/>
+    <PackageReference Include="Autofac" />
+    <PackageReference Include="Azure.Messaging.ServiceBus" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
     <PackageReference Include="MinVer">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json"/>
+    <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CraftersCloud.Core.IntegrationEvents\CraftersCloud.Core.IntegrationEvents.csproj"/>
+    <ProjectReference Include="..\CraftersCloud.Core.IntegrationEvents\CraftersCloud.Core.IntegrationEvents.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="CraftersCloud.Core.EventBus.Tests"/>
+    <InternalsVisibleTo Include="CraftersCloud.Core.EventBus.Tests" />
   </ItemGroup>
 
 </Project>

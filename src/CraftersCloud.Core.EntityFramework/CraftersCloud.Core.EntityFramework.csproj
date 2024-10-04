@@ -7,23 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore"/>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All"/>
+    <PackageReference Include="AutoMapper" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
     <PackageReference Include="MinVer">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.Linq.Dynamic.Core"/>
+    <PackageReference Include="System.Linq.Dynamic.Core" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <ProjectReference Include="..\CraftersCloud.Core\CraftersCloud.Core.csproj"/>
+    <ProjectReference Include="..\CraftersCloud.Core\CraftersCloud.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

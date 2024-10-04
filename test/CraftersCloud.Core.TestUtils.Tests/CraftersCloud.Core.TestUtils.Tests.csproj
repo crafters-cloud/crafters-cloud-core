@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <PackageReference Include="FluentAssertions"/>
-    <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="MinVer">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="NUnit"/>
+    <PackageReference Include="NUnit" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\CraftersCloud.Core.TestUtils\CraftersCloud.Core.TestUtils.csproj"/>
+    <ProjectReference Include="..\..\src\CraftersCloud.Core.TestUtils\CraftersCloud.Core.TestUtils.csproj" />
   </ItemGroup>
 
 </Project>

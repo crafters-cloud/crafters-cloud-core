@@ -7,26 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Database\DropAllSql.sql"/>
+    <EmbeddedResource Include="Database\DropAllSql.sql" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentAssertions"/>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions"/>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All"/>
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
     <PackageReference Include="MinVer">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.Net.Http.Json"/>
+    <PackageReference Include="System.Net.Http.Json" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CraftersCloud.Core\CraftersCloud.Core.csproj"/>
+    <ProjectReference Include="..\CraftersCloud.Core\CraftersCloud.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
