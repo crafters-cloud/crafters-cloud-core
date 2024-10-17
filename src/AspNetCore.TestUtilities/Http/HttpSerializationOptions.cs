@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace CraftersCloud.Core.AspNetCore.Tests.SystemTextJson.Http;
+namespace CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 
 public static class HttpSerializationOptions
 {

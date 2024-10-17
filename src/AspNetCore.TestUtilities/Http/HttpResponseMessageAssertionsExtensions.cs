@@ -6,7 +6,7 @@ using FluentAssertions.Primitives;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CraftersCloud.Core.AspNetCore.Tests.SystemTextJson.Http;
+namespace CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 
 [PublicAPI]
 public static class HttpResponseMessageAssertionsExtensions
