@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core", "src\CraftersCloud.Core\CraftersCloud.Core.csproj", "{6191BF6F-67CD-46CA-A3A3-47F8EE17A99A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "src\Core\Core.csproj", "{6191BF6F-67CD-46CA-A3A3-47F8EE17A99A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5124E6A6-5358-4D1D-A623-292420FB91EA}"
 	ProjectSection(SolutionItems) = preProject
@@ -15,35 +15,35 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Push.ps1 = Push.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.AspNetCore", "src\CraftersCloud.Core.AspNetCore\CraftersCloud.Core.AspNetCore.csproj", "{1D6941BC-073E-4E3B-A9B1-2A5AFB9D2791}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore", "src\AspNetCore\AspNetCore.csproj", "{1D6941BC-073E-4E3B-A9B1-2A5AFB9D2791}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.EntityFramework.Infrastructure", "src\CraftersCloud.Core.EntityFramework.Infrastructure\CraftersCloud.Core.EntityFramework.Infrastructure.csproj", "{A00165EF-1AF9-4AC1-AEEE-8C040D27DF51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework.Infrastructure", "src\EntityFramework.Infrastructure\EntityFramework.Infrastructure.csproj", "{A00165EF-1AF9-4AC1-AEEE-8C040D27DF51}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.Infrastructure", "src\CraftersCloud.Core.Infrastructure\CraftersCloud.Core.Infrastructure.csproj", "{F0C65E0A-828B-4CBD-A3FD-8DF97E3762F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{F0C65E0A-828B-4CBD-A3FD-8DF97E3762F6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.MediatR", "src\CraftersCloud.Core.MediatR\CraftersCloud.Core.MediatR.csproj", "{5065E005-C74F-41D4-8033-2E0146925E46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.MediatR", "src\Core.MediatR\Core.MediatR.csproj", "{5065E005-C74F-41D4-8033-2E0146925E46}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.Swagger", "src\CraftersCloud.Core.Swagger\CraftersCloud.Core.Swagger.csproj", "{2E599543-EBFF-4531-84D4-7CA408522E43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swagger", "src\Swagger\Swagger.csproj", "{2E599543-EBFF-4531-84D4-7CA408522E43}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.EntityFramework", "src\CraftersCloud.Core.EntityFramework\CraftersCloud.Core.EntityFramework.csproj", "{44FB1A87-4F84-49D0-88FE-13BE4366401B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework", "src\EntityFramework\EntityFramework.csproj", "{44FB1A87-4F84-49D0-88FE-13BE4366401B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.HealthChecks", "src\CraftersCloud.Core.HealthChecks\CraftersCloud.Core.HealthChecks.csproj", "{D10C81DD-7EA2-4C63-B452-845ED2BA3F24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecks", "src\HealthChecks\HealthChecks.csproj", "{D10C81DD-7EA2-4C63-B452-845ED2BA3F24}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.AspNetCore.Tests", "test\CraftersCloud.Core.AspNetCore.Tests\CraftersCloud.Core.AspNetCore.Tests.csproj", "{0E87BF7C-0186-4D4F-8D8B-9241A00B646A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore.Tests", "test\AspNetCore.Tests\AspNetCore.Tests.csproj", "{0E87BF7C-0186-4D4F-8D8B-9241A00B646A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.EventBus", "src\CraftersCloud.Core.EventBus\CraftersCloud.Core.EventBus.csproj", "{C8E18986-4154-449F-8C31-91098AD04B02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus", "src\EventBus\EventBus.csproj", "{C8E18986-4154-449F-8C31-91098AD04B02}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.IntegrationEvents", "src\CraftersCloud.Core.IntegrationEvents\CraftersCloud.Core.IntegrationEvents.csproj", "{7F52BEE4-8639-4098-B9D0-313C6EC5D31C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationEvents", "src\IntegrationEvents\IntegrationEvents.csproj", "{7F52BEE4-8639-4098-B9D0-313C6EC5D31C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.EventBus.Tests", "test\CraftersCloud.Core.EventBus.Tests\CraftersCloud.Core.EventBus.Tests.csproj", "{17D6B26F-2098-487B-B256-297CE2A5CA48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Tests", "test\EventBus.Tests\EventBus.Tests.csproj", "{17D6B26F-2098-487B-B256-297CE2A5CA48}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftersCloud.Core.TestUtils", "src\CraftersCloud.Core.TestUtils\CraftersCloud.Core.TestUtils.csproj", "{0B354B4E-7432-452F-8BB5-BEB663B5BAA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUtilities", "src\TestUtilities\TestUtilities.csproj", "{0B354B4E-7432-452F-8BB5-BEB663B5BAA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.TestUtils.Tests", "test\CraftersCloud.Core.TestUtils.Tests\CraftersCloud.Core.TestUtils.Tests.csproj", "{E7A4F03B-83A6-4FE8-89ED-5B130A8C8D4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUtilities.Tests", "test\TestUtilities.Tests\TestUtilities.Tests.csproj", "{E7A4F03B-83A6-4FE8-89ED-5B130A8C8D4E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{18E0523E-397A-4487-BB9F-ABF9D1E36A01}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A06EBB9D-63A5-439B-BC34-D89B39D19625}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A06EBB9D-63A5-439B-BC34-D89B39D19625}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{27B34D73-6CAA-42A8-9DB9-265EF5371A6D}"
 EndProject
@@ -52,19 +52,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\ci.yml = .github\workflows\ci.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.SmartEnums", "src\CraftersCloud.Core.SmartEnums\CraftersCloud.Core.SmartEnums.csproj", "{B41294EF-1780-4B8D-B91B-C9F4FE894E26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEnums", "src\SmartEnums\SmartEnums.csproj", "{B41294EF-1780-4B8D-B91B-C9F4FE894E26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.SmartEnums.EntityFramework", "src\CraftersCloud.Core.SmartEnums.EntityFramework\CraftersCloud.Core.SmartEnums.EntityFramework.csproj", "{563B6A19-8FCE-435B-B1A4-F1E315856CDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEnums.EntityFramework", "src\SmartEnums.EntityFramework\SmartEnums.EntityFramework.csproj", "{563B6A19-8FCE-435B-B1A4-F1E315856CDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.SmartEnums.Swagger", "src\CraftersCloud.Core.SmartEnums.Swagger\CraftersCloud.Core.SmartEnums.Swagger.csproj", "{9A1FFD5C-E23E-4F29-BFDA-CED4177978E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEnums.Swagger", "src\SmartEnums.Swagger\SmartEnums.Swagger.csproj", "{9A1FFD5C-E23E-4F29-BFDA-CED4177978E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.SmartEnums.SystemTextJson", "src\CraftersCloud.Core.SmartEnums.SystemTextJson\CraftersCloud.Core.SmartEnums.SystemTextJson.csproj", "{A030F359-97B9-4427-998D-26F04D295734}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEnums.SystemTextJson", "src\SmartEnums.SystemTextJson\SmartEnums.SystemTextJson.csproj", "{A030F359-97B9-4427-998D-26F04D295734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.SmartEnums.VerifyTests", "src\CraftersCloud.Core.SmartEnums.VerifyTests\CraftersCloud.Core.SmartEnums.VerifyTests.csproj", "{656F37B8-A143-493B-B17A-240F739E8C84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEnums.VerifyTests", "src\SmartEnums.VerifyTests\SmartEnums.VerifyTests.csproj", "{656F37B8-A143-493B-B17A-240F739E8C84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.AspNetCore.Tests.SystemTextJson", "src\CraftersCloud.Core.AspNetCore.Tests.SystemTextJson\CraftersCloud.Core.AspNetCore.Tests.SystemTextJson.csproj", "{651E040E-0C91-46CF-978D-5CA2F75C004C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore.Tests.SystemTextJson", "src\AspNetCore.Tests.SystemTextJson\AspNetCore.Tests.SystemTextJson.csproj", "{651E040E-0C91-46CF-978D-5CA2F75C004C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftersCloud.Core.AspNetCore.Tests.Utilities", "src\CraftersCloud.Core.AspNetCore.Tests.Utilities\CraftersCloud.Core.AspNetCore.Tests.Utilities.csproj", "{D86902EF-22F1-4AB2-AFDA-2CF7AE014258}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore.Tests.Utilities", "src\AspNetCore.Tests.Utilities\AspNetCore.Tests.Utilities.csproj", "{D86902EF-22F1-4AB2-AFDA-2CF7AE014258}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
