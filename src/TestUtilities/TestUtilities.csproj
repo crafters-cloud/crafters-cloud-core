@@ -20,6 +20,7 @@
     </PackageReference>
     <PackageReference Include="NUnit" />
     <PackageReference Include="Respawn" />
+    <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 
   <ItemGroup>

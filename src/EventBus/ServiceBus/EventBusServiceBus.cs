@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.Json;
 using Autofac;
 using Azure.Messaging.ServiceBus;
 using Azure.Messaging.ServiceBus.Administration;
@@ -6,8 +7,6 @@ using CraftersCloud.Core.EventBus.ServiceBus.Rules;
 using CraftersCloud.Core.Helpers;
 using CraftersCloud.Core.IntegrationEvents;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace CraftersCloud.Core.EventBus.ServiceBus;
 
@@ -58,7 +57,7 @@ internal class EventBusServiceBus : IEventBus, IDisposable
     public void Publish(IntegrationEvent @event)
     {
         var eventName = GetEventName(@event);
-        var jsonMessage = JsonConvert.SerializeObject(@event);
+        var jsonMessage = JsonSerializer.Serialize(@event);
         var body = Encoding.UTF8.GetBytes(jsonMessage);
 
         var message = new ServiceBusMessage
@@ -229,7 +228,7 @@ internal class EventBusServiceBus : IEventBus, IDisposable
                             continue;
                         }
 
-                        dynamic eventData = JObject.Parse(message);
+                        dynamic eventData = JsonDocument.Parse(message).RootElement;
                         await handler.Handle(eventData);
                     }
                     else
@@ -243,10 +242,10 @@ internal class EventBusServiceBus : IEventBus, IDisposable
                         }
 
                         var eventType = _subsManager.GetEventTypeByName(eventName)!;
-                        var integrationEvent = JsonConvert.DeserializeObject(message, eventType)!;
+                        var integrationEvent = JsonSerializer.Deserialize(message, eventType)!;
                         var concreteType = typeof(IIntegrationEventHandler<>).MakeGenericType(eventType);
                         var handleMethod = concreteType.GetMethod("Handle")!;
-                        await ((Task?) handleMethod.Invoke(handler, new[] { integrationEvent }))!;
+                        await ((Task?) handleMethod.Invoke(handler, [integrationEvent]))!;
                     }
                 }
             }
