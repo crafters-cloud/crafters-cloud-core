@@ -334,7 +334,7 @@
           "System.ComponentModel.Annotations": "[5.0.0, )"
         }
       },
-      "CraftersCloud.Core.AspNetCore.Tests.Utilities": {
+      "CraftersCloud.Core.AspNetCore.TestUtilities": {
         "type": "Project",
         "dependencies": {
           "CraftersCloud.Core": "[1.0.0, )",

@@ -2,10 +2,11 @@
 
   <PropertyGroup>
     <IsPackable>true</IsPackable>
-    <Product>CraftersCloud.Core.AspNetCore.Tests.Utilities</Product>
+    <Product>CraftersCloud.Core.AspNetCore.TestUtilities</Product>
     <Description>Utilities for the tests projects</Description>
-    <RootNamespace>CraftersCloud.Core.AspNetCore.Tests.Utilities</RootNamespace>
-    <PackageId>CraftersCloud.Core.AspNetCore.Tests.Utilities</PackageId>
+    <RootNamespace>CraftersCloud.Core.AspNetCore.TestUtilities</RootNamespace>
+    <PackageId>CraftersCloud.Core.AspNetCore.TestUtilities</PackageId>
+    <AssemblyName>CraftersCloud.Core.AspNetCore.TestUtilities</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\Tests.Utilities\Tests.Utilities.csproj" />
+    <ProjectReference Include="..\TestUtilities\TestUtilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

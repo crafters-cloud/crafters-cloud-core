@@ -2,7 +2,7 @@
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace CraftersCloud.Core.TestUtils.Tests;
+namespace CraftersCloud.Core.TestUtilities.Tests;
 
 [Category("unit")]
 public class DatabaseHelpersFixture

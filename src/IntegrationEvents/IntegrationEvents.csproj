@@ -6,6 +6,7 @@
     <Description>IntegrationEvents Building Block</Description>
     <RootNamespace>CraftersCloud.Core.IntegrationEvents</RootNamespace>
     <PackageId>CraftersCloud.Core.IntegrationEvents</PackageId>
+    <AssemblyName>CraftersCloud.Core.IntegrationEvents</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

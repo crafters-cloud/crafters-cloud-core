@@ -6,6 +6,7 @@
     <Description>Test Utilities</Description>
     <RootNamespace>CraftersCloud.Core.TestUtilities</RootNamespace>
     <PackageId>CraftersCloud.Core.TestUtilities</PackageId>
+    <AssemblyName>CraftersCloud.Core.TestUtilities</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

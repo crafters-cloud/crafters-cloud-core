@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace CraftersCloud.Core.AspNetCore.Tests.Utilities;
+namespace CraftersCloud.Core.AspNetCore.TestUtilities;
 
 public static class ServiceScopeExtensions
 {

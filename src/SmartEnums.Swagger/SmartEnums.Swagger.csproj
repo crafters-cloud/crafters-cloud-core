@@ -6,6 +6,7 @@
     <Description>Core SmartEnums for Swagger</Description>
     <RootNamespace>CraftersCloud.Core.SmartEnums.Swagger</RootNamespace>
     <PackageId>CraftersCloud.Core.SmartEnums.Swagger</PackageId>
+    <AssemblyName>CraftersCloud.Core.SmartEnums.Swagger</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

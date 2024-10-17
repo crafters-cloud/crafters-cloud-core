@@ -6,6 +6,7 @@
     <Description>Core for AspNetCore Tests projects using SystemTextJson</Description>
     <RootNamespace>CraftersCloud.Core.AspNetCore.Tests.SystemTextJson</RootNamespace>
     <PackageId>CraftersCloud.Core.AspNetCore.Tests.SystemTextJson</PackageId>
+    <AssemblyName>CraftersCloud.Core.AspNetCore.Tests.SystemTextJson</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AspNetCore.Tests.Utilities\AspNetCore.Tests.Utilities.csproj" />
+    <ProjectReference Include="..\AspNetCore.TestUtilities\AspNetCore.TestUtilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

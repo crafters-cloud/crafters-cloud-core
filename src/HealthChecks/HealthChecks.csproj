@@ -6,6 +6,7 @@
     <Description>HealthChecks Building Block</Description>
     <RootNamespace>CraftersCloud.Core.HealthChecks</RootNamespace>
     <PackageId>CraftersCloud.Core.HealthChecks</PackageId>
+    <AssemblyName>CraftersCloud.Core.HealthChecks</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

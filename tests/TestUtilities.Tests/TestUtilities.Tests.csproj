@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>CraftersCloud.Core.TestUtils.Tests</RootNamespace>
+    <RootNamespace>CraftersCloud.Core.TestUtilities.Tests</RootNamespace>
+    <AssemblyName>CraftersCloud.Core.TestUtilities.Tests</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,10 +13,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit3TestAdapter" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Tests.Utilities\Tests.Utilities.csproj" />
+    <ProjectReference Include="..\..\src\TestUtilities\TestUtilities.csproj" />
   </ItemGroup>
 
 </Project>

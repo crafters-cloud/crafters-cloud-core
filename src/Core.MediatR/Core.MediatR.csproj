@@ -6,6 +6,7 @@
     <Description>Core MediatR</Description>
     <RootNamespace>CraftersCloud.Core.MediatR</RootNamespace>
     <PackageId>CraftersCloud.Core.MediatR</PackageId>
+    <AssemblyName>CraftersCloud.Core.MediatR</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

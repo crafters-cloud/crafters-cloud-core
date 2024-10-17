@@ -6,6 +6,7 @@
     <Description>Core SmartEnums for SystemTextJson</Description>
     <RootNamespace>CraftersCloud.Core.SmartEnums.SystemTextJson</RootNamespace>
     <PackageId>CraftersCloud.Core.SmartEnums.SystemTextJson</PackageId>
+    <AssemblyName>CraftersCloud.Core.SmartEnums.SystemTextJson</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

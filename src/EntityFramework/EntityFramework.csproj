@@ -6,6 +6,7 @@
     <Description>EntityFramework Core</Description>
     <RootNamespace>CraftersCloud.Core.EntityFramework</RootNamespace>
     <PackageId>CraftersCloud.Core.EntityFramework</PackageId>
+    <AssemblyName>CraftersCloud.Core.EntityFramework</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

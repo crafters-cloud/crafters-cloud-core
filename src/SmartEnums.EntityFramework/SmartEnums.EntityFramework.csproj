@@ -6,6 +6,7 @@
     <Description>Core SmartEnums for EntityFramework</Description>
     <RootNamespace>CraftersCloud.Core.SmartEnums.EntityFramework</RootNamespace>
     <PackageId>CraftersCloud.Core.SmartEnums.EntityFramework</PackageId>
+    <AssemblyName>CraftersCloud.Core.SmartEnums.EntityFramework</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,5 +1,5 @@
 ﻿using System.Net.Http.Json;
-using CraftersCloud.Core.AspNetCore.Tests.Utilities.Http;
+using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 
 namespace CraftersCloud.Core.AspNetCore.Tests.SystemTextJson.Http;
 

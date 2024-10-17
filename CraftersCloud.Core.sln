@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationEvents", "src\In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Tests", "tests\EventBus.Tests\EventBus.Tests.csproj", "{17D6B26F-2098-487B-B256-297CE2A5CA48}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Utilities", "src\Tests.Utilities\Tests.Utilities.csproj", "{0B354B4E-7432-452F-8BB5-BEB663B5BAA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUtilities", "src\TestUtilities\TestUtilities.csproj", "{0B354B4E-7432-452F-8BB5-BEB663B5BAA8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUtilities.Tests", "tests\TestUtilities.Tests\TestUtilities.Tests.csproj", "{E7A4F03B-83A6-4FE8-89ED-5B130A8C8D4E}"
 EndProject
@@ -62,7 +62,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEnums.VerifyTests", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore.Tests.SystemTextJson", "src\AspNetCore.Tests.SystemTextJson\AspNetCore.Tests.SystemTextJson.csproj", "{651E040E-0C91-46CF-978D-5CA2F75C004C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore.Tests.Utilities", "src\AspNetCore.Tests.Utilities\AspNetCore.Tests.Utilities.csproj", "{D86902EF-22F1-4AB2-AFDA-2CF7AE014258}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore.TestUtilities", "src\AspNetCore.TestUtilities\AspNetCore.TestUtilities.csproj", "{D86902EF-22F1-4AB2-AFDA-2CF7AE014258}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Tests", "tests\Core.Tests\Core.Tests.csproj", "{D44EBCF2-0A37-4E00-816E-4445B3150CA9}"
 EndProject

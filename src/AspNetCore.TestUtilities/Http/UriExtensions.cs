@@ -1,4 +1,4 @@
-﻿namespace CraftersCloud.Core.AspNetCore.Tests.Utilities.Http;
+﻿namespace CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 
 public static class UriExtensions
 {

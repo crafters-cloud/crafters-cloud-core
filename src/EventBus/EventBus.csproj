@@ -6,6 +6,7 @@
     <Description>EventBus Building Block</Description>
     <RootNamespace>CraftersCloud.Core.EventBus</RootNamespace>
     <PackageId>CraftersCloud.Core.EventBus</PackageId>
+    <AssemblyName>CraftersCloud.Core.EventBus</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="EventBus.Tests" />
+    <InternalsVisibleTo Include="CraftersCloud.Core.EventBus.Tests" />
   </ItemGroup>
 
 </Project>
