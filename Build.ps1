@@ -38,7 +38,6 @@ exec { & dotnet test -c Release --no-build -l trx --verbosity=normal }
 
 exec { & dotnet pack .\src\Core\Core.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\AspNetCore\AspNetCore.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\AspNetCore.Tests.SystemTextJson\AspNetCore.Tests.SystemTextJson.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\AspNetCore.TestUtilities\AspNetCore.TestUtilities.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\EntityFramework\EntityFramework.csproj -c Release -o $artifacts --no-build }
 exec { & dotnet pack .\src\EntityFramework.Infrastructure\EntityFramework.Infrastructure.csproj -c Release -o $artifacts --no-build }

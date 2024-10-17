@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
-using CraftersCloud.Core.AspNetCore.Tests.SystemTextJson.Http;
+using CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 
-namespace CraftersCloud.Core.AspNetCore.Tests.SystemTextJson;
+namespace CraftersCloud.Core.AspNetCore.TestUtilities;
 
 internal static class StringExtensions
 {
