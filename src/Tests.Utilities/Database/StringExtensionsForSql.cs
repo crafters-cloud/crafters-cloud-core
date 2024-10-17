@@ -1,7 +1,7 @@
 ﻿using CraftersCloud.Core.Helpers;
 using JetBrains.Annotations;
 
-namespace CraftersCloud.Core.TestUtils.Database;
+namespace CraftersCloud.Core.TestUtilities.Database;
 
 [PublicAPI]
 public static class StringExtensionsForSql

@@ -5,6 +5,7 @@
     <Product>CraftersCloud.Core.EntityFramework</Product>
     <Description>EntityFramework Core Building Block</Description>
     <RootNamespace>CraftersCloud.Core.EntityFramework.Infrastructure</RootNamespace>
+    <PackageId>CraftersCloud.Core.EntityFramework.Infrastructure</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,6 +2,4 @@
 
 namespace CraftersCloud.Core.Entities;
 
-public abstract record DomainEvent : INotification
-{
-}
+public abstract record DomainEvent : INotification;

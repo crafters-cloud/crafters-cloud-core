@@ -5,6 +5,7 @@
     <Product>CraftersCloud.Core</Product>
     <Description>Core projects</Description>
     <RootNamespace>CraftersCloud.Core</RootNamespace>
+    <PackageId>CraftersCloud.Core</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -6,7 +6,7 @@ using NUnit.Framework;
 using Respawn;
 using Respawn.Graph;
 
-namespace CraftersCloud.Core.TestUtils.Database;
+namespace CraftersCloud.Core.TestUtilities.Database;
 
 [PublicAPI]
 public static class DatabaseInitializer

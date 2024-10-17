@@ -1,4 +1,4 @@
-﻿namespace CraftersCloud.Core.TestUtils.Database;
+﻿namespace CraftersCloud.Core.TestUtilities.Database;
 
 public record DatabaseInitializerOptions
 {

@@ -5,11 +5,8 @@
     <Product>CraftersCloud.Core.AspNetCore.Tests.Utilities</Product>
     <Description>Utilities for the tests projects</Description>
     <RootNamespace>CraftersCloud.Core.AspNetCore.Tests.Utilities</RootNamespace>
+    <PackageId>CraftersCloud.Core.AspNetCore.Tests.Utilities</PackageId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Database\DropAllSql.sql" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" />
@@ -24,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Tests.Utilities\Tests.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

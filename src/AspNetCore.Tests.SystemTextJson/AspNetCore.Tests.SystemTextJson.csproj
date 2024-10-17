@@ -5,6 +5,7 @@
     <Product>CraftersCloud.Core.AspNetCore.Tests.SystemTextJson</Product>
     <Description>Core for AspNetCore Tests projects using SystemTextJson</Description>
     <RootNamespace>CraftersCloud.Core.AspNetCore.Tests.SystemTextJson</RootNamespace>
+    <PackageId>CraftersCloud.Core.AspNetCore.Tests.SystemTextJson</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

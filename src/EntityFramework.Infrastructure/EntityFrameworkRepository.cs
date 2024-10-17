@@ -21,22 +21,20 @@ public class EntityFrameworkRepository<T, TId>(DbContext context) : IRepository<
 
     public virtual IQueryable<T> QueryAll() => DbSet;
 
-    public virtual IQueryable<T> QueryAllSkipCache() => DbSet.AsNoTracking();
-
-    public virtual IQueryable<T> QueryAllIncluding(params Expression<Func<T, object>>[] paths) =>
-        paths.Aggregate(QueryAll(),
-            (current, includeProperty) => current.Include(includeProperty));
-
-    public virtual IQueryable<T> QueryAllSkipCacheIncluding(params Expression<Func<T, object>>[] paths) =>
-        paths.Aggregate(QueryAllSkipCache(),
-            (current, includeProperty) => current.Include(includeProperty));
-
-
     public virtual void Add(T entity) => DbSet.Add(entity);
 
-    public virtual void Delete(TId id)
+    public virtual void DeleteById(TId id)
     {
         var item = FindById(id);
+        if (item != null)
+        {
+            Delete(item);
+        }
+    }
+
+    public async Task DeleteByIdAsync(TId id, CancellationToken cancellationToken)
+    {
+        var item = await FindByIdAsync(id, cancellationToken);
         if (item != null)
         {
             Delete(item);
@@ -47,7 +45,7 @@ public class EntityFrameworkRepository<T, TId>(DbContext context) : IRepository<
 
     public virtual void DeleteRange(IEnumerable<T> entities) => DbSet.RemoveRange(entities);
 
-    public virtual T? FindById(TId id) => DbSet.Find(id);
+    private T? FindById(TId id) => DbSet.Find(id);
 
-    public virtual async Task<T?> FindByIdAsync(TId id) => await DbSet.FindAsync(id);
+    private ValueTask<T?> FindByIdAsync(TId id, CancellationToken cancellationToken) => DbSet.FindAsync([id], cancellationToken);
 }

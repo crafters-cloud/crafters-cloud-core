@@ -36,24 +36,24 @@ exec { & dotnet build -c Release }
 
 exec { & dotnet test -c Release --no-build -l trx --verbosity=normal }
 
-exec { & dotnet pack .\src\CraftersCloud.Core\CraftersCloud.Core.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.AspNetCore\CraftersCloud.Core.AspNetCore.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.AspNetCore.Tests.SystemTextJson\CraftersCloud.Core.AspNetCore.Tests.SystemTextJson.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.AspNetCore.Tests.Utilities\CraftersCloud.Core.AspNetCore.Tests.Utilities.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.EntityFramework\CraftersCloud.Core.EntityFramework.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.EntityFramework.Infrastructure\CraftersCloud.Core.EntityFramework.Infrastructure.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.EventBus\CraftersCloud.Core.EventBus.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.HealthChecks\CraftersCloud.Core.HealthChecks.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.Infrastructure\CraftersCloud.Core.Infrastructure.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.IntegrationEvents\CraftersCloud.Core.IntegrationEvents.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.MediatR\CraftersCloud.Core.MediatR.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.SmartEnums\CraftersCloud.Core.SmartEnums.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.SmartEnums.EntityFramework\CraftersCloud.Core.SmartEnums.EntityFramework.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.SmartEnums.Swagger\CraftersCloud.Core.SmartEnums.Swagger.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.SmartEnums.SystemTextJson\CraftersCloud.Core.SmartEnums.SystemTextJson.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.SmartEnums.VerifyTests\CraftersCloud.Core.SmartEnums.VerifyTests.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.Swagger\CraftersCloud.Core.Swagger.csproj -c Release -o $artifacts --no-build }
-exec { & dotnet pack .\src\CraftersCloud.Core.TestUtils\CraftersCloud.Core.TestUtils.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\Core\Core.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\AspNetCore\AspNetCore.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\AspNetCore.Tests.SystemTextJson\AspNetCore.Tests.SystemTextJson.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\AspNetCore.Tests.Utilities\AspNetCore.Tests.Utilities.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\EntityFramework\EntityFramework.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\EntityFramework.Infrastructure\EntityFramework.Infrastructure.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\EventBus\EventBus.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\HealthChecks\HealthChecks.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\Infrastructure\Infrastructure.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\IntegrationEvents\IntegrationEvents.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\Core.MediatR\Core.MediatR.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\SmartEnums\SmartEnums.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\SmartEnums.EntityFramework\SmartEnums.EntityFramework.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\SmartEnums.Swagger\SmartEnums.Swagger.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\SmartEnums.SystemTextJson\SmartEnums.SystemTextJson.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\SmartEnums.VerifyTests\SmartEnums.VerifyTests.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\Swagger\Swagger.csproj -c Release -o $artifacts --no-build }
+exec { & dotnet pack .\src\Tests.Utilities\Tests.Utilities.csproj -c Release -o $artifacts --no-build }
 
 
 

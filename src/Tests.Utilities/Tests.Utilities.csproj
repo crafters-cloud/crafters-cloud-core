@@ -5,6 +5,7 @@
     <Product>CraftersCloud.Core.TestUtilities</Product>
     <Description>Test Utilities</Description>
     <RootNamespace>CraftersCloud.Core.TestUtilities</RootNamespace>
+    <PackageId>CraftersCloud.Core.TestUtilities</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

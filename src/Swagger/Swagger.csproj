@@ -5,6 +5,7 @@
     <Product>CraftersCloud.Core.Swagger</Product>
     <Description>Swagger utilities</Description>
     <RootNamespace>CraftersCloud.Core.Swagger</RootNamespace>
+    <PackageId>CraftersCloud.Core.Swagger</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -5,6 +5,7 @@
     <Product>CraftersCloud.Core.SmartEnums</Product>
     <Description>Core SmartEnums</Description>
     <RootNamespace>CraftersCloud.Core.SmartEnums</RootNamespace>
+    <PackageId>CraftersCloud.Core.SmartEnums</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

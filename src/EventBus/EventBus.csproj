@@ -5,6 +5,7 @@
     <Product>CraftersCloud.Core.EventBus</Product>
     <Description>EventBus Building Block</Description>
     <RootNamespace>CraftersCloud.Core.EventBus</RootNamespace>
+    <PackageId>CraftersCloud.Core.EventBus</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

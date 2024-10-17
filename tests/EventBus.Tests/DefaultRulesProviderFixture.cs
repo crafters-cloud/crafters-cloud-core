@@ -2,6 +2,7 @@
 using CraftersCloud.Core.EventBus.ServiceBus.Rules;
 using CraftersCloud.Core.IntegrationEvents;
 using FluentAssertions;
+using JetBrains.Annotations;
 using NUnit.Framework;
 
 namespace CraftersCloud.Core.EventBus.Tests;
@@ -37,8 +38,7 @@ public class DefaultRulesProviderFixture
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName')");
     }
-
-
+    
     [Test]
     public void GivenHandlerWithoutEmptyClients_GetRulesFor_ReturnsRulesWithSqlFilter()
     {
@@ -81,8 +81,7 @@ public class DefaultRulesProviderFixture
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName') and user.OriginatorId in ('SomeClientName')");
     }
-
-
+    
     [Test]
     public void GivenHandlerWithMultipleClients_GetRulesFor_ReturnsRulesWithSqlFilter()
     {
@@ -94,7 +93,6 @@ public class DefaultRulesProviderFixture
             "sys.Label in ('eventName') and user.OriginatorId != 'TxfBackendSubscriptionClient' and user.OriginatorId in ('SomeClientName', 'AnotherClientName')");
     }
 
-
     [Test]
     public void GivenHandlerWithMultipleClientsAndProcessFromSelf_GetRulesFor_ReturnsRulesWithSqlFilter()
     {
@@ -105,7 +103,6 @@ public class DefaultRulesProviderFixture
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName') and user.OriginatorId in ('SomeClientName', 'AnotherClientName')");
     }
-
 
     [Test]
     public void GivenHandlerEventNameAttribute_GetRulesFor_ReturnsRulesWithSqlFilter()
@@ -141,58 +138,47 @@ public class DefaultRulesProviderFixture
 
     private static class TestClasses
     {
-        internal class TestHandler : IIntegrationEventHandler
-        {
-        }
+        [UsedImplicitly]
+        internal class TestHandler : IIntegrationEventHandler;
 
         [ProcessMessagesSentFromSelf]
-        internal class TestHandlerOnlyProcessFromSelf : IIntegrationEventHandler
-        {
-        }
+        [UsedImplicitly]
+        internal class TestHandlerOnlyProcessFromSelf : IIntegrationEventHandler;
 
         [ProcessServiceBusMessagesFrom]
-        internal class TestHandlerWithEmptyClient : IIntegrationEventHandler
-        {
-        }
+        [UsedImplicitly]
+        internal class TestHandlerWithEmptyClient : IIntegrationEventHandler;
 
         [ProcessServiceBusMessagesFrom]
         [ProcessMessagesSentFromSelf]
-        internal class TestHandlerWithEmptyClientAndProcessFromSelf : IIntegrationEventHandler
-        {
-        }
-
+        [UsedImplicitly]
+        internal class TestHandlerWithEmptyClientAndProcessFromSelf : IIntegrationEventHandler;
 
         [ProcessServiceBusMessagesFrom("SomeClientName")]
-        internal class TestHandlerWithSingleClient : IIntegrationEventHandler
-        {
-        }
+        [UsedImplicitly]
+        internal class TestHandlerWithSingleClient : IIntegrationEventHandler;
 
         [ProcessServiceBusMessagesFrom("SomeClientName")]
         [ProcessMessagesSentFromSelf]
-        internal class TestHandlerWithSingleClientAndProcessFromSelf : IIntegrationEventHandler
-        {
-        }
+        [UsedImplicitly]
+        internal class TestHandlerWithSingleClientAndProcessFromSelf : IIntegrationEventHandler;
 
         [ProcessServiceBusMessagesFrom("SomeClientName", "AnotherClientName")]
-        internal class TestHandlerWithMultipleClients : IIntegrationEventHandler
-        {
-        }
+        [UsedImplicitly]
+        internal class TestHandlerWithMultipleClients : IIntegrationEventHandler;
 
         [ProcessServiceBusMessagesFrom("SomeClientName", "AnotherClientName")]
         [ProcessMessagesSentFromSelf]
-        internal class TestHandlerWithMultipleClientsAndProcessFromSelf : IIntegrationEventHandler
-        {
-        }
+        [UsedImplicitly]
+        internal class TestHandlerWithMultipleClientsAndProcessFromSelf : IIntegrationEventHandler;
 
         [EventName("SomeEventName")]
-        internal class TestHandlerWithEventNameAttribute : IIntegrationEventHandler
-        {
-        }
+        [UsedImplicitly]
+        internal class TestHandlerWithEventNameAttribute : IIntegrationEventHandler;
 
         [EventName("SomeEventName")]
         [ProcessMessagesSentFromSelf]
-        internal class TestHandlerWithEventNameAttributeAndProcessFromSelf : IIntegrationEventHandler
-        {
-        }
+        [UsedImplicitly]
+        internal class TestHandlerWithEventNameAttributeAndProcessFromSelf : IIntegrationEventHandler;
     }
 }

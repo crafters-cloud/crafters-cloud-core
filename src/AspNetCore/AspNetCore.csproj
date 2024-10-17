@@ -5,6 +5,7 @@
     <Product>CraftersCloud.Core.AspNetCore</Product>
     <Description>Core for the AspNet Core projects</Description>
     <RootNamespace>CraftersCloud.Core.AspNetCore</RootNamespace>
+    <PackageId>CraftersCloud.Core.AspNetCore</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

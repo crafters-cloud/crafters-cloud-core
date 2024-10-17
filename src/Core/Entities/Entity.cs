@@ -11,10 +11,7 @@ public abstract class Entity
 
     protected void AddDomainEvent(DomainEvent eventItem)
     {
-        if (eventItem == null)
-        {
-            throw new ArgumentNullException(nameof(eventItem));
-        }
+        ArgumentNullException.ThrowIfNull(eventItem);
 
         // prevents multiple events with the same data to be added
         // last event wins

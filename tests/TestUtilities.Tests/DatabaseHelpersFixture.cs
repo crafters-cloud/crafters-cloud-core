@@ -1,4 +1,4 @@
-﻿using CraftersCloud.Core.TestUtils.Database;
+﻿using CraftersCloud.Core.TestUtilities.Database;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -8,7 +8,7 @@ namespace CraftersCloud.Core.TestUtils.Tests;
 public class DatabaseHelpersFixture
 {
     [Test]
-    public void TestDropAllSql()
+    public void DropAllSql()
     {
         var sql = DatabaseHelpers.DropAllSql;
 

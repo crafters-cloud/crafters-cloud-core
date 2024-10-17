@@ -5,7 +5,7 @@ namespace CraftersCloud.Core.Helpers;
 
 public static class EmbeddedResource
 {
-    public static string ReadResourceContent(string namespaceAndFileName, Assembly assembly)
+    public static string ReadResourceContent(Assembly assembly, string namespaceAndFileName)
     {
         try
         {
@@ -20,7 +20,8 @@ public static class EmbeddedResource
         }
         catch (Exception exception)
         {
-            throw new InvalidOperationException($"Failed to read Embedded Resource {namespaceAndFileName}", exception);
+            throw new InvalidOperationException($"Failed to read Embedded Resource {namespaceAndFileName}",
+                exception);
         }
     }
 }
