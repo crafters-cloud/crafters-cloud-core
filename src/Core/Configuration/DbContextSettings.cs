@@ -1,10 +1,12 @@
 ﻿using JetBrains.Annotations;
 
-namespace CraftersCloud.Core.Settings;
+namespace CraftersCloud.Core.Configuration;
 
 [PublicAPI]
 public class DbContextSettings
 {
+    public const string SectionName = "DbContext";
+    
     public bool SensitiveDataLoggingEnabled { get; set; }
 
     public int ConnectionResiliencyMaxRetryCount { get; set; }

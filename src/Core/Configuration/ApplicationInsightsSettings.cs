@@ -1,12 +1,11 @@
 ﻿using JetBrains.Annotations;
-using Serilog.Events;
 
-namespace CraftersCloud.Core.Settings;
+namespace CraftersCloud.Core.Configuration;
 
 [PublicAPI]
 public class ApplicationInsightsSettings
 {
-    public const string ApplicationInsightsSectionName = "ApplicationInsights";
+    public const string SectionName = "ApplicationInsights";
     
     public string ConnectionString { get; set; } = string.Empty;
 }

@@ -4,9 +4,9 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace CraftersCloud.Core.EntityFramework.Infrastructure.MediatR;
+namespace CraftersCloud.Core.EntityFramework.Infrastructure;
 
-internal static class MediatorExtension
+internal static class MediatorExtensions
 {
     public static IEnumerable<DomainEvent> GatherDomainEventsFromContext(this DbContext ctx)
     {
