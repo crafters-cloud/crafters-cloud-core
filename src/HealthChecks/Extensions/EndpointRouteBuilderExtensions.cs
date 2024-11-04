@@ -15,7 +15,7 @@ public static class StartupExtensions
 {
     public static void MapCoreHealthChecks(this IEndpointRouteBuilder endpoints, IConfiguration configuration)
     {
-        var settings = configuration.ResolveHealthCheckSettings();
+        var settings = configuration.GetRequiredSection(HealthCheckSettings.SectionName).Get<HealthCheckSettings>()!;
         var healthCheckEndpoint = endpoints.MapHealthChecks("/healthcheck", new HealthCheckOptions
         {
             // Specify a custom ResponseWriter, so we can return json with additional information,

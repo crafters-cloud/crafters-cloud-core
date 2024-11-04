@@ -1,4 +1,5 @@
-﻿using CraftersCloud.Core.HealthChecks.Authorization;
+﻿using CraftersCloud.Core.Configuration;
+using CraftersCloud.Core.HealthChecks.Authorization;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
@@ -13,7 +14,7 @@ public static class ServiceCollectionExtensions
     public static IHealthChecksBuilder AddCoreHealthChecks(this IServiceCollection services,
         IConfiguration configuration)
     {
-        var settings = configuration.ResolveHealthCheckSettings();
+        var settings = configuration.GetRequiredSection(HealthCheckSettings.SectionName).Get<HealthCheckSettings>()!;
         var healthChecksBuilder = services.AddHealthChecks();
 
         if (settings.TokenAuthorizationEnabled)
