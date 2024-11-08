@@ -1,5 +1,4 @@
-﻿using CraftersCloud.Core.Configuration;
-using CraftersCloud.Core.HealthChecks.Authorization;
+﻿using CraftersCloud.Core.HealthChecks.Authorization;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;

@@ -4,9 +4,9 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace CraftersCloud.Core.EntityFramework.Infrastructure;
+namespace CraftersCloud.Core.EntityFramework.Infrastructure.MediatR;
 
-internal static class MediatorExtensions
+internal static class MediatorExtension
 {
     public static IEnumerable<DomainEvent> GatherDomainEventsFromContext(this DbContext ctx)
     {
@@ -24,8 +24,8 @@ internal static class MediatorExtensions
         return domainEvents;
     }
 
-    public static async Task DispatchDomainEventsAsync(this IMediator mediator,
-        IEnumerable<DomainEvent> domainEvents, ILogger logger, CancellationToken cancellationToken)
+    public static async Task PublishDomainEventsAsync(this IMediator mediator, IEnumerable<DomainEvent> domainEvents,
+        ILogger logger, CancellationToken cancellationToken = default)
     {
         var stopWatch = Stopwatch.StartNew();
         // sequentially publish domain events to avoid problems with same DbContext used by different threads 

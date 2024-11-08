@@ -1,6 +1,7 @@
-﻿using CraftersCloud.Core.Entities;
+﻿using System.Data;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace CraftersCloud.Core.EntityFramework.Infrastructure;
 
@@ -10,40 +11,74 @@ public abstract class EntitiesDbContext(
     DbContextOptions options)
     : DbContext(options)
 {
-    private EntitiesDbContextOptions EntitiesDbContextOptions { get; init; } = entitiesDbContextOptions;
+    private IDbContextTransaction? _currentTransaction;
+
+    public bool HasActiveTransaction => _currentTransaction != null;
     public Action<ModelBuilder>? ModelBuilderConfigurator { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(EntitiesDbContextOptions.ConfigurationAssembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(entitiesDbContextOptions.ConfigurationAssembly);
 
-        RegisterEntities(modelBuilder);
+        modelBuilder.RegisterEntities(entitiesDbContextOptions);
 
         ModelBuilderConfigurator?.Invoke(modelBuilder);
 
         base.OnModelCreating(modelBuilder);
     }
-
-    private void RegisterEntities(ModelBuilder modelBuilder)
+    
+    public async Task<IDbContextTransaction> BeginTransactionAsync(IsolationLevel isolationLevel,
+        CancellationToken cancellationToken)
     {
-        var entityMethod =
-            typeof(ModelBuilder).GetMethods().First(m => m.Name == "Entity" && m.IsGenericMethod);
-
-        var entitiesAssembly = EntitiesDbContextOptions.EntitiesAssembly;
-        var types = entitiesAssembly?.GetTypes() ?? Enumerable.Empty<Type>();
-
-        var entityTypes = types
-            .Where(x => x.IsSubclassOf(typeof(Entity)) && !x.IsAbstract);
-
-        foreach (var type in entityTypes)
+        if (_currentTransaction != null)
         {
-            if (EntitiesDbContextOptions.EntityTypePredicate != null &&
-                !EntitiesDbContextOptions.EntityTypePredicate(type))
-            {
-                continue;
-            }
+            throw new InvalidOperationException("A transaction is already active");
+        }
 
-            entityMethod.MakeGenericMethod(type).Invoke(modelBuilder, []);
+        _currentTransaction = await Database.BeginTransactionAsync(isolationLevel, cancellationToken);
+        return _currentTransaction;
+    }
+
+    public async Task CommitTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken)
+    {
+        ArgumentNullException.ThrowIfNull(transaction);
+        if (transaction != _currentTransaction)
+        {
+            throw new InvalidOperationException($"Transaction {transaction.TransactionId} is not current");
+        }
+
+        try
+        {
+            await transaction.CommitAsync(cancellationToken);
+        }
+        catch
+        {
+            RollbackTransaction();
+            throw;
+        }
+        finally
+        {
+            if (HasActiveTransaction)
+            {
+                _currentTransaction!.Dispose();
+                _currentTransaction = null;
+            }
+        }
+    }
+
+    private void RollbackTransaction()
+    {
+        try
+        {
+            _currentTransaction?.Rollback();
+        }
+        finally
+        {
+            if (HasActiveTransaction)
+            {
+                _currentTransaction!.Dispose();
+                _currentTransaction = null;
+            }
         }
     }
 }

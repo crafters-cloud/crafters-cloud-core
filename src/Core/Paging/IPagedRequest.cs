@@ -1,4 +1,5 @@
-﻿namespace CraftersCloud.Core.Paging;
+﻿
+namespace CraftersCloud.Core.Paging;
 
 public interface IPagedRequest
 {

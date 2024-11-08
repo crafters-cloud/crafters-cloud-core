@@ -1,4 +1,4 @@
-﻿using CraftersCloud.Core.Entities;
+using CraftersCloud.Core.Entities;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 namespace CraftersCloud.Core.EntityFramework.Infrastructure;
 
 [PublicAPI]
-public static class EntityTypeBuilderExtensions
+public static class ModelBuilderExtensions
 {
     /// <summary>
     /// Apply convention to set ValueGeneratedNever for primary keys of classes deriving from EntityWithGuidId
@@ -26,6 +26,34 @@ public static class EntityTypeBuilderExtensions
                     property.ValueGenerated = ValueGenerated.Never;
                 }
             }
+        }
+    }
+    
+    /// <summary>
+    /// Register entities from the assembly specified in the options
+    /// </summary>
+    /// <param name="modelBuilder">Model Builder</param>
+    /// <param name="options">Registration options</param>
+    public static void RegisterEntities(this ModelBuilder modelBuilder, EntitiesDbContextOptions options)
+    {
+        var entityMethod =
+            typeof(ModelBuilder).GetMethods().First(m => m is { Name: "Entity", IsGenericMethod: true });
+
+        var entitiesAssembly = options.EntitiesAssembly;
+        var types = entitiesAssembly.GetTypes();
+
+        var entityTypes = types
+            .Where(x => x.IsSubclassOf(typeof(Entity)) && !x.IsAbstract);
+
+        foreach (var type in entityTypes)
+        {
+            if (options.EntityTypePredicate != null &&
+                !options.EntityTypePredicate(type))
+            {
+                continue;
+            }
+
+            entityMethod.MakeGenericMethod(type).Invoke(modelBuilder, []);
         }
     }
 }

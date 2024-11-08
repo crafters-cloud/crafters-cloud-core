@@ -1,4 +1,5 @@
 ﻿using CraftersCloud.Core.Entities;
+using CraftersCloud.Core.EntityFramework.Infrastructure.MediatR;
 using JetBrains.Annotations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -48,9 +49,9 @@ public class PublishDomainEventsInterceptor(IMediator mediator, ILogger<PublishD
     private async Task PublishDomainEvents(CancellationToken cancellationToken = default) =>
         // Publish Domain Events collection.
         // Choices:
-        // A) Right BEFORE committing data (EF SaveChanges) into the DB will make a single transaction including
+        // A: Right BEFORE committing data (EF SaveChanges) into the DB will make a single transaction including
         // side effects from the domain event handlers which are using the same DbContext with "InstancePerLifetimeScope" or "scoped" lifetime
-        // B) Right AFTER committing data (EF SaveChanges) into the DB will make multiple transactions.
+        // B: Right AFTER committing data (EF SaveChanges) into the DB will make multiple transactions.
         // You will need to handle eventual consistency and compensatory actions in case of failures in any of the Handlers.
-        await mediator.DispatchDomainEventsAsync(_domainEvents, logger, cancellationToken);
+        await mediator.PublishDomainEventsAsync(_domainEvents, logger, cancellationToken);
 }
