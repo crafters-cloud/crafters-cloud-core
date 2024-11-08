@@ -13,21 +13,22 @@ public static class EntityQueryableExtensions
         var result = await query.SingleOrDefaultAsync(cancellationToken);
         return result ?? throw new EntityNotFoundException(typeof(T).Name);
     }
-    
+
 
     public static PagedResponse<T> ToPagedResponse<T>(this IQueryable<T> query, IPagedRequest request)
     {
         ArgumentNullException.ThrowIfNull(request);
 
         var pagedQuery = query
-            .OrderByDynamic(request.SortBy, request.SortDirection);
+            .OrderByDynamic(request.SortBy, request.SortDirection ?? string.Empty);
 
-        var skipPaging = request.PageSize == int.MaxValue;
-
+        var pageNumber = request.PageNumber ?? 1;
+        var pageSize = request.PageSize ?? 10;
+        var skipPaging = pageSize == int.MaxValue;
         if (!skipPaging)
         {
-            pagedQuery = pagedQuery.Skip((request.PageNumber - 1) * request.PageSize)
-                .Take(request.PageSize);
+            pagedQuery = pagedQuery.Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize);
         }
 
         var items = pagedQuery.ToList();
@@ -38,8 +39,8 @@ public static class EntityQueryableExtensions
         {
             Items = items,
             TotalCount = totalCount,
-            PageSize = request.PageSize,
-            PageNumber = request.PageNumber
+            PageSize = pageNumber,
+            PageNumber = pageSize
         };
     }
 
@@ -49,14 +50,16 @@ public static class EntityQueryableExtensions
         ArgumentNullException.ThrowIfNull(request);
 
         var pagedQuery = query
-            .OrderByDynamic(request.SortBy, request.SortDirection);
+            .OrderByDynamic(request.SortBy, request.SortDirection ?? string.Empty);
 
-        var skipPaging = request.PageSize == int.MaxValue;
+        var pageNumber = request.PageNumber ?? 1;
+        var pageSize = request.PageSize ?? 10;
+        var skipPaging = pageSize == int.MaxValue;
 
         if (!skipPaging)
         {
-            pagedQuery = pagedQuery.Skip((request.PageNumber - 1) * request.PageSize)
-                .Take(request.PageSize);
+            pagedQuery = pagedQuery.Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize);
         }
 
         var items = await pagedQuery.ToListAsync(cancellationToken);
@@ -67,8 +70,8 @@ public static class EntityQueryableExtensions
         {
             Items = items,
             TotalCount = totalCount,
-            PageSize = request.PageSize,
-            PageNumber = request.PageNumber
+            PageSize = pageSize,
+            PageNumber = pageNumber
         };
     }
 
