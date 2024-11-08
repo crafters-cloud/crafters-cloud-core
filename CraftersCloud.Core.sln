@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
 		nuget.config = nuget.config
-		Build.ps1 = Build.ps1
-		Push.ps1 = Push.ps1
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore", "src\AspNetCore\AspNetCore.csproj", "{1D6941BC-073E-4E3B-A9B1-2A5AFB9D2791}"
@@ -63,6 +61,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore.TestUtilities", "src\AspNetCore.TestUtilities\AspNetCore.TestUtilities.csproj", "{D86902EF-22F1-4AB2-AFDA-2CF7AE014258}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Tests", "tests\Core.Tests\Core.Tests.csproj", "{D44EBCF2-0A37-4E00-816E-4445B3150CA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{038B8C98-D0BC-4F3E-AFAC-BE996397E65C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -179,5 +179,6 @@ Global
 		{656F37B8-A143-493B-B17A-240F739E8C84} = {18E0523E-397A-4487-BB9F-ABF9D1E36A01}
 		{D86902EF-22F1-4AB2-AFDA-2CF7AE014258} = {18E0523E-397A-4487-BB9F-ABF9D1E36A01}
 		{D44EBCF2-0A37-4E00-816E-4445B3150CA9} = {A06EBB9D-63A5-439B-BC34-D89B39D19625}
+		{038B8C98-D0BC-4F3E-AFAC-BE996397E65C} = {5124E6A6-5358-4D1D-A623-292420FB91EA}
 	EndGlobalSection
 EndGlobal
