@@ -63,6 +63,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Tests", "tests\Core.Tests\Core.Tests.csproj", "{D44EBCF2-0A37-4E00-816E-4445B3150CA9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{038B8C98-D0BC-4F3E-AFAC-BE996397E65C}"
+	ProjectSection(SolutionItems) = preProject
+		build.ps1 = build.ps1
+		push.ps1 = push.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
