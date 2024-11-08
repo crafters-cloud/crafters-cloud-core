@@ -4,9 +4,9 @@
     "net8.0": {
       "JetBrains.Annotations": {
         "type": "Direct",
-        "requested": "[2024.2.0, )",
-        "resolved": "2024.2.0",
-        "contentHash": "GNnqCFW/163p1fOehKx0CnAqjmpPrUSqrgfHM6qca+P+RN39C9rhlfZHQpJhxmQG/dkOYe/b3Z0P8b6Kv5m1qw=="
+        "requested": "[2024.3.0, )",
+        "resolved": "2024.3.0",
+        "contentHash": "ox5pkeLQXjvJdyAB4b2sBYAlqZGLh3PjSnP1bQNVx72ONuTJ9+34/+Rq91Fc0dG29XG9RgZur9+NcP4riihTug=="
       },
       "Microsoft.SourceLink.GitHub": {
         "type": "Direct",
@@ -26,9 +26,9 @@
       },
       "Verify": {
         "type": "Direct",
-        "requested": "[27.0.1, )",
-        "resolved": "27.0.1",
-        "contentHash": "1N4iEEdyvWhSLLjVO9J8AC0GcvexnGOpOyP13+NwCB+Mm0llEZnZ3KSMyBjQYjJwoJVAHYQ/8q1OI2AD6euypw==",
+        "requested": "[28.1.3, )",
+        "resolved": "28.1.3",
+        "contentHash": "9ZnollnKsf+klH8Gg2npDFzu1ucZE3vWwsdfuBbeqdUvjwnh7lOR4uKQJEV7gkYzz9nnVdIXN9W8v6Abd6Al9Q==",
         "dependencies": {
           "Argon": "0.22.0",
           "DiffEngine": "15.5.3",
@@ -109,11 +109,11 @@
       "CraftersCloud.Core": {
         "type": "Project",
         "dependencies": {
-          "JetBrains.Annotations": "[2024.2.0, )",
+          "JetBrains.Annotations": "[2024.3.0, )",
           "MediatR": "[12.4.1, )",
           "Microsoft.Extensions.Configuration.Binder": "[8.0.2, )",
           "Microsoft.Extensions.Logging.Abstractions": "[8.0.2, )",
-          "Serilog": "[4.0.2, )",
+          "Serilog": "[4.1.0, )",
           "System.ComponentModel.Annotations": "[5.0.0, )"
         }
       },
@@ -122,7 +122,7 @@
         "dependencies": {
           "Ardalis.SmartEnum": "[8.1.0, )",
           "CraftersCloud.Core": "[1.0.0, )",
-          "JetBrains.Annotations": "[2024.2.0, )"
+          "JetBrains.Annotations": "[2024.3.0, )"
         }
       },
       "Ardalis.SmartEnum": {
@@ -167,9 +167,9 @@
       },
       "Serilog": {
         "type": "CentralTransitive",
-        "requested": "[4.0.2, )",
-        "resolved": "4.0.2",
-        "contentHash": "Vehq4uNYtURe/OnHEpWGvMgrvr5Vou7oZLdn3BuEH5FSCeHXDpNJtpzWoqywXsSvCTuiv0I65mZDRnJSeUvisA=="
+        "requested": "[4.1.0, )",
+        "resolved": "4.1.0",
+        "contentHash": "u1aZI8HZ62LWlq5dZLFwm6jMax/sUwnWZSw5lkPsCt518cJBxFKoNmc7oSxe5aA5BgSkzy9rzwFGR/i/acnSPw=="
       },
       "System.ComponentModel.Annotations": {
         "type": "CentralTransitive",

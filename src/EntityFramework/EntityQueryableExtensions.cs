@@ -1,5 +1,4 @@
 ﻿using System.Linq.Dynamic.Core;
-using AutoMapper;
 using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.Paging;
 using Microsoft.EntityFrameworkCore;
@@ -14,27 +13,11 @@ public static class EntityQueryableExtensions
         var result = await query.SingleOrDefaultAsync(cancellationToken);
         return result ?? throw new EntityNotFoundException(typeof(T).Name);
     }
-
-    public static async Task<TDestination> SingleOrDefaultMappedAsync<TSource, TDestination>(
-        this IQueryable<TSource> query, IMapper mapper, CancellationToken cancellationToken = default)
-    {
-        var item = await query.SingleOrDefaultAsync(cancellationToken);
-        return mapper.Map<TDestination>(item);
-    }
-
-    public static async Task<List<TDestination>> ToListMappedAsync<TSource, TDestination>(
-        this IQueryable<TSource> query, IMapper mapper, CancellationToken cancellationToken = default)
-    {
-        var items = await query.ToListAsync(cancellationToken);
-        return mapper.Map<List<TDestination>>(items);
-    }
+    
 
     public static PagedResponse<T> ToPagedResponse<T>(this IQueryable<T> query, IPagedRequest request)
     {
-        if (request == null)
-        {
-            throw new ArgumentNullException(nameof(request));
-        }
+        ArgumentNullException.ThrowIfNull(request);
 
         var pagedQuery = query
             .OrderByDynamic(request.SortBy, request.SortDirection);
@@ -63,10 +46,7 @@ public static class EntityQueryableExtensions
     public static async Task<PagedResponse<T>> ToPagedResponseAsync<T>(this IQueryable<T> query, IPagedRequest request,
         CancellationToken cancellationToken = default)
     {
-        if (request == null)
-        {
-            throw new ArgumentNullException(nameof(request));
-        }
+        ArgumentNullException.ThrowIfNull(request);
 
         var pagedQuery = query
             .OrderByDynamic(request.SortBy, request.SortDirection);

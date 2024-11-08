@@ -15,9 +15,9 @@
       },
       "JetBrains.Annotations": {
         "type": "Direct",
-        "requested": "[2024.2.0, )",
-        "resolved": "2024.2.0",
-        "contentHash": "GNnqCFW/163p1fOehKx0CnAqjmpPrUSqrgfHM6qca+P+RN39C9rhlfZHQpJhxmQG/dkOYe/b3Z0P8b6Kv5m1qw=="
+        "requested": "[2024.3.0, )",
+        "resolved": "2024.3.0",
+        "contentHash": "ox5pkeLQXjvJdyAB4b2sBYAlqZGLh3PjSnP1bQNVx72ONuTJ9+34/+Rq91Fc0dG29XG9RgZur9+NcP4riihTug=="
       },
       "Microsoft.SourceLink.GitHub": {
         "type": "Direct",
@@ -119,21 +119,20 @@
       "CraftersCloud.Core": {
         "type": "Project",
         "dependencies": {
-          "JetBrains.Annotations": "[2024.2.0, )",
+          "JetBrains.Annotations": "[2024.3.0, )",
           "MediatR": "[12.4.1, )",
           "Microsoft.Extensions.Configuration.Binder": "[8.0.2, )",
           "Microsoft.Extensions.Logging.Abstractions": "[8.0.2, )",
-          "Serilog": "[4.0.2, )",
+          "Serilog": "[4.1.0, )",
           "System.ComponentModel.Annotations": "[5.0.0, )"
         }
       },
       "CraftersCloud.Core.EntityFramework": {
         "type": "Project",
         "dependencies": {
-          "AutoMapper": "[13.0.1, )",
           "CraftersCloud.Core": "[1.0.0, )",
           "Microsoft.EntityFrameworkCore": "[8.0.10, )",
-          "System.Linq.Dynamic.Core": "[1.4.6, )"
+          "System.Linq.Dynamic.Core": "[1.4.8, )"
         }
       },
       "CraftersCloud.Core.SmartEnums": {
@@ -141,7 +140,7 @@
         "dependencies": {
           "Ardalis.SmartEnum": "[8.1.0, )",
           "CraftersCloud.Core": "[1.0.0, )",
-          "JetBrains.Annotations": "[2024.2.0, )"
+          "JetBrains.Annotations": "[2024.3.0, )"
         }
       },
       "Ardalis.SmartEnum": {
@@ -149,15 +148,6 @@
         "requested": "[8.1.0, )",
         "resolved": "8.1.0",
         "contentHash": "+OpcDNwgfwdKEhEwq6U5lrXiBpdA3LxfZR7nTtF6vzbkXc1hKa2Uv/rHduzxwNLYrzOfR/7QUVyjWTliSS7pOA=="
-      },
-      "AutoMapper": {
-        "type": "CentralTransitive",
-        "requested": "[13.0.1, )",
-        "resolved": "13.0.1",
-        "contentHash": "/Fx1SbJ16qS7dU4i604Sle+U9VLX+WSNVJggk6MupKVkYvvBm4XqYaeFuf67diHefHKHs50uQIS2YEDFhPCakQ==",
-        "dependencies": {
-          "Microsoft.Extensions.Options": "6.0.0"
-        }
       },
       "MediatR": {
         "type": "CentralTransitive",
@@ -218,9 +208,9 @@
       },
       "Serilog": {
         "type": "CentralTransitive",
-        "requested": "[4.0.2, )",
-        "resolved": "4.0.2",
-        "contentHash": "Vehq4uNYtURe/OnHEpWGvMgrvr5Vou7oZLdn3BuEH5FSCeHXDpNJtpzWoqywXsSvCTuiv0I65mZDRnJSeUvisA=="
+        "requested": "[4.1.0, )",
+        "resolved": "4.1.0",
+        "contentHash": "u1aZI8HZ62LWlq5dZLFwm6jMax/sUwnWZSw5lkPsCt518cJBxFKoNmc7oSxe5aA5BgSkzy9rzwFGR/i/acnSPw=="
       },
       "System.ComponentModel.Annotations": {
         "type": "CentralTransitive",
@@ -230,9 +220,9 @@
       },
       "System.Linq.Dynamic.Core": {
         "type": "CentralTransitive",
-        "requested": "[1.4.6, )",
-        "resolved": "1.4.6",
-        "contentHash": "GZJ996kvIKH0nnKysDWy+le7k0Hoq1iSY7S5sNq6AF1bXPQGidaXjiOJNX4VCUuVWpbe28Ygb6mDSwgY+UhHLA=="
+        "requested": "[1.4.8, )",
+        "resolved": "1.4.8",
+        "contentHash": "PJnIOPdz18YJjMPyHkBI5knqQHNWR1bKVkX+c11sauOVnTVyBDjHSaExZexlwFuWT1q6wkg2UTfmFKloNfANvQ=="
       }
     }
   }
