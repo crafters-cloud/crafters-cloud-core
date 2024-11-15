@@ -26,7 +26,7 @@ public abstract class EntitiesDbContext(
 
         base.OnModelCreating(modelBuilder);
     }
-    
+
     public async Task<IDbContextTransaction> BeginTransactionAsync(IsolationLevel isolationLevel,
         CancellationToken cancellationToken)
     {

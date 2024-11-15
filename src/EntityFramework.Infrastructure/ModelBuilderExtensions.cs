@@ -18,7 +18,8 @@ public static class ModelBuilderExtensions
         var entityWithGuidIdTypes = entityTypes.Where(e => typeof(EntityWithGuidId).IsAssignableFrom(e.ClrType));
         foreach (var entityType in entityWithGuidIdTypes)
         {
-            var key = entityType.FindPrimaryKey() ?? throw new InvalidOperationException($"{entityType} must have a primary key.");
+            var key = entityType.FindPrimaryKey() ??
+                      throw new InvalidOperationException($"{entityType} must have a primary key.");
             foreach (var property in key.Properties)
             {
                 if (property.Name == nameof(EntityWithGuidId.Id) && property.ClrType == typeof(Guid))
@@ -28,7 +29,7 @@ public static class ModelBuilderExtensions
             }
         }
     }
-    
+
     /// <summary>
     /// Register entities from the assembly specified in the options
     /// </summary>

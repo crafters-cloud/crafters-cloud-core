@@ -6,6 +6,6 @@ namespace CraftersCloud.Core.Configuration;
 public class ApplicationInsightsSettings
 {
     public const string SectionName = "ApplicationInsights";
-    
+
     public string ConnectionString { get; set; } = string.Empty;
 }

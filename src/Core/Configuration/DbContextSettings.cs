@@ -6,7 +6,7 @@ namespace CraftersCloud.Core.Configuration;
 public class DbContextSettings
 {
     public const string SectionName = "DbContext";
-    
+
     public bool SensitiveDataLoggingEnabled { get; set; }
 
     public int ConnectionResiliencyMaxRetryCount { get; set; }

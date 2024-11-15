@@ -38,7 +38,7 @@ public class DefaultRulesProviderFixture
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName')");
     }
-    
+
     [Test]
     public void GivenHandlerWithoutEmptyClients_GetRulesFor_ReturnsRulesWithSqlFilter()
     {
@@ -81,7 +81,7 @@ public class DefaultRulesProviderFixture
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName') and user.OriginatorId in ('SomeClientName')");
     }
-    
+
     [Test]
     public void GivenHandlerWithMultipleClients_GetRulesFor_ReturnsRulesWithSqlFilter()
     {

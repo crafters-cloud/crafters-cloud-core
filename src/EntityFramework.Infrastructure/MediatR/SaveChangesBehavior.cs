@@ -48,7 +48,8 @@ public abstract class SaveChangesBehavior<TDbContext, TRequest, TResponse>(
 
                         response = await next();
 
-                        logger.LogDebug("Commit transaction {TransactionId} for {CommandName}", transactionId, typeName);
+                        logger.LogDebug("Commit transaction {TransactionId} for {CommandName}", transactionId,
+                            typeName);
 
                         await unitOfWork.SaveChangesAsync(cancellationToken);
                         await dbContext.CommitTransactionAsync(transaction, cancellationToken);

@@ -46,5 +46,6 @@ public class EntityFrameworkRepository<T, TId>(DbContext context) : IRepository<
 
     private T? FindById(TId id) => DbSet.Find(id);
 
-    private ValueTask<T?> FindByIdAsync(TId id, CancellationToken cancellationToken) => DbSet.FindAsync([id], cancellationToken);
+    private ValueTask<T?> FindByIdAsync(TId id, CancellationToken cancellationToken) =>
+        DbSet.FindAsync([id], cancellationToken);
 }
