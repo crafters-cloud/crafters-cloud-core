@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 namespace CraftersCloud.Core.AspNetCore.Exceptions;
 
 [PublicAPI]
-internal sealed class CoreGlobalExceptionHandler(ILogger<CoreGlobalExceptionHandler> logger)
+public sealed class CoreGlobalExceptionHandler(ILogger<CoreGlobalExceptionHandler> logger)
     : IExceptionHandler
 {
     public async ValueTask<bool> TryHandleAsync(
