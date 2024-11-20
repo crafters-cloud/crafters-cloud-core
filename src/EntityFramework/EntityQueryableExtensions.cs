@@ -1,4 +1,5 @@
 ﻿using System.Linq.Dynamic.Core;
+using System.Linq.Expressions;
 using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.Paging;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +15,17 @@ public static class EntityQueryableExtensions
         return result ?? throw new EntityNotFoundException(typeof(T).Name);
     }
 
-
+    public static IQueryable<T> LimitTo<T>(this IQueryable<T> query, int numberOfItems) where T : class
+    {
+        return query.Take(numberOfItems);
+    }
+        
+    public static async Task<bool> ExistsAsync<T>(this IQueryable<T> query, Expression<Func<T, bool>> predicate,
+        CancellationToken cancellationToken) where  T : class
+    {
+        return await query.SingleOrDefaultAsync(predicate, cancellationToken) is not null;
+    }
+    
     public static PagedResponse<T> ToPagedResponse<T>(this IQueryable<T> query, IPagedRequest request)
     {
         ArgumentNullException.ThrowIfNull(request);
