@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <PackageReference Include="Ben.Demystifier" />
-    <PackageReference Include="Carter" />
     <PackageReference Include="FluentValidation.AspNetCore" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
