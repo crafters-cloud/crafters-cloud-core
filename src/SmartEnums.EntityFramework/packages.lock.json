@@ -135,13 +135,13 @@
         "dependencies": {
           "CraftersCloud.Core": "[1.0.0, )",
           "Microsoft.EntityFrameworkCore": "[9.0.0, )",
-          "System.Linq.Dynamic.Core": "[1.4.8, )"
+          "System.Linq.Dynamic.Core": "[1.4.9, )"
         }
       },
       "CraftersCloud.Core.SmartEnums": {
         "type": "Project",
         "dependencies": {
-          "Ardalis.SmartEnum": "[8.1.0, )",
+          "Ardalis.SmartEnum": "[8.2.0, )",
           "CraftersCloud.Core": "[1.0.0, )",
           "JetBrains.Annotations": "[2024.3.0, )"
         }
@@ -154,9 +154,9 @@
       },
       "Ardalis.SmartEnum": {
         "type": "CentralTransitive",
-        "requested": "[8.1.0, )",
-        "resolved": "8.1.0",
-        "contentHash": "+OpcDNwgfwdKEhEwq6U5lrXiBpdA3LxfZR7nTtF6vzbkXc1hKa2Uv/rHduzxwNLYrzOfR/7QUVyjWTliSS7pOA=="
+        "requested": "[8.2.0, )",
+        "resolved": "8.2.0",
+        "contentHash": "P1CLI2okpzHjOJnZMYLnzcyu1/fUJEYK1X4JSnal2TPmovrUTtXK6Sn78D2JgKUdwjSeWddnRveMj+BEZoksvg=="
       },
       "MediatR": {
         "type": "CentralTransitive",
@@ -241,9 +241,9 @@
       },
       "System.Linq.Dynamic.Core": {
         "type": "CentralTransitive",
-        "requested": "[1.4.8, )",
-        "resolved": "1.4.8",
-        "contentHash": "PJnIOPdz18YJjMPyHkBI5knqQHNWR1bKVkX+c11sauOVnTVyBDjHSaExZexlwFuWT1q6wkg2UTfmFKloNfANvQ=="
+        "requested": "[1.4.9, )",
+        "resolved": "1.4.9",
+        "contentHash": "0SMBOMlxDsp8n3JoPsKoM5X6Ory+yWLKMrXlYt+CoiPyyLnqoqo+Dvhsy/gIa6CSaLvjzlTNWuBb1BCKjc6lqg=="
       }
     }
   }

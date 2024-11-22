@@ -26,12 +26,12 @@
       },
       "Verify": {
         "type": "Direct",
-        "requested": "[28.3.0, )",
-        "resolved": "28.3.0",
-        "contentHash": "7fj9jvh4K1r2kFISvnV7guQ1TIWFfoNIbw+XikjkZvLQ4sOtCrbXJQ8110FJIK8sqZoKmFXpEh/MBxb6k/S3og==",
+        "requested": "[28.3.2, )",
+        "resolved": "28.3.2",
+        "contentHash": "ordnEZ3VKTqaioRxP3lyalII7Amlt1rr5wAMsVjyQJFuMchxG5pA7ZPnnzVFO2i9mcp1d9lkLCgPhzwAHVSdGQ==",
         "dependencies": {
           "Argon": "0.25.0",
-          "DiffEngine": "15.5.4",
+          "DiffEngine": "15.5.5",
           "SimpleInfoName": "3.1.0",
           "System.IO.Hashing": "9.0.0"
         }
@@ -43,11 +43,11 @@
       },
       "DiffEngine": {
         "type": "Transitive",
-        "resolved": "15.5.4",
-        "contentHash": "DAct35iQxlNWj7JkySztIme/WI2QY/grkBSg7EOkcYnJcEasw9VAF3wRtXaPqHnboevmSzwimMFRe5rV1avr6w==",
+        "resolved": "15.5.5",
+        "contentHash": "EUoSJsE3r58G/BK+QDOPrQXLclvOw6xuvAmo40Ir2k+u2jYhZnnqvggH2nMiX9GYWASNtHEZ8Z25lxTd1kMMjw==",
         "dependencies": {
           "EmptyFiles": "8.5.1",
-          "System.Management": "9.0.0"
+          "System.Management": "8.0.0"
         }
       },
       "EmptyFiles": {
@@ -90,8 +90,8 @@
       },
       "System.CodeDom": {
         "type": "Transitive",
-        "resolved": "9.0.0",
-        "contentHash": "oTE5IfuMoET8yaZP/vdvy9xO47guAv/rOhe4DODuFBN3ySprcQOlXqO3j+e/H/YpKKR5sglrxRaZ2HYOhNJrqA=="
+        "resolved": "8.0.0",
+        "contentHash": "WTlRjL6KWIMr/pAaq3rYqh0TJlzpouaQ/W1eelssHgtlwHAH25jXTkUphTYx9HaIIf7XA6qs/0+YhtLEQRkJ+Q=="
       },
       "System.IO.Hashing": {
         "type": "Transitive",
@@ -100,10 +100,10 @@
       },
       "System.Management": {
         "type": "Transitive",
-        "resolved": "9.0.0",
-        "contentHash": "bVh4xAMI5grY5GZoklKcMBLirhC8Lqzp63Ft3zXJacwGAlLyFdF4k0qz4pnKIlO6HyL2Z4zqmHm9UkzEo6FFsA==",
+        "resolved": "8.0.0",
+        "contentHash": "jrK22i5LRzxZCfGb+tGmke2VH7oE0DvcDlJ1HAKYU8cPmD8XnpUT0bYn2Gy98GEhGjtfbR/sxKTVb+dE770pfA==",
         "dependencies": {
-          "System.CodeDom": "9.0.0"
+          "System.CodeDom": "8.0.0"
         }
       },
       "CraftersCloud.Core": {
@@ -123,7 +123,7 @@
       "CraftersCloud.Core.SmartEnums": {
         "type": "Project",
         "dependencies": {
-          "Ardalis.SmartEnum": "[8.1.0, )",
+          "Ardalis.SmartEnum": "[8.2.0, )",
           "CraftersCloud.Core": "[1.0.0, )",
           "JetBrains.Annotations": "[2024.3.0, )"
         }
@@ -136,9 +136,9 @@
       },
       "Ardalis.SmartEnum": {
         "type": "CentralTransitive",
-        "requested": "[8.1.0, )",
-        "resolved": "8.1.0",
-        "contentHash": "+OpcDNwgfwdKEhEwq6U5lrXiBpdA3LxfZR7nTtF6vzbkXc1hKa2Uv/rHduzxwNLYrzOfR/7QUVyjWTliSS7pOA=="
+        "requested": "[8.2.0, )",
+        "resolved": "8.2.0",
+        "contentHash": "P1CLI2okpzHjOJnZMYLnzcyu1/fUJEYK1X4JSnal2TPmovrUTtXK6Sn78D2JgKUdwjSeWddnRveMj+BEZoksvg=="
       },
       "MediatR": {
         "type": "CentralTransitive",
