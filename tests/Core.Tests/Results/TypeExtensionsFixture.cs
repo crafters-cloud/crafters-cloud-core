@@ -21,6 +21,7 @@ public class TypeExtensionsFixture
     {
         var result = typeof(AClassWithoutBadRequestResult);
         result.IsDerivedFromOneOfType<BadRequestResult>().Should().BeFalse();
+        
     }
 
     [Test]
