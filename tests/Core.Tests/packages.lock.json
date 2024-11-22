@@ -106,6 +106,7 @@
         "type": "Project",
         "dependencies": {
           "Ardalis.Result": "[10.1.0, )",
+          "FluentValidation": "[11.11.0, )",
           "JetBrains.Annotations": "[2024.3.0, )",
           "MediatR": "[12.4.1, )",
           "Microsoft.Extensions.Configuration.Binder": "[9.0.0, )",
@@ -121,6 +122,12 @@
         "requested": "[10.1.0, )",
         "resolved": "10.1.0",
         "contentHash": "+WgsXh+JRm0d8BZPlBUc5w0+FTda4vbWRa/IF2q4zDoRsU5BXr8w4rTbYEklZIMNgQQZTcNouR/QfBV5I/4XYQ=="
+      },
+      "FluentValidation": {
+        "type": "CentralTransitive",
+        "requested": "[11.11.0, )",
+        "resolved": "11.11.0",
+        "contentHash": "cyIVdQBwSipxWG8MA3Rqox7iNbUNUTK5bfJi9tIdm4CAfH71Oo5ABLP4/QyrUwuakqpUEPGtE43BDddvEehuYw=="
       },
       "JetBrains.Annotations": {
         "type": "CentralTransitive",

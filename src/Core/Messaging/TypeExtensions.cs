@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using MediatR;
 
-namespace CraftersCloud.Core.Cqrs;
+namespace CraftersCloud.Core.Messaging;
 
 [PublicAPI]
 public static class TypeExtensions

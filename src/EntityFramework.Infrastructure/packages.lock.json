@@ -418,6 +418,7 @@
         "type": "Project",
         "dependencies": {
           "Ardalis.Result": "[10.1.0, )",
+          "FluentValidation": "[11.11.0, )",
           "JetBrains.Annotations": "[2024.3.0, )",
           "MediatR": "[12.4.1, )",
           "Microsoft.Extensions.Configuration.Binder": "[9.0.0, )",
@@ -439,7 +440,7 @@
       "CraftersCloud.Core.MediatR": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "[11.11.0, )",
+          "CraftersCloud.Core": "[1.0.0, )",
           "JetBrains.Annotations": "[2024.3.0, )",
           "MediatR": "[12.4.1, )",
           "Microsoft.Extensions.Logging": "[9.0.0, )",

@@ -1,11 +1,11 @@
 ﻿namespace CraftersCloud.Core.Paging;
 
-public class PagedResponse<T>
+public class PagedQueryResponse<T>
 {
     /// <summary>
     /// Paged items
     /// </summary>
-    public IEnumerable<T> Items { get; set; } = new List<T>();
+    public IEnumerable<T> Items { get; set; } = [];
 
     /// <summary>
     /// Total items count

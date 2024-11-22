@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace CraftersCloud.Core.Cqrs;
+namespace CraftersCloud.Core.Messaging;
 
 /// <summary>
 /// Base interface for all the queries.

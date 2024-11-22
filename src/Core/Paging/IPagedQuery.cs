@@ -1,8 +1,8 @@
-﻿using CraftersCloud.Core.Cqrs;
+﻿using CraftersCloud.Core.Messaging;
 
 namespace CraftersCloud.Core.Paging;
 
-public interface IPagedRequest : IBaseQuery
+public interface IPagedQuery : IBaseQuery
 {
     int? PageNumber { get; set; }
     int? PageSize { get; set; }

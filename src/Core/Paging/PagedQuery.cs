@@ -1,8 +1,8 @@
-﻿using MediatR;
+﻿using CraftersCloud.Core.Messaging;
 
 namespace CraftersCloud.Core.Paging;
 
-public class PagedRequest<TResponse> : IRequest<PagedResponse<TResponse>>, IPagedRequest
+public class PagedQuery<TResponse> : IQuery<PagedQueryResponse<TResponse>>, IPagedQuery
 {
     public int? PageNumber { get; set; }
     public int? PageSize { get; set; }

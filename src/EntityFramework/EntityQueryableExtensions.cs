@@ -7,15 +7,7 @@ namespace CraftersCloud.Core.EntityFramework;
 
 public static class EntityQueryableExtensions
 {
-    public static async Task<T> SingleOrNotFoundAsync<T>(this IQueryable<T> query,
-        CancellationToken cancellationToken = default)
-    {
-        var result = await query.SingleOrDefaultAsync(cancellationToken);
-        return result ?? throw new EntityNotFoundException(typeof(T).Name);
-    }
-
-
-    public static PagedResponse<T> ToPagedResponse<T>(this IQueryable<T> query, IPagedRequest request)
+    public static PagedQueryResponse<T> ToPagedResponse<T>(this IQueryable<T> query, IPagedQuery request)
     {
         ArgumentNullException.ThrowIfNull(request);
 
@@ -35,7 +27,7 @@ public static class EntityQueryableExtensions
 
         var totalCount = skipPaging ? items.Count : query.Count();
 
-        return new PagedResponse<T>
+        return new PagedQueryResponse<T>
         {
             Items = items,
             TotalCount = totalCount,
@@ -44,7 +36,7 @@ public static class EntityQueryableExtensions
         };
     }
 
-    public static async Task<PagedResponse<T>> ToPagedResponseAsync<T>(this IQueryable<T> query, IPagedRequest request,
+    public static async Task<PagedQueryResponse<T>> ToPagedResponseAsync<T>(this IQueryable<T> query, IPagedQuery request,
         CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(request);
@@ -66,7 +58,7 @@ public static class EntityQueryableExtensions
 
         var totalCount = skipPaging ? items.Count : await query.CountAsync(cancellationToken);
 
-        return new PagedResponse<T>
+        return new PagedQueryResponse<T>
         {
             Items = items,
             TotalCount = totalCount,
@@ -74,7 +66,7 @@ public static class EntityQueryableExtensions
             PageNumber = pageNumber
         };
     }
-
+    
     private static IQueryable<T> OrderByDynamic<T>(this IQueryable<T> query, string? orderBy,
         string orderDirection = "asc") =>
         string.IsNullOrWhiteSpace(orderBy) ? query : query.OrderBy($"{orderBy} {orderDirection}");

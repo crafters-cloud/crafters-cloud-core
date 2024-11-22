@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using CraftersCloud.Core.Results;
+using FluentValidation;
+using FluentValidation.Results;
 using JetBrains.Annotations;
 using MediatR;
 
@@ -19,6 +21,19 @@ public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TReq
             .SelectMany(result => result.Errors)
             .ToList();
 
-        return failures.Count != 0 ? throw new ValidationException(failures) : await next();
+        if (failures.Count == 0)
+        {
+            await next();
+        }
+        else
+        {
+            if (typeof(TResponse).IsDerivedFromOneOfType<InvalidResult>())
+            { 
+                var invalidResult = new InvalidResult(failures);
+                return invalidResult.MapToOneOf<TResponse>();
+            }
+        }
+
+        throw new ValidationException(failures);
     }
 }

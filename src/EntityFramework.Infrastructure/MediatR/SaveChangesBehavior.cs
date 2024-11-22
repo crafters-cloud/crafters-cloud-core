@@ -1,7 +1,6 @@
-﻿using System.Data;
-using CraftersCloud.Core.Cqrs;
-using CraftersCloud.Core.Data;
+﻿using CraftersCloud.Core.Data;
 using CraftersCloud.Core.MediatR;
+using CraftersCloud.Core.Messaging;
 using JetBrains.Annotations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -31,15 +30,15 @@ public abstract class SaveChangesBehavior<TDbContext, TRequest, TResponse>(
                 return await next();
             }
 
-            // only for the transactional commands we begin the transaction
-            if (RequiresTransaction(request))
+            var transactionBehavior = GetTransactionBehavior(request);
+            if (transactionBehavior.RequiresTransaction)
             {
                 var strategy = dbContext.Database.CreateExecutionStrategy();
 
                 await strategy.ExecuteAsync(async () =>
                 {
                     await using var transaction =
-                        await dbContext.BeginTransactionAsync(IsolationLevel.ReadCommitted, cancellationToken);
+                        await dbContext.BeginTransactionAsync(transactionBehavior.IsolationLevel, cancellationToken);
                     var transactionId = transaction.TransactionId;
                     using (logger.BeginScope(
                                new List<KeyValuePair<string, object>> { new("TransactionContext", transactionId) }))
@@ -73,15 +72,10 @@ public abstract class SaveChangesBehavior<TDbContext, TRequest, TResponse>(
         }
     }
 
-    private static bool RequiresTransaction(TRequest request)
-    {
-        if (request is IBaseCommand command)
-        {
-            return command.TransactionBehavior == TransactionBehavior.RequiresDbTransaction;
-        }
-
-        return true;
-    }
+    private static CommandTransactionBehavior GetTransactionBehavior(TRequest request) =>
+        request is IBaseCommand command
+            ? command.TransactionBehavior
+            : CommandTransactionBehavior.NoTransaction;
 
     private (bool doSkip, string reason) SkipSaveChanges(TRequest request)
     {
