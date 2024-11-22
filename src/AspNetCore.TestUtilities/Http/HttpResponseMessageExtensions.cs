@@ -1,5 +1,8 @@
-﻿namespace CraftersCloud.Core.AspNetCore.TestUtilities.Http;
+﻿using JetBrains.Annotations;
 
+namespace CraftersCloud.Core.AspNetCore.TestUtilities.Http;
+
+[PublicAPI]
 public static class HttpResponseMessageExtensions
 {
     public static async Task<T?> DeserializeAsync<T>(this HttpResponseMessage response)

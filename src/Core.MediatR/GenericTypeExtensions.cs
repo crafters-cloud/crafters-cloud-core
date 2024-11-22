@@ -1,4 +1,4 @@
-namespace Enigmatry.Entry.EntityFramework.MediatR;
+namespace CraftersCloud.Core.MediatR;
 
 public static class GenericTypeExtensions
 {

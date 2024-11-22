@@ -1,5 +1,6 @@
 ﻿namespace CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 
+[Obsolete]
 public static class UriExtensions
 {
     public static Uri AppendParameters(this Uri uri, KeyValuePair<string, string>[] parameters)

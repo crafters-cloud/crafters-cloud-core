@@ -1,9 +1,11 @@
 ﻿using System.Reflection;
 using Autofac;
 using CraftersCloud.Core.Data;
+using JetBrains.Annotations;
 
 namespace CraftersCloud.Core.EntityFramework.Infrastructure;
 
+[PublicAPI]
 public static class ContainerBuilderExtensions
 {
     public static void CoreRegisterRepositoryTypes(this ContainerBuilder builder, Assembly[] assemblies)

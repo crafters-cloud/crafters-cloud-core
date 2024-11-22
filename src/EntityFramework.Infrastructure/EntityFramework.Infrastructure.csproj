@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Core.MediatR\Core.MediatR.csproj" />
     <ProjectReference Include="..\EntityFramework\EntityFramework.csproj" />
   </ItemGroup>
 

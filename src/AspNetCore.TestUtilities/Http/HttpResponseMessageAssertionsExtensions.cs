@@ -38,7 +38,7 @@ public static class HttpResponseMessageAssertionsExtensions
             if (json != null && json.Errors.TryGetValue(fieldName, out var errorsField))
             {
                 errorFound = string.IsNullOrEmpty(expectedValidationMessage)
-                    ? errorsField.Any()
+                    ? errorsField.Length != 0
                     : errorsField.Any(msg =>
                         msg.Contains(expectedValidationMessage, StringComparison.OrdinalIgnoreCase));
             }

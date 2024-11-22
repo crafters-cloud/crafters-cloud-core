@@ -1,7 +1,7 @@
-﻿using JetBrains.Annotations;
+﻿using System.Diagnostics;
+using JetBrains.Annotations;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using Serilog.Context;
 
 namespace CraftersCloud.Core.MediatR;
 
@@ -13,12 +13,15 @@ public class LoggingBehavior<TRequest, TResponse>(ILogger<LoggingBehavior<TReque
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
-        var requestType = typeof(TRequest).FullName;
-        using (LogContext.PushProperty("MediatRRequestType", requestType))
+        var typeName = request.GetGenericTypeName();
+       
+        using (logger.BeginScope(new Dictionary<string, object> { { "MediatRRequestType", typeName } }))
         {
-            logger.LogInformation("Handling {RequestType}", requestType);
+            logger.LogDebug("Handling {RequestType}", typeName);
+            var stopwatch = Stopwatch.StartNew();
             var response = await next();
-            logger.LogInformation("Handled {RequestType}", requestType);
+            stopwatch.Stop();
+            logger.LogDebug("Handled {RequestType} in {ElapsedMilliseconds}ms", typeName, stopwatch.ElapsedMilliseconds);
             return response;
         }
     }

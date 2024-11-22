@@ -1,7 +1,10 @@
 ﻿using System.Net.Http.Json;
+using JetBrains.Annotations;
 
 namespace CraftersCloud.Core.AspNetCore.TestUtilities.Http;
 
+[PublicAPI]
+[Obsolete]
 public static class JsonHttpClientExtensions
 {
     public static async Task<T?> GetAsync<T>(this HttpClient client, string uri)

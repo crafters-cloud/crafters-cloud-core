@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using CraftersCloud.Core.Cqrs;
 using CraftersCloud.Core.Data;
-using Enigmatry.Entry.EntityFramework.MediatR;
+using CraftersCloud.Core.MediatR;
 using JetBrains.Annotations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
