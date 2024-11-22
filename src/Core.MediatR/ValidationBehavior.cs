@@ -1,6 +1,5 @@
 ﻿using CraftersCloud.Core.Results;
 using FluentValidation;
-using FluentValidation.Results;
 using JetBrains.Annotations;
 using MediatR;
 
@@ -27,9 +26,9 @@ public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TReq
         }
         else
         {
-            if (typeof(TResponse).IsDerivedFromOneOfType<InvalidResult>())
+            if (typeof(TResponse).IsDerivedFromOneOfType<BadRequestResult>())
             { 
-                var invalidResult = new InvalidResult(failures);
+                var invalidResult = new BadRequestResult(failures);
                 return invalidResult.MapToOneOf<TResponse>();
             }
         }

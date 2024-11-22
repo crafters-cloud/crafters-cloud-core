@@ -14,8 +14,8 @@ public static class CommandResult
 
 [PublicAPI]
 [GenerateOneOf]
-public partial class CreateCommandResult<T> : OneOfBase<CreatedResult<T>, InvalidResult>;
+public partial class CreateCommandResult<T> : OneOfBase<CreatedResult<T>, BadRequestResult>;
 
 [PublicAPI]
 [GenerateOneOf]
-public partial class UpdateCommandResult<T> : OneOfBase<NoContentResult, NotFoundResult, InvalidResult>;
+public partial class UpdateCommandResult<T> : OneOfBase<NoContentResult, NotFoundResult, BadRequestResult>;

@@ -4,7 +4,7 @@ namespace CraftersCloud.Core.Results;
 
 public static class Result
 {
-    public static InvalidResult Invalid(IReadOnlyCollection<ValidationFailure> failures) => new(failures);
+    public static BadRequestResult BadRequest(IReadOnlyCollection<ValidationFailure> failures) => new(failures);
     
     public static NotFoundResult NotFound() => new();
 

@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using CraftersCloud.Core.AspNetCore.Validation;
 using FluentValidation;
 using FluentValidation.Results;
 using JetBrains.Annotations;
@@ -33,26 +32,15 @@ public static class HttpContextExtensions
 
         return problemDetails;
     }
-    
+
     public static ValidationProblemDetails CreateValidationProblemDetails(this HttpContext context,
         ValidationException validationException) =>
         CreateValidationProblemDetails(context, validationException.Errors);
 
     public static ValidationProblemDetails CreateValidationProblemDetails(this HttpContext context,
-        IEnumerable<ValidationFailure> validationFailures)
-    {
-        var problemDetails = new ValidationProblemDetails
-        {
-            Instance = context.Request.Path,
-            Status = StatusCodes.Status400BadRequest,
-            Type = "https://asp.net/core",
-            Detail = "Please refer to the errors property for additional details.",
-            Errors = validationFailures.ToProblemDetailsErrors()
-        };
+        IEnumerable<ValidationFailure> validationFailures) =>
+        ValidationProblemDetailsMapper.CreateValidationProblemDetails(context.Request.Path, validationFailures);
 
-        return problemDetails;
-    }
-    
     public static async Task WriteProblemDetails<T>(this HttpContext httpContext, T problemDetails,
         CancellationToken cancellationToken) where T : ProblemDetails
     {
