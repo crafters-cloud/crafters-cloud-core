@@ -22,17 +22,16 @@ public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TReq
 
         if (failures.Count == 0)
         {
-            await next();
-        }
-        else
-        {
-            if (typeof(TResponse).IsDerivedFromOneOfType<BadRequestResult>())
-            { 
-                var invalidResult = new BadRequestResult(failures);
-                return invalidResult.MapToOneOf<TResponse>();
-            }
+            return await next();
         }
 
-        throw new ValidationException(failures);
+        if (!typeof(TResponse).IsDerivedFromOneOfType<BadRequestResult>())
+        {
+            throw new ValidationException(failures);
+        }
+
+        var invalidResult = new BadRequestResult(failures);
+        return invalidResult.MapToOneOf<TResponse>();
+
     }
 }
