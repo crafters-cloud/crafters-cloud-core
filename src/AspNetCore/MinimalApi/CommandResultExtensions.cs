@@ -9,11 +9,12 @@ namespace CraftersCloud.Core.AspNetCore.MinimalApi;
 [PublicAPI]
 public static class CommandResultExtensions
 {
-    public static Results<Created<T>, BadRequest> ToMinimalApiResult<T>(
+    public static Results<Created<T>, BadRequest<ValidationProblemDetails>> ToMinimalApiResult<T>(
         this CreateCommandResult<T> command) =>
-        command.Match<Results<Created<T>, BadRequest>>(
+        command.Match<Results<Created<T>, BadRequest<ValidationProblemDetails>>>(
             created => TypedResults.Created("", created.Value),
-            badRequest => TypedResults.BadRequest());
+            badRequest => TypedResults.BadRequest(ValidationProblemDetailsMapper.CreateValidationProblemDetails(string.Empty,
+                badRequest.ValidationFailures)));
 
     public static Results<NoContent, NotFound, BadRequest<ValidationProblemDetails>>
         ToMinimalApiResult<T>(this UpdateCommandResult<T> command) =>
