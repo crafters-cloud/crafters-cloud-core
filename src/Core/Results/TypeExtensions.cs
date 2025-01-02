@@ -1,5 +1,4 @@
 using System.Reflection;
-using Ardalis.Result;
 using CraftersCloud.Core.Helpers;
 using OneOf;
 
@@ -35,7 +34,7 @@ public static class TypeExtensions
                               $"No constructor found in {targetType} that accepts an IOneOf parameter.");
 
         // find the implicit conversion operator that converts Value to the parameter type
-        var parameterType = constructor.GetParameters().First().ParameterType;
+        var parameterType = constructor.GetParameters()[0].ParameterType;
         var method = parameterType.GetMethods(BindingFlags.Public | BindingFlags.Static)
                          .FirstOrDefault(m => m.Name == "op_Implicit" &&
                                               m.GetParameters().Any(p => p.ParameterType == valueType))

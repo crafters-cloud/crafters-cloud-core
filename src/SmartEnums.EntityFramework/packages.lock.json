@@ -119,7 +119,6 @@
       "CraftersCloud.Core": {
         "type": "Project",
         "dependencies": {
-          "Ardalis.Result": "[10.1.0, )",
           "FluentValidation": "[11.11.0, )",
           "JetBrains.Annotations": "[2024.3.0, )",
           "MediatR": "[12.4.1, )",
@@ -146,12 +145,6 @@
           "CraftersCloud.Core": "[1.0.0, )",
           "JetBrains.Annotations": "[2024.3.0, )"
         }
-      },
-      "Ardalis.Result": {
-        "type": "CentralTransitive",
-        "requested": "[10.1.0, )",
-        "resolved": "10.1.0",
-        "contentHash": "+WgsXh+JRm0d8BZPlBUc5w0+FTda4vbWRa/IF2q4zDoRsU5BXr8w4rTbYEklZIMNgQQZTcNouR/QfBV5I/4XYQ=="
       },
       "Ardalis.SmartEnum": {
         "type": "CentralTransitive",

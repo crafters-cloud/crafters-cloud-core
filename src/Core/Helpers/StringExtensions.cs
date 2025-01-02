@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using static System.Char;
 using static System.String;
@@ -10,7 +11,10 @@ public static class StringExtensions
     private const string EmailRegex =
         @"^ *[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](.?[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*.?[a-zA-Z0-9])+((\.(\w){2,})+) *$";
 
-    public static bool HasContent(this string value) => !IsNullOrEmpty(value);
+    //return true if the string is null or empty
+    
+    
+    public static bool HasContent([NotNullWhen(true)] this string? value) => !IsNullOrEmpty(value);
 
     public static string ToEmptyIfNull(this string? value) => value ?? Empty;
 

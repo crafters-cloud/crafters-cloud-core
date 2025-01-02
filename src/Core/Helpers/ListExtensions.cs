@@ -6,16 +6,15 @@ public static class ListExtensions
     {
         if (!source.Any())
         {
-            return new List<T>();
+            return [];
         }
 
-        return source.Skip(1)
+        return [.. source.Skip(1)
             .Aggregate(new HashSet<T>(source.First()), (h, e) =>
             {
                 h.IntersectWith(e);
                 return h;
-            })
-            .ToList();
+            })];
     }
 
     public static bool SameAs<T>(this IList<T> collection, IList<T> givenCollection)

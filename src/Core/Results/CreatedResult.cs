@@ -1,8 +1,6 @@
-﻿using Ardalis.Result;
+﻿namespace CraftersCloud.Core.Results;
 
-namespace CraftersCloud.Core.Results;
-
-public class CreatedResult<T> : Result<T>
+public class CreatedResult<T>(T value) : IValueResult<T>
 {
-    public CreatedResult(T value) : base(ResultStatus.Created) => Value = value;
+    public T Value { get; } = value;
 }

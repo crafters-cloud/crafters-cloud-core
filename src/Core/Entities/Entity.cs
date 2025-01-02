@@ -4,10 +4,8 @@ public abstract class Entity
 {
     // needs to be private so that EF does not map the field
     private readonly Dictionary<DomainEvent, DomainEvent> _domainEvents = [];
-
-#pragma warning disable CA1024
+    
     public IEnumerable<DomainEvent> GetDomainEvents() => _domainEvents.Values;
-#pragma warning restore CA1024
 
     protected void AddDomainEvent(DomainEvent eventItem)
     {

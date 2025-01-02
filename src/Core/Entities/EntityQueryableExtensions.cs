@@ -29,10 +29,5 @@ public static class EntityQueryableExtensions
 
     public static bool EntityExists<T>(this IQueryable<T> query, int id) where T : EntityWithTypedId<int> =>
         query.Any(x => x.Id == id);
-
-    public static T SingleOrNotFound<T>(this IQueryable<T> query)
-    {
-        var result = query.SingleOrDefault();
-        return result != null ? result : throw new EntityNotFoundException(typeof(T).Name);
-    }
+    
 }
