@@ -12,7 +12,7 @@
     <MinVerTagPrefix>v</MinVerTagPrefix>
 
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <!--    <PackageIcon>icon-192x192.png</PackageIcon>-->
+    <PackageIcon>icon-128x92.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>CraftersCloud;Core</PackageTags>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
@@ -50,4 +50,7 @@
     <Using Include="JetBrains.Annotations" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\icon-128x92.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>
