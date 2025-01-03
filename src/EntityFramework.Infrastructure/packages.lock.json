@@ -448,8 +448,7 @@
           "CraftersCloud.Core": "[1.0.0, )",
           "JetBrains.Annotations": "[2024.3.0, )",
           "MediatR": "[12.4.1, )",
-          "Microsoft.Extensions.Logging": "[9.0.0, )",
-          "Serilog": "[4.2.0, )"
+          "Microsoft.Extensions.Logging": "[9.0.0, )"
         }
       },
       "FluentValidation": {
@@ -550,12 +549,6 @@
         "requested": "[3.0.271, )",
         "resolved": "3.0.271",
         "contentHash": "I7e5kx5prSV99g+rM/xO5KMhwBQL/b+NlUY76RhbutXJ0tgiuMoqgOFnlTHOxCLrlKmwaMzp3VI8oz05PSlcIA=="
-      },
-      "Serilog": {
-        "type": "CentralTransitive",
-        "requested": "[4.2.0, )",
-        "resolved": "4.2.0",
-        "contentHash": "gmoWVOvKgbME8TYR+gwMf7osROiWAURterc6Rt2dQyX7wtjZYpqFiA/pY6ztjGQKKV62GGCyOcmtP1UKMHgSmA=="
       },
       "System.ComponentModel.Annotations": {
         "type": "CentralTransitive",
