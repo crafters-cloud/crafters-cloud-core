@@ -106,7 +106,6 @@
           "Microsoft.Extensions.Logging.Abstractions": "[9.0.0, )",
           "OneOf": "[3.0.271, )",
           "OneOf.SourceGenerator": "[3.0.271, )",
-          "Serilog": "[4.2.0, )",
           "System.ComponentModel.Annotations": "[5.0.0, )"
         }
       },

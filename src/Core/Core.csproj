@@ -11,14 +11,12 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" />
-    <PackageReference Include="JetBrains.Annotations" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
     <PackageReference Include="OneOf" />
     <PackageReference Include="OneOf.SourceGenerator" />
-    <PackageReference Include="Serilog" />
     <PackageReference Include="System.ComponentModel.Annotations" />
   </ItemGroup>
 
