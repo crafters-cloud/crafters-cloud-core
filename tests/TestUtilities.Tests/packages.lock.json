@@ -4,11 +4,11 @@
     "net9.0": {
       "FluentAssertions": {
         "type": "Direct",
-        "requested": "[6.12.2, )",
-        "resolved": "6.12.2",
-        "contentHash": "8YE+xJmT8wgzEpFuzJ4S62oFhEL/AKouMz1RWPEMEUhy9H11aRQlGIWcHurH5BEy7tbF6gb0CJrs0wOw/AtDcQ==",
+        "requested": "[7.0.0, )",
+        "resolved": "7.0.0",
+        "contentHash": "mTLbcU991EQ1SEmNbVBaGGGJy0YFzvGd1sYJGNZ07nlPKuyHSn1I22aeKzqQXgEiaKyRO6MSCto9eN9VxMwBdA==",
         "dependencies": {
-          "System.Configuration.ConfigurationManager": "4.4.0"
+          "System.Configuration.ConfigurationManager": "6.0.0"
         }
       },
       "Microsoft.NET.Test.Sdk": {
@@ -29,9 +29,9 @@
       },
       "NUnit": {
         "type": "Direct",
-        "requested": "[4.2.2, )",
-        "resolved": "4.2.2",
-        "contentHash": "mon0OPko28yZ/foVXrhiUvq1LReaGsBdziumyyYGxV/pOE4q92fuYeN+AF+gEU5pCjzykcdBt5l7xobTaiBjsg=="
+        "requested": "[4.3.2, )",
+        "resolved": "4.3.2",
+        "contentHash": "puVXayXNmEu7MFQSUswGmUjOy3M3baprMbkLl5PAutpeDoGTr+jPv33qAYsqxywi2wJCq8l/O3EhHoLulPE1iQ=="
       },
       "NUnit3TestAdapter": {
         "type": "Direct",
@@ -367,7 +367,7 @@
           "Microsoft.Extensions.Logging.Abstractions": "[9.0.0, )",
           "OneOf": "[3.0.271, )",
           "OneOf.SourceGenerator": "[3.0.271, )",
-          "Serilog": "[4.1.0, )",
+          "Serilog": "[4.2.0, )",
           "System.ComponentModel.Annotations": "[5.0.0, )"
         }
       },
@@ -378,7 +378,7 @@
           "JetBrains.Annotations": "[2024.3.0, )",
           "Microsoft.Data.SqlClient": "[5.2.2, )",
           "Microsoft.EntityFrameworkCore.Relational": "[9.0.0, )",
-          "NUnit": "[4.2.2, )",
+          "NUnit": "[4.3.2, )",
           "Respawn": "[6.2.1, )",
           "System.Text.Json": "[9.0.0, )"
         }
@@ -518,9 +518,9 @@
       },
       "Serilog": {
         "type": "CentralTransitive",
-        "requested": "[4.1.0, )",
-        "resolved": "4.1.0",
-        "contentHash": "u1aZI8HZ62LWlq5dZLFwm6jMax/sUwnWZSw5lkPsCt518cJBxFKoNmc7oSxe5aA5BgSkzy9rzwFGR/i/acnSPw=="
+        "requested": "[4.2.0, )",
+        "resolved": "4.2.0",
+        "contentHash": "gmoWVOvKgbME8TYR+gwMf7osROiWAURterc6Rt2dQyX7wtjZYpqFiA/pY6ztjGQKKV62GGCyOcmtP1UKMHgSmA=="
       },
       "System.ComponentModel.Annotations": {
         "type": "CentralTransitive",
