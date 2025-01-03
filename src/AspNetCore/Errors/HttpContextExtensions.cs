@@ -32,7 +32,7 @@ public static class HttpContextExtensions
     {
         var problemDetails = new ValidationProblemDetails
         {
-            Title = "Validation problem occurred!",
+            Title = "One or more validation errors occurred.",
             Instance = context.Request.Path,
             Status = StatusCodes.Status400BadRequest,
             Detail = "Please refer to the errors property for additional details.",
