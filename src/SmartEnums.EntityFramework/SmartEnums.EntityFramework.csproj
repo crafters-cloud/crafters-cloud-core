@@ -11,8 +11,6 @@
 
   <ItemGroup>
     <PackageReference Include="Ardalis.SmartEnum.EFCore" />
-    <PackageReference Include="JetBrains.Annotations" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
     <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 
