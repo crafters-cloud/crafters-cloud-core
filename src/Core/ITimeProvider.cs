@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace CraftersCloud.Core;
+﻿namespace CraftersCloud.Core;
 
 /// <summary>
 /// Represents abstraction over time management. Makes any time-based code easily testable.

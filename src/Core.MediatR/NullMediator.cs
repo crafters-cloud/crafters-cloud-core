@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using MediatR;
+﻿using MediatR;
 
 namespace CraftersCloud.Core.MediatR;
 

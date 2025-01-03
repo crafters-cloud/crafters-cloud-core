@@ -12,8 +12,8 @@ public static class StringExtensions
         @"^ *[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](.?[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*.?[a-zA-Z0-9])+((\.(\w){2,})+) *$";
 
     //return true if the string is null or empty
-    
-    
+
+
     public static bool HasContent([NotNullWhen(true)] this string? value) => !IsNullOrEmpty(value);
 
     public static string ToEmptyIfNull(this string? value) => value ?? Empty;

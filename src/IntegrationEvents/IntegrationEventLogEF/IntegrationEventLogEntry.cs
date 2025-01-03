@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace CraftersCloud.Core.IntegrationEvents.IntegrationEventLogEF;
+﻿namespace CraftersCloud.Core.IntegrationEvents.IntegrationEventLogEF;
 
 [PublicAPI]
 public class IntegrationEventLogEntry

@@ -1,6 +1,5 @@
 ﻿using CraftersCloud.Core.Results;
 using FluentAssertions;
-using JetBrains.Annotations;
 using NUnit.Framework;
 using OneOf;
 
@@ -21,7 +20,6 @@ public class TypeExtensionsFixture
     {
         var result = typeof(AClassWithoutBadRequestResult);
         result.IsDerivedFromOneOfType<BadRequestResult>().Should().BeFalse();
-        
     }
 
     [Test]

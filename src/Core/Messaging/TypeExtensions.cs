@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using MediatR;
 
 namespace CraftersCloud.Core.Messaging;

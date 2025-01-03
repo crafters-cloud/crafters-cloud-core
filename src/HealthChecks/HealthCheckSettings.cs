@@ -1,5 +1,4 @@
 ﻿using CraftersCloud.Core.Helpers;
-using JetBrains.Annotations;
 
 namespace CraftersCloud.Core.HealthChecks;
 

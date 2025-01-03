@@ -1,7 +1,6 @@
 ﻿using Ardalis.SmartEnum;
 using CraftersCloud.Core.EntityFramework.Seeding;
 using CraftersCloud.Core.SmartEnums.Entities;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 
 namespace CraftersCloud.Core.SmartEnums.EntityFramework.Seeding;

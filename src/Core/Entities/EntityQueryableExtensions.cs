@@ -29,5 +29,4 @@ public static class EntityQueryableExtensions
 
     public static bool EntityExists<T>(this IQueryable<T> query, int id) where T : EntityWithTypedId<int> =>
         query.Any(x => x.Id == id);
-    
 }

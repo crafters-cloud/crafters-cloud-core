@@ -1,5 +1,4 @@
 ﻿using CraftersCloud.Core.Entities;
-using JetBrains.Annotations;
 
 namespace CraftersCloud.Core.IntegrationEvents;
 

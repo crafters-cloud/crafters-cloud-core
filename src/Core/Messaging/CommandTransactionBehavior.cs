@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using JetBrains.Annotations;
 
 namespace CraftersCloud.Core.Messaging;
 
@@ -27,5 +26,6 @@ public record CommandTransactionBehavior(bool RequiresTransaction, IsolationLeve
     /// </summary>
     /// <param name="isolationLevel">Isolation level</param>
     /// <returns>Transaction behavior to use</returns>
-    public static CommandTransactionBehavior TransactionWith(IsolationLevel isolationLevel) => new(true, isolationLevel);
+    public static CommandTransactionBehavior TransactionWith(IsolationLevel isolationLevel) =>
+        new(true, isolationLevel);
 };

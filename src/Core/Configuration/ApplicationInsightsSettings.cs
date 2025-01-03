@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace CraftersCloud.Core.Configuration;
+﻿namespace CraftersCloud.Core.Configuration;
 
 [PublicAPI]
 public class ApplicationInsightsSettings

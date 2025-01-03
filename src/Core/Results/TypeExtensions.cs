@@ -21,11 +21,11 @@ public static class TypeExtensions
         }
     }
 
-    public static TResult MapToOneOf<TResult>(this IResult value) 
+    public static TResult MapToOneOf<TResult>(this IResult value)
     {
         var targetType = typeof(TResult);
         var valueType = value.GetType();
-        
+
         // find the constructor that accepts an IOneOf parameter
         var constructor = targetType.GetConstructors()
                               .FirstOrDefault(ctor => ctor.GetParameters()
@@ -38,7 +38,8 @@ public static class TypeExtensions
         var method = parameterType.GetMethods(BindingFlags.Public | BindingFlags.Static)
                          .FirstOrDefault(m => m.Name == "op_Implicit" &&
                                               m.GetParameters().Any(p => p.ParameterType == valueType))
-                     ?? throw new InvalidOperationException($"No implicit conversion operator found. Maybe '{targetType.Name}' class does not inherits from OneOfBase with '{valueType.Name}'.");
+                     ?? throw new InvalidOperationException(
+                         $"No implicit conversion operator found. Maybe '{targetType.Name}' class does not inherits from OneOfBase with '{valueType.Name}'.");
 
         var convertedType = method.Invoke(null, [value]) ?? value;
         return (TResult) constructor.Invoke([convertedType]);

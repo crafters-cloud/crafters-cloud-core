@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using JetBrains.Annotations;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
@@ -14,14 +13,15 @@ public class LoggingBehavior<TRequest, TResponse>(ILogger<LoggingBehavior<TReque
         CancellationToken cancellationToken)
     {
         var typeName = request.GetGenericTypeName();
-       
+
         using (logger.BeginScope(new Dictionary<string, object> { { "MediatRRequestType", typeName } }))
         {
             logger.LogDebug("Handling {RequestType}", typeName);
             var stopwatch = Stopwatch.StartNew();
             var response = await next();
             stopwatch.Stop();
-            logger.LogDebug("Handled {RequestType} in {ElapsedMilliseconds}ms", typeName, stopwatch.ElapsedMilliseconds);
+            logger.LogDebug("Handled {RequestType} in {ElapsedMilliseconds}ms", typeName,
+                stopwatch.ElapsedMilliseconds);
             return response;
         }
     }

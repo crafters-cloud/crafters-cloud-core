@@ -9,7 +9,7 @@ public interface IEntityRepository<T> where T : Entity
     /// </summary>
     /// <returns>Non executed query</returns>
     IQueryable<T> QueryAll();
-    
+
     /// <summary>
     /// Adds a new entity of type T
     /// </summary>

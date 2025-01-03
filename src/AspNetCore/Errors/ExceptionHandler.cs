@@ -1,10 +1,9 @@
 ﻿using FluentValidation;
-using JetBrains.Annotations;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
-namespace CraftersCloud.Core.AspNetCore.Exceptions;
+namespace CraftersCloud.Core.AspNetCore.Errors;
 
 [PublicAPI]
 public sealed class CoreGlobalExceptionHandler(ILogger<CoreGlobalExceptionHandler> logger)
@@ -20,7 +19,7 @@ public sealed class CoreGlobalExceptionHandler(ILogger<CoreGlobalExceptionHandle
         switch (exception)
         {
             case ValidationException validationException:
-                var validationProblemDetails = httpContext.CreateValidationProblemDetails(validationException);
+                var validationProblemDetails = httpContext.CreateValidationProblemDetails(validationException.Errors);
                 await httpContext.WriteProblemDetails(validationProblemDetails, cancellationToken);
                 break;
             default:

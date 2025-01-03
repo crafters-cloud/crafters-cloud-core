@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using System.Text.Json.Serialization;
 using Ardalis.SmartEnum.SystemTextJson;
-using JetBrains.Annotations;
 
 namespace CraftersCloud.Core.SmartEnums.SystemTextJson;
 

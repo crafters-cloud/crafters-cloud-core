@@ -9,12 +9,15 @@ public static class ListExtensions
             return [];
         }
 
-        return [.. source.Skip(1)
-            .Aggregate(new HashSet<T>(source.First()), (h, e) =>
-            {
-                h.IntersectWith(e);
-                return h;
-            })];
+        return
+        [
+            .. source.Skip(1)
+                .Aggregate(new HashSet<T>(source.First()), (h, e) =>
+                {
+                    h.IntersectWith(e);
+                    return h;
+                })
+        ];
     }
 
     public static bool SameAs<T>(this IList<T> collection, IList<T> givenCollection)

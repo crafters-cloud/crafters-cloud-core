@@ -1,7 +1,6 @@
 ﻿using CraftersCloud.Core.Data;
 using CraftersCloud.Core.MediatR;
 using CraftersCloud.Core.Messaging;
-using JetBrains.Annotations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -23,7 +22,7 @@ public abstract class SaveChangesBehavior<TDbContext, TRequest, TResponse>(
 
         try
         {
-            var (skipSaveChanges, reason) = SkipSaveChanges(request);
+            var (skipSaveChanges, reason) = ShouldSkipSaveChanges(request);
             if (skipSaveChanges)
             {
                 logger.LogDebug("Skipping SaveChanges for {CommandName}, Reason: {Reason}", typeName, reason);
@@ -77,7 +76,7 @@ public abstract class SaveChangesBehavior<TDbContext, TRequest, TResponse>(
             ? command.TransactionBehavior
             : CommandTransactionBehavior.NoTransaction;
 
-    private (bool doSkip, string reason) SkipSaveChanges(TRequest request)
+    private (bool doSkip, string reason) ShouldSkipSaveChanges(TRequest request)
     {
         if (dbContext.HasActiveTransaction)
         {

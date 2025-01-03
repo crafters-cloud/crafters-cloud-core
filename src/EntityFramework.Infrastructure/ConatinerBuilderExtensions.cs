@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using Autofac;
 using CraftersCloud.Core.Data;
-using JetBrains.Annotations;
 
 namespace CraftersCloud.Core.EntityFramework.Infrastructure;
 

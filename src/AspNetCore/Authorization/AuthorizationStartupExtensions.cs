@@ -1,6 +1,5 @@
 ﻿using CraftersCloud.Core.AspNetCore.Authorization.Attributes;
 using CraftersCloud.Core.AspNetCore.Authorization.Requirements;
-using JetBrains.Annotations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;

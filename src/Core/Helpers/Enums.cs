@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace CraftersCloud.Core.Helpers;
+﻿namespace CraftersCloud.Core.Helpers;
 
 [PublicAPI]
 public static class Enums

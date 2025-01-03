@@ -1,5 +1,4 @@
 ﻿using System.Linq.Dynamic.Core;
-using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.Paging;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,7 +35,8 @@ public static class EntityQueryableExtensions
         };
     }
 
-    public static async Task<PagedQueryResponse<T>> ToPagedResponseAsync<T>(this IQueryable<T> query, IPagedQuery request,
+    public static async Task<PagedQueryResponse<T>> ToPagedResponseAsync<T>(this IQueryable<T> query,
+        IPagedQuery request,
         CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(request);
@@ -66,7 +66,7 @@ public static class EntityQueryableExtensions
             PageNumber = pageNumber
         };
     }
-    
+
     private static IQueryable<T> OrderByDynamic<T>(this IQueryable<T> query, string? orderBy,
         string orderDirection = "asc") =>
         string.IsNullOrWhiteSpace(orderBy) ? query : query.OrderBy($"{orderBy} {orderDirection}");

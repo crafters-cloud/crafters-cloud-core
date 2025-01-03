@@ -1,5 +1,4 @@
 using CraftersCloud.Core.Entities;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -37,9 +36,6 @@ public static class ModelBuilderExtensions
     /// <param name="options">Registration options</param>
     public static void RegisterEntities(this ModelBuilder modelBuilder, EntitiesDbContextOptions options)
     {
-        var entityMethod =
-            typeof(ModelBuilder).GetMethods().First(m => m is { Name: "Entity", IsGenericMethod: true });
-
         var entitiesAssembly = options.EntitiesAssembly;
         var types = entitiesAssembly.GetTypes();
 
@@ -48,13 +44,13 @@ public static class ModelBuilderExtensions
 
         foreach (var type in entityTypes)
         {
-            if (options.EntityTypePredicate != null &&
-                !options.EntityTypePredicate(type))
+            if (options.EntityTypePredicate != null && !options.EntityTypePredicate(type))
             {
+                // if predicate is defined and returns false, skip the type
                 continue;
             }
 
-            entityMethod.MakeGenericMethod(type).Invoke(modelBuilder, []);
+            modelBuilder.Entity(type);
         }
     }
 }

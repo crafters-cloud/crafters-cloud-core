@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using NSwag.Generation.AspNetCore;
+﻿using NSwag.Generation.AspNetCore;
 
 namespace CraftersCloud.Core.SmartEnums.Swagger;
 

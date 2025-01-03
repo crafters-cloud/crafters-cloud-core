@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace CraftersCloud.Core.EventBus;
+﻿namespace CraftersCloud.Core.EventBus;
 
 [UsedImplicitly]
 public class EventBusSettings

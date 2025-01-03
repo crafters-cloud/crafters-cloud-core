@@ -2,7 +2,6 @@
 using CraftersCloud.Core.EventBus.ServiceBus.Rules;
 using CraftersCloud.Core.IntegrationEvents;
 using FluentAssertions;
-using JetBrains.Annotations;
 using NUnit.Framework;
 
 namespace CraftersCloud.Core.EventBus.Tests;

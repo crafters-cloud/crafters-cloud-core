@@ -1,5 +1,4 @@
 ﻿using CraftersCloud.Core.Data;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 

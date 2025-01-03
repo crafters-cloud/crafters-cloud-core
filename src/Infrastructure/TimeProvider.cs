@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace CraftersCloud.Core.Infrastructure;
+﻿namespace CraftersCloud.Core.Infrastructure;
 
 [PublicAPI]
 public class TimeProvider : ITimeProvider

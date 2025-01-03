@@ -1,6 +1,5 @@
 ﻿using CraftersCloud.Core.Results;
 using FluentValidation;
-using JetBrains.Annotations;
 using MediatR;
 
 namespace CraftersCloud.Core.MediatR;
@@ -32,6 +31,5 @@ public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TReq
 
         var invalidResult = new BadRequestResult(failures);
         return invalidResult.MapToOneOf<TResponse>();
-
     }
 }

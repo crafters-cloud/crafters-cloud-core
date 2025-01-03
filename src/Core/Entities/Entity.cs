@@ -4,7 +4,7 @@ public abstract class Entity
 {
     // needs to be private so that EF does not map the field
     private readonly Dictionary<DomainEvent, DomainEvent> _domainEvents = [];
-    
+
     public IEnumerable<DomainEvent> GetDomainEvents() => _domainEvents.Values;
 
     protected void AddDomainEvent(DomainEvent eventItem)
@@ -17,14 +17,4 @@ public abstract class Entity
     }
 
     public void ClearDomainEvents() => _domainEvents.Clear();
-
-    public void ClearDomainEvents<TEvent>() where TEvent : DomainEvent
-    {
-        var toRemove = _domainEvents.Keys.OfType<TEvent>().ToList();
-
-        foreach (var item in toRemove)
-        {
-            _domainEvents.Remove(item);
-        }
-    }
 }

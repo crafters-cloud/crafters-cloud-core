@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace CraftersCloud.Core.IntegrationEvents;
+﻿namespace CraftersCloud.Core.IntegrationEvents;
 
 [PublicAPI]
 // EventName attribute allows us to subscribe to events coming from unknown sources (where we cannot hold reference to actual integration event type class)

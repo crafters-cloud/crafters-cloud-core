@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace CraftersCloud.Core.IntegrationEvents;
+﻿namespace CraftersCloud.Core.IntegrationEvents;
 
 [UsedImplicitly]
 public class ProcessServiceBusMessagesFromAttribute : Attribute

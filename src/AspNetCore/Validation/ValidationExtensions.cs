@@ -16,11 +16,4 @@ public static class ValidationExtensions
             .ToList();
         return failures;
     }
-
-    public static IDictionary<string, string[]> ToProblemDetailsErrors(
-        this IEnumerable<ValidationFailure> validationFailures) => validationFailures
-        .GroupBy(x => x.PropertyName)
-        .ToDictionary(
-            group => group.Key,
-            group => group.Select(g => g.ErrorMessage).ToArray());
 }

@@ -1,3 +1,4 @@
+using CraftersCloud.Core.AspNetCore.Errors;
 using CraftersCloud.Core.AspNetCore.Validation;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;

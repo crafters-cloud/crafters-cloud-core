@@ -1,5 +1,4 @@
 ﻿using Ardalis.SmartEnum;
-using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CraftersCloud.Core.SmartEnums.EntityFramework;

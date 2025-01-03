@@ -1,5 +1,4 @@
-﻿
-namespace CraftersCloud.Core.Results;
+﻿namespace CraftersCloud.Core.Results;
 
 public class NotFoundResult : IErrorResult<string>
 {

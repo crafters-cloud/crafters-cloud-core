@@ -10,7 +10,7 @@
     <Copyright>Copyright © 2025 Crafters Cloud</Copyright>
     <Company>Crafters Cloud</Company>
     <MinVerTagPrefix>v</MinVerTagPrefix>
-    
+
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <!--    <PackageIcon>icon-192x192.png</PackageIcon>-->
     <PackageReadmeFile>README.md</PackageReadmeFile>

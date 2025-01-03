@@ -1,6 +1,5 @@
 ﻿using CraftersCloud.Core.Entities;
 using CraftersCloud.Core.EntityFramework.Infrastructure.MediatR;
-using JetBrains.Annotations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
