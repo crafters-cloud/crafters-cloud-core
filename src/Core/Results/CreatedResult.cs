@@ -1,4 +1,4 @@
-﻿namespace CraftersCloud.Core.Results.Types;
+﻿namespace CraftersCloud.Core.Results;
 
 public class CreatedResult<T>(T value) : IValueResult<T>
 {

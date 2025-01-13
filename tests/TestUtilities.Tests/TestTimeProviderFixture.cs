@@ -12,7 +12,7 @@ public class TestTimeProviderFixture
         var timeProvider = new TestTimeProvider();
         var fixedNowFirstCall = timeProvider.FixedUtcNow;
         var nowFirstCall = timeProvider.UtcNow;
-        
+
         await Task.Delay(500);
         var fixedNowSecondCall = timeProvider.FixedUtcNow;
         var nowSecondCall = timeProvider.UtcNow;
@@ -28,7 +28,7 @@ public class TestTimeProviderFixture
         var now = new DateTimeOffset();
         var timeProvider = new TestTimeProvider();
         timeProvider.SetNow(now);
-        
+
         timeProvider.FixedUtcNow.Should().Be(now);
         timeProvider.UtcNow.Should().Be(now);
     }

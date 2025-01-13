@@ -9,8 +9,7 @@ public class DbContextSettings
 
     public bool SensitiveDataLoggingEnabled { get; init; }
 
-    [Range(0, 100)]
-    public int ConnectionResiliencyMaxRetryCount { get; init; }
+    [Range(0, 100)] public int ConnectionResiliencyMaxRetryCount { get; init; }
 
     public TimeSpan ConnectionResiliencyMaxRetryDelay { get; init; }
 

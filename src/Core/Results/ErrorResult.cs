@@ -1,4 +1,4 @@
-namespace CraftersCloud.Core.Results.Types;
+namespace CraftersCloud.Core.Results;
 
 public class ErrorResult : IErrorResult<string>
 {

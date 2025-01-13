@@ -54,7 +54,7 @@ public static partial class StringExtensions
 
     public static bool IsValidEmailAddress(this string source) =>
         source.HasContent() && MyRegex().IsMatch(source);
-    
+
     [GeneratedRegex(EmailRegex)]
     private static partial Regex MyRegex();
 }

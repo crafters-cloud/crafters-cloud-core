@@ -1,10 +1,5 @@
-﻿using System.Diagnostics;
-using FluentValidation;
-using FluentValidation.Results;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace CraftersCloud.Core.AspNetCore;
 

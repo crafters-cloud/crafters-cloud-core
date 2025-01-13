@@ -1,11 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace CraftersCloud.Core.Infrastructure;
+﻿namespace CraftersCloud.Core.Infrastructure;
 
 [PublicAPI]
 public class ApplicationInsightsSettings
 {
     public const string SectionName = "ApplicationInsights";
-    
+
     public string ConnectionString { get; set; } = string.Empty;
 }

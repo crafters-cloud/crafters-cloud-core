@@ -1,6 +1,4 @@
-﻿using CraftersCloud.Core.Results.Types;
-
-namespace CraftersCloud.Core.Results;
+﻿namespace CraftersCloud.Core.Results;
 
 public static class Result
 {

@@ -1,6 +1,6 @@
 using FluentValidation.Results;
 
-namespace CraftersCloud.Core.Results.Types;
+namespace CraftersCloud.Core.Results;
 
 public class BadRequestResult(IReadOnlyCollection<ValidationFailure> errors) : IErrorResult<ValidationFailure>
 {

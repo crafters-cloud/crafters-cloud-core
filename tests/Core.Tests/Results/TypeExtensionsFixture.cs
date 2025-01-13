@@ -1,5 +1,4 @@
 ﻿using CraftersCloud.Core.Results;
-using CraftersCloud.Core.Results.Types;
 using FluentAssertions;
 using NUnit.Framework;
 using OneOf;
