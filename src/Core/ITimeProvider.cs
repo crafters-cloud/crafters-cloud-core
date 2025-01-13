@@ -7,7 +7,8 @@
 public interface ITimeProvider
 {
     /// <summary>
-    /// Returns current UTC time for the first invocation. Subsequent invocations return cached value (the same value as in first invocation).
+    /// Returns current UTC time for the first invocation (within the definec lifetime scope). Subsequent invocations return cached value (the same value as in first invocation).
+    /// This is useful in the scenarios when you want exact same time value to be returned within the scope (e.g. within the single HTTP request).
     /// </summary>
     DateTimeOffset FixedUtcNow { get; }
 

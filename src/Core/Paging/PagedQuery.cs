@@ -1,8 +1,7 @@
-﻿using CraftersCloud.Core.Messaging;
+﻿namespace CraftersCloud.Core.Paging;
 
-namespace CraftersCloud.Core.Paging;
-
-public class PagedQuery<TResponse> : IQuery<PagedQueryResponse<TResponse>>, IPagedQuery
+[PublicAPI]
+public class PagedQuery<TResponse> : IPagedQuery
 {
     public int? PageNumber { get; set; }
     public int? PageSize { get; set; }

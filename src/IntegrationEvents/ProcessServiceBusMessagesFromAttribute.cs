@@ -1,10 +1,7 @@
 ﻿namespace CraftersCloud.Core.IntegrationEvents;
 
 [UsedImplicitly]
-public class ProcessServiceBusMessagesFromAttribute : Attribute
+public class ProcessServiceBusMessagesFromAttribute(params string[] subscriptionClients) : Attribute
 {
-    public ProcessServiceBusMessagesFromAttribute(params string[] subscriptionClients) =>
-        SubscriptionClients = subscriptionClients;
-
-    public string[] SubscriptionClients { get; }
+    public string[] SubscriptionClients { get; } = subscriptionClients;
 }

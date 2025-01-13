@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CraftersCloud.Core.EntityFramework;
 
-public static class EntityQueryableExtensions
+public static class QueryableExtensions
 {
     public static PagedQueryResponse<T> ToPagedResponse<T>(this IQueryable<T> query, IPagedQuery request)
     {

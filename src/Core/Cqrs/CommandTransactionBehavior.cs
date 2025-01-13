@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace CraftersCloud.Core.Messaging;
+namespace CraftersCloud.Core.Cqrs;
 
 /// <summary>
 /// Specifies the transaction behavior of the command.

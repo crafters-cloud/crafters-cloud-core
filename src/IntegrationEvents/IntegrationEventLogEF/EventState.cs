@@ -1,6 +1,6 @@
 ﻿namespace CraftersCloud.Core.IntegrationEvents.IntegrationEventLogEF;
 
-public enum EventStateEnum
+public enum EventState
 {
     NotPublished = 0,
     Published = 1,

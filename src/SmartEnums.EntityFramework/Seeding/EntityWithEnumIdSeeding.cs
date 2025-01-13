@@ -20,9 +20,7 @@ public class EntityWithEnumIdSeeding<T, TId> : ISeeding
     /// </summary>
     private readonly Func<TId, object> _entityFactory = id => new { Id = id, id.Name };
 
-    public EntityWithEnumIdSeeding()
-    {
-    }
+    public EntityWithEnumIdSeeding() { }
 
     public EntityWithEnumIdSeeding(Func<TId, object> entityFactory) => _entityFactory = entityFactory;
 

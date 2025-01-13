@@ -5,12 +5,6 @@ namespace CraftersCloud.Core.IntegrationEvents;
 [PublicAPI]
 public class IntegrationEvent
 {
-    public IntegrationEvent()
-    {
-        Id = SequentialGuidGenerator.Generate();
-        CreationDate = DateTime.UtcNow;
-    }
-
-    public Guid Id { get; set; }
-    public DateTime CreationDate { get; set; }
+    public Guid Id { get; set; } = SequentialGuidGenerator.Generate();
+    public DateTimeOffset CreationDate { get; set; } = DateTimeOffset.UtcNow;
 }

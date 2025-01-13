@@ -37,7 +37,7 @@ public static class SmartEnumTypeExtensions
 
     public static object[] GetSmartEnumValues(this Type type)
     {
-        type.TryGetValues(out IEnumerable<object> enums);
+        type.TryGetValues(out var enums);
         return enums.ToArray();
     }
 

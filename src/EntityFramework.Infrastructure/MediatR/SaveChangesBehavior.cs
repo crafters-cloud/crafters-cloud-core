@@ -1,6 +1,6 @@
-﻿using CraftersCloud.Core.Data;
+﻿using CraftersCloud.Core.Cqrs;
+using CraftersCloud.Core.Data;
 using CraftersCloud.Core.MediatR;
-using CraftersCloud.Core.Messaging;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

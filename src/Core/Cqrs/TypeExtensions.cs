@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace CraftersCloud.Core.Messaging;
+namespace CraftersCloud.Core.Cqrs;
 
 [PublicAPI]
 public static class TypeExtensions

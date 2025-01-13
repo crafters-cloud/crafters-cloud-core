@@ -3,9 +3,7 @@
 [PublicAPI]
 public class IntegrationEventLogEntry
 {
-    private IntegrationEventLogEntry()
-    {
-    }
+    private IntegrationEventLogEntry() { }
 
     public IntegrationEventLogEntry(IntegrationEvent @event, Func<IntegrationEvent, string> serializer)
     {
@@ -13,14 +11,14 @@ public class IntegrationEventLogEntry
         CreationTime = @event.CreationDate;
         EventTypeName = @event.GetType().FullName!;
         Content = serializer(@event);
-        State = EventStateEnum.NotPublished;
+        State = EventState.NotPublished;
         TimesSent = 0;
     }
 
     public Guid EventId { get; private set; }
     public string EventTypeName { get; private set; } = string.Empty;
-    public EventStateEnum State { get; set; }
+    public EventState State { get; set; }
     public int TimesSent { get; set; }
-    public DateTime CreationTime { get; private set; }
+    public DateTimeOffset CreationTime { get; private set; }
     public string Content { get; private set; } = string.Empty;
 }

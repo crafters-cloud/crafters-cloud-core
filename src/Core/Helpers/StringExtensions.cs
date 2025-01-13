@@ -6,7 +6,7 @@ using static System.String;
 
 namespace CraftersCloud.Core.Helpers;
 
-public static class StringExtensions
+public static partial class StringExtensions
 {
     private const string EmailRegex =
         @"^ *[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](.?[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*.?[a-zA-Z0-9])+((\.(\w){2,})+) *$";
@@ -53,5 +53,8 @@ public static class StringExtensions
     public static string JoinString<TEnum>(this IEnumerable<TEnum> values, string separator) => Join(separator, values);
 
     public static bool IsValidEmailAddress(this string source) =>
-        source.HasContent() && Regex.IsMatch(source, EmailRegex);
+        source.HasContent() && MyRegex().IsMatch(source);
+    
+    [GeneratedRegex(EmailRegex)]
+    private static partial Regex MyRegex();
 }

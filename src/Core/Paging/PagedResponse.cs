@@ -1,5 +1,6 @@
 ﻿namespace CraftersCloud.Core.Paging;
 
+[PublicAPI]
 public class PagedQueryResponse<T>
 {
     /// <summary>
