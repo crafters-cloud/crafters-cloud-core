@@ -3,8 +3,8 @@
 [PublicAPI]
 public class TimeProvider : ITimeProvider
 {
-    private readonly Lazy<DateTimeOffset> _now = new(() => DateTimeOffset.UtcNow);
+    private readonly Lazy<DateTimeOffset> _fixedNow = new(() => DateTimeOffset.UtcNow);
 
-    public DateTimeOffset FixedUtcNow => _now.Value;
-    public DateTimeOffset UtcNow => DateTimeOffset.UtcNow;
+    public DateTimeOffset FixedUtcNow => _fixedNow.Value;
+    public DateTimeOffset UtcNow  => DateTimeOffset.UtcNow;
 }

@@ -1,4 +1,4 @@
-namespace CraftersCloud.Core.Results;
+namespace CraftersCloud.Core.Results.Types;
 
 public class ForbiddenResult : IErrorResult<string>
 {
