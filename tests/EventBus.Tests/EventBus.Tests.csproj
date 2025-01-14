@@ -5,12 +5,7 @@
     <AssemblyName>CraftersCloud.Core.EventBus.Tests</AssemblyName>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="FluentAssertions" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="NUnit" />
-    <PackageReference Include="NUnit3TestAdapter" />
-  </ItemGroup>
+  <Import Project="..\..\Tests.Build.props" />
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\EventBus\EventBus.csproj" />
