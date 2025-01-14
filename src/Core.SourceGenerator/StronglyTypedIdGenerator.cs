@@ -54,7 +54,7 @@ public class StronglyTypedIdGenerator : IIncrementalGenerator
         node is RecordDeclarationSyntax recordDeclarationSyntax
         && recordDeclarationSyntax.Modifiers.Any(SyntaxKind.PartialKeyword);
 
-    private static INamedTypeSymbol? GetSemanticTargetForGeneration(GeneratorAttributeSyntaxContext context)
+    private static StronglyTypedIdToGenerate? GetSemanticTargetForGeneration(GeneratorAttributeSyntaxContext context)
     {
         var symbol = context.TargetSymbol;
 
@@ -63,32 +63,35 @@ public class StronglyTypedIdGenerator : IIncrementalGenerator
             return null;
         }
 
-        var attributeData = namedTypeSymbol.GetAttributes().FirstOrDefault(IsStronglyTypedAttribute);
-
-        return attributeData is null ? null : namedTypeSymbol;
+        var stronglyTypedAttributeData = namedTypeSymbol.GetAttributes().FirstOrDefault(IsStronglyTypedAttribute);
+        
+        return stronglyTypedAttributeData is null ? null : new StronglyTypedIdToGenerate(namedTypeSymbol, stronglyTypedAttributeData);
     }
 
     private static bool IsStronglyTypedAttribute(AttributeData ad) =>
         string.Equals(ad.AttributeClass?.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat),
             $"global::{AttributeNamespace}.{AttributeName}");
 
-    private static void Execute(SourceProductionContext context, ImmutableArray<INamedTypeSymbol?> symbols)
+    private static void Execute(SourceProductionContext context, ImmutableArray<StronglyTypedIdToGenerate?> idsToGenerate)
     {
-        foreach (var namedTypeSymbol in symbols.Where(symbol => symbol is not null))
+        foreach (var id in idsToGenerate.Where(idToGenerate => idToGenerate is not null))
         {
-            var classSource = ProcessClass(namedTypeSymbol!, context);
+            var classSource = ProcessClass(id!.Value, context);
 
             if (classSource is null)
             {
                 continue;
             }
 
-            context.AddSource($"{namedTypeSymbol!.ContainingNamespace}_{namedTypeSymbol.Name}.g.cs", classSource);
+            var symbol = id.Value.Symbol;
+
+            context.AddSource($"{symbol.ContainingNamespace}_{symbol.Name}.g.cs", classSource);
         }
     }
 
-    private static string? ProcessClass(INamedTypeSymbol classSymbol, SourceProductionContext context)
+    private static string? ProcessClass(StronglyTypedIdToGenerate idToGenerate, SourceProductionContext context)
     {
+        var classSymbol = idToGenerate.Symbol;
         var attributeLocation = classSymbol.Locations.FirstOrDefault() ?? Location.None;
 
         if (!classSymbol.ContainingSymbol.Equals(classSymbol.ContainingNamespace, SymbolEqualityComparer.Default))
@@ -96,16 +99,8 @@ public class StronglyTypedIdGenerator : IIncrementalGenerator
             CreateDiagnosticError(GeneratorDiagnosticDescriptors.TopLevelError);
             return null;
         }
-
-        if (classSymbol.TypeKind != TypeKind.Struct)
-        {
-            CreateDiagnosticError(GeneratorDiagnosticDescriptors.WrongType);
-            return null;
-        }
-
-        var attribute = classSymbol.GetAttributes().FirstOrDefault(IsStronglyTypedAttribute);
-
-        return GenerateClassSource(classSymbol, attribute!);
+        
+        return GenerateClassSource(idToGenerate);
 
         void CreateDiagnosticError(DiagnosticDescriptor descriptor)
         {
@@ -114,10 +109,11 @@ public class StronglyTypedIdGenerator : IIncrementalGenerator
         }
     }
 
-    private static string GenerateClassSource(INamedTypeSymbol classSymbol, AttributeData attribute)
+    private static string GenerateClassSource(StronglyTypedIdToGenerate idToGenerate)
     {
+        var classSymbol = idToGenerate.Symbol;
         var className = $"{classSymbol.Name}";
-        var valueKind = (int) attribute.ConstructorArguments[0].Value!;
+        var valueKind = (int) idToGenerate.Attribute.ConstructorArguments[0].Value!;
         var valueType = valueKind switch
         {
             0 => "Guid",
@@ -158,7 +154,6 @@ public class StronglyTypedIdGenerator : IIncrementalGenerator
                                          }
                                      }
                                      """);
-
         return source.ToString();
     }
 }

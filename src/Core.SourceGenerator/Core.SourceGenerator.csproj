@@ -1,19 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <IsPackable>true</IsPackable>
     <Product>CraftersCloud.Core.SourceGenerator</Product>
     <Description>Source generators for the Core project</Description>
     <RootNamespace>CraftersCloud.Core.SourceGenerator</RootNamespace>
     <PackageId>CraftersCloud.Core.SourceGenerator</PackageId>
     <AssemblyName>CraftersCloud.Core.SourceGenerator</AssemblyName>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeBuildOutput>false</IncludeBuildOutput>
-    <NoWarn>$(NoWarn);NU5128;RS1036;RS1041;RS2008</NoWarn><!-- Suppress warnings: 'Add lib or ref assemblies for the net9.0 target framework' -->
+    <NoWarn>$(NoWarn);RS1035;RS2008;NU5128</NoWarn>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,21 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true"
+          PackagePath="analyzers/dotnet/cs" Visible="false" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 
 </Project>

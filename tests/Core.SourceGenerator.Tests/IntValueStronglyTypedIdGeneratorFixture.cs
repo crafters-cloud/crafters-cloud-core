@@ -6,25 +6,19 @@ namespace CraftersCloud.Core.SourceGenerator.Tests;
 [Category("unit")]
 public class IntValueStronglyTypedIdGeneratorFixture
 {
-    private IntId _id = IntId.New();
+    private readonly IntId _id = IntId.New();
     
     [Test]
-    public void GetValue()
-    {
-        _id.Value.Should().Be(0);
-    }
+    public void GetValue() => _id.Value.Should().Be(0);
 
     [Test]
-    public void ImplementsStronglyTypedIdInterface()
-    {
-        _id.Should().BeAssignableTo<IStronglyTypedId<int>>();
-    }
+    public void ImplementsStronglyTypedIdInterface() => _id.Should().BeAssignableTo<IStronglyTypedId<int>>();
 
     [Test]
     public void GivenInvalidInt_TryParse_ReturnsFalse()
     {
-        IntId.TryParse("", out IntId _).Should().BeFalse();
-        IntId.TryParse("something", out IntId _).Should().BeFalse();
+        IntId.TryParse("", out _).Should().BeFalse();
+        IntId.TryParse("something", out _).Should().BeFalse();
     }
     
     [Test]
@@ -43,11 +37,8 @@ public class IntValueStronglyTypedIdGeneratorFixture
     }
     
     [Test]
-    public void TestToString()
-    {
-        _id.ToString().Should().Be(_id.Value.ToString());
-    }
+    public void TestToString() => _id.ToString().Should().Be(_id.Value.ToString());
 }
 
 [StronglyTypedId(ValueKind.Int)]
-public partial record struct IntId;
+public readonly partial record struct IntId;
