@@ -50,4 +50,4 @@ public class GuidValueStronglyTypedIdGeneratorFixture
 }
 
 [StronglyTypedId(ValueKind.Guid)]
-public partial record struct GuidId;
+public partial record struct GuidId(Guid Value) : IStronglyTypedId<Guid>;

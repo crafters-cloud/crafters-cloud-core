@@ -288,7 +288,6 @@
           "Microsoft.Extensions.Configuration.Binder": "[9.0.0, )",
           "Microsoft.Extensions.Logging.Abstractions": "[9.0.0, )",
           "OneOf": "[3.0.271, )",
-          "OneOf.SourceGenerator": "[3.0.271, )",
           "System.ComponentModel.Annotations": "[5.0.0, )"
         }
       },
@@ -383,12 +382,6 @@
         "requested": "[3.0.271, )",
         "resolved": "3.0.271",
         "contentHash": "pqpqeK8xQGggExhr4tesVgJkjdn+9HQAO0QgrYV2hFjE3y90okzk1kQMntMiUOGfV7FrCUfKPaVvPBD4IANqKg=="
-      },
-      "OneOf.SourceGenerator": {
-        "type": "CentralTransitive",
-        "requested": "[3.0.271, )",
-        "resolved": "3.0.271",
-        "contentHash": "I7e5kx5prSV99g+rM/xO5KMhwBQL/b+NlUY76RhbutXJ0tgiuMoqgOFnlTHOxCLrlKmwaMzp3VI8oz05PSlcIA=="
       },
       "System.ComponentModel.Annotations": {
         "type": "CentralTransitive",
