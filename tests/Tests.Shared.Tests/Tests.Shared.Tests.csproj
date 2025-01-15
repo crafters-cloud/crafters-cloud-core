@@ -8,7 +8,7 @@
   <Import Project="..\..\Tests.Build.props" />
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\TestUtilities\TestUtilities.csproj" />
+    <ProjectReference Include="..\..\src\Tests.Shared\Tests.Shared.csproj" />
   </ItemGroup>
 
 </Project>

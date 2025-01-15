@@ -1,6 +1,6 @@
 using Ardalis.SmartEnum;
 
-namespace CraftersCloud.Core.SmartEnums.VerifyTests;
+namespace CraftersCloud.Core.Tests.Shared.SmartEnums;
 
 /// <summary>
 /// Json Converter that will write SmartEnum as a string (uses Name property) 

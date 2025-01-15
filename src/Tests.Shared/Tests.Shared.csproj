@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <IsPackable>true</IsPackable>
-    <Product>CraftersCloud.Core.TestUtilities</Product>
-    <Description>Test Utilities</Description>
-    <RootNamespace>CraftersCloud.Core.TestUtilities</RootNamespace>
-    <PackageId>CraftersCloud.Core.TestUtilities</PackageId>
-    <AssemblyName>CraftersCloud.Core.TestUtilities</AssemblyName>
+    <Product>CraftersCloud.Core.Tests.Shared</Product>
+    <Description>Shared functionality for Tests </Description>
+    <RootNamespace>CraftersCloud.Core.Tests.Shared</RootNamespace>
+    <PackageId>CraftersCloud.Core.Tests.Shared</PackageId>
+    <AssemblyName>CraftersCloud.Core.Tests.Shared</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +14,7 @@
     <PackageReference Include="NUnit" />
     <PackageReference Include="Respawn" />
     <PackageReference Include="System.Text.Json" />
+    <PackageReference Include="Verify" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\SmartEnums\SmartEnums.csproj" />
   </ItemGroup>
 
   <ItemGroup>

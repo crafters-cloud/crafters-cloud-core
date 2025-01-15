@@ -1,6 +1,5 @@
-﻿using CraftersCloud.Core.TestUtilities.Database;
+﻿using CraftersCloud.Core.Tests.Shared.Database;
 using FluentAssertions;
-using NUnit.Framework;
 
 namespace CraftersCloud.Core.TestUtilities.Tests;
 

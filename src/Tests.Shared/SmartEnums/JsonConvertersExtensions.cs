@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
 using Argon;
+using CraftersCloud.Core.SmartEnums;
 
-namespace CraftersCloud.Core.SmartEnums.VerifyTests;
+namespace CraftersCloud.Core.Tests.Shared.SmartEnums;
 
 [PublicAPI]
 public static class JsonConvertersExtensions

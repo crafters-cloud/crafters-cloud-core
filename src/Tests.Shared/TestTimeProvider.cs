@@ -1,4 +1,4 @@
-﻿namespace CraftersCloud.Core.TestUtilities;
+﻿namespace CraftersCloud.Core.Tests.Shared;
 
 /// <summary>
 /// Allows setting the current time for testing purposes.

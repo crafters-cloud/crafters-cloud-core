@@ -1,4 +1,4 @@
-﻿namespace CraftersCloud.Core.TestUtilities.Database;
+﻿namespace CraftersCloud.Core.Tests.Shared.Database;
 
 public record ResetDataOptions
 {

@@ -1,6 +1,6 @@
 ﻿using CraftersCloud.Core.Helpers;
 
-namespace CraftersCloud.Core.TestUtilities.Database;
+namespace CraftersCloud.Core.Tests.Shared.Database;
 
 [PublicAPI]
 public static class StringExtensionsForSql
