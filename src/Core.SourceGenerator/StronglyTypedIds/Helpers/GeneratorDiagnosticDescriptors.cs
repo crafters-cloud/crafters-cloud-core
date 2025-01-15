@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace CraftersCloud.Core.SourceGenerator
+namespace CraftersCloud.Core.SourceGenerator.StronglyTypedIds.Helpers
 {
     public static class GeneratorDiagnosticDescriptors
     {
