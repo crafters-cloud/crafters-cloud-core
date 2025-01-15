@@ -9,11 +9,11 @@
     <AssemblyName>CraftersCloud.Core.Tests.Shared</AssemblyName>
   </PropertyGroup>
 
-  <Import Project="..\..\Tests.Build.props" />
-
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+    <PackageReference Include="NUnit" />
     <PackageReference Include="Respawn" />
+    <PackageReference Include="Verify" />
   </ItemGroup>
 
   <ItemGroup>
