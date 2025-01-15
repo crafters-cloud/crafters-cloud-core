@@ -91,11 +91,20 @@ implementations, health-checks, authentication/authorization, unit testing and m
 To install the library, add any of the following packages starting with "CraftersCloud.Core" to your project:
 
 ```sh
+dotnet add package CraftersCloud.Core.AspNetCore
+dotnet add package CraftersCloud.Core.MediatR
+dotnet add package CraftersCloud.Core.SourceGenerator
 dotnet add package CraftersCloud.Core
-```
-
-or
-
-```sh
-dotnet add package CraftersCloud.AspNetCore
+dotnet add package CraftersCloud.Core.EntityFramework
+dotnet add package CraftersCloud.Core.Core.EntityFramework
+dotnet add package CraftersCloud.Core.EventBus
+dotnet add package CraftersCloud.Core.HealthChecks
+dotnet add package CraftersCloud.Core.Infrastructure
+dotnet add package CraftersCloud.Core.IntegrationEvents
+dotnet add package CraftersCloud.Core.SmartEnums.EntityFramework
+dotnet add package CraftersCloud.Core.SmartEnums.Swagger
+dotnet add package CraftersCloud.Core.SmartEnums.SystemTextJson
+dotnet add package CraftersCloud.Core.SmartEnums
+dotnet add package CraftersCloud.Core.Swagger
+dotnet add package CraftersCloud.Core.Tests.Shared
 ```
