@@ -1,6 +1,4 @@
-﻿using CraftersCloud.Core.StronglyTypedIds;
-
-namespace CraftersCloud.Core.Entities;
+﻿namespace CraftersCloud.Core.Entities;
 
 [PublicAPI]
 public static class QueryableExtensions
