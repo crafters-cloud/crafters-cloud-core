@@ -1,6 +1,5 @@
 using CraftersCloud.Core.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CraftersCloud.Core.EntityFramework.Infrastructure;
 
@@ -12,7 +11,7 @@ public static class ModelBuilderExtensions
     /// </summary>
     /// <param name="modelBuilder">Model Builder</param>
     /// <param name="options">Registration options</param>
-    public static void RegisterEntities(this ModelBuilder modelBuilder, EntitiesDbContextOptions options)
+    public static void RegisterEntities(this ModelBuilder modelBuilder, EntityRegistrationOptions options)
     {
         var entitiesAssembly = options.EntitiesAssembly;
         var types = entitiesAssembly.GetTypes();

@@ -12,7 +12,7 @@ public abstract class SaveChangesBehavior<TDbContext, TRequest, TResponse>(
     TDbContext dbContext,
     IUnitOfWork unitOfWork,
     ILogger<SaveChangesBehavior<TDbContext, TRequest, TResponse>> logger)
-    : IPipelineBehavior<TRequest, TResponse> where TRequest : IBaseRequest where TDbContext : EntitiesDbContext
+    : IPipelineBehavior<TRequest, TResponse> where TRequest : IBaseRequest where TDbContext : BaseDbContext
 {
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)

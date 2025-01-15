@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace CraftersCloud.Core.EntityFramework.Infrastructure.MediatR;
 
-internal static class MediatorExtension
+internal static class MediatorExtensions
 {
     public static IEnumerable<DomainEvent> GatherDomainEventsFromContext(this DbContext ctx)
     {

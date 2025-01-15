@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore.Storage;
 namespace CraftersCloud.Core.EntityFramework.Infrastructure;
 
 [UsedImplicitly]
-public abstract class EntitiesDbContext(
-    EntitiesDbContextOptions entitiesDbContextOptions,
+public abstract class BaseDbContext(
+    EntityRegistrationOptions entityRegistrationOptions,
     DbContextOptions options)
     : DbContext(options)
 {
@@ -17,9 +17,9 @@ public abstract class EntitiesDbContext(
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(entitiesDbContextOptions.ConfigurationAssembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(entityRegistrationOptions.ConfigurationAssembly);
 
-        modelBuilder.RegisterEntities(entitiesDbContextOptions);
+        modelBuilder.RegisterEntities(entityRegistrationOptions);
 
         ModelBuilderConfigurator?.Invoke(modelBuilder);
 
