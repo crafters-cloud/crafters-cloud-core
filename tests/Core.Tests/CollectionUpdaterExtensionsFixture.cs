@@ -1,6 +1,4 @@
 ﻿using CraftersCloud.Core.Collections;
-using FluentAssertions;
-using NUnit.Framework;
 
 namespace CraftersCloud.Core.Tests;
 
@@ -15,9 +13,9 @@ public class CollectionUpdaterExtensionsFixture
 
         collection.UpdateWith(values, (v, c) => v == c, v => v, (v, c) => { });
 
-        collection.Should().HaveCount(2);
-        collection.Should().Contain("a");
-        collection.Should().Contain("b");
+        collection.Count.ShouldBe(2);
+        collection.ShouldContain("a");
+        collection.ShouldContain("b");
     }
 
     [Test]
@@ -28,8 +26,8 @@ public class CollectionUpdaterExtensionsFixture
 
         collection.UpdateWith(values, (v, c) => v == c, v => v, (v, c) => { });
 
-        collection.Should().HaveCount(1);
-        collection.Should().Contain("a");
+        collection.Count.ShouldBe(1);
+        collection.ShouldContain("a");
     }
 
     [Test]
@@ -40,9 +38,9 @@ public class CollectionUpdaterExtensionsFixture
 
         collection.UpdateWithoutRemove(values, (v, c) => v == c, v => v, (v, c) => { });
 
-        collection.Should().HaveCount(2);
-        collection.Should().Contain("a");
-        collection.Should().Contain("b");
+        collection.Count.ShouldBe(2);
+        collection.ShouldContain("a");
+        collection.ShouldContain("b");
     }
 
     [Test]
@@ -53,8 +51,8 @@ public class CollectionUpdaterExtensionsFixture
 
         var result = collection.AddOrUpdate(value, c => c == value, v => v, (v, c) => { });
 
-        collection.Should().HaveCount(1);
-        result.Should().Be("a");
+        collection.Count.ShouldBe(1);
+        result.ShouldContain("a");
     }
 
     [Test]
@@ -65,8 +63,8 @@ public class CollectionUpdaterExtensionsFixture
 
         var result = collection.AddOrUpdate(value, c => c == value, v => v, (v, c) => { });
 
-        collection.Should().HaveCount(1);
-        result.Should().Be("a");
+        collection.Count.ShouldBe(1);
+        result.ShouldBe("a");
     }
 
     [Test]
@@ -77,7 +75,7 @@ public class CollectionUpdaterExtensionsFixture
 
         Action act = () => collection.UpdateWith(values, (v, c) => v == c, v => v, (v, c) => { }, null);
 
-        act.Should().NotThrow();
+        act.ShouldNotThrow();
     }
 
     [Test]
@@ -88,9 +86,9 @@ public class CollectionUpdaterExtensionsFixture
 
         collection.UpdateWith(values, (v, c) => v == c, v => v, (v, c) => { }, c => collection.Remove(c));
 
-        collection.Should().HaveCount(1);
-        collection.Should().Contain("a");
-        collection.Should().NotContain("b");
+        collection.Count.ShouldBe(1);
+        collection.ShouldContain("a");
+        collection.ShouldNotContain("b");
     }
 
     [Test]
@@ -101,7 +99,7 @@ public class CollectionUpdaterExtensionsFixture
 
         Action act = () => collection.UpdateWith(values, (v, c) => v == c, v => v, (v, c) => { });
 
-        act.Should().NotThrow();
+        act.ShouldNotThrow();
     }
 
     [Test]
@@ -112,6 +110,6 @@ public class CollectionUpdaterExtensionsFixture
 
         Action act = () => collection.UpdateWithoutRemove(values, (v, c) => v == c, v => v, (v, c) => { });
 
-        act.Should().NotThrow();
+        act.ShouldNotThrow();
     }
 }

@@ -1,5 +1,4 @@
 ﻿using CraftersCloud.Core.Tests.Shared.Database;
-using FluentAssertions;
 
 namespace CraftersCloud.Core.TestUtilities.Tests;
 
@@ -11,6 +10,6 @@ public class DatabaseHelpersFixture
     {
         var sql = DatabaseHelpers.DropAllSql;
 
-        sql.Should().NotBeNullOrEmpty();
+        sql.ShouldNotBeNullOrEmpty();
     }
 }

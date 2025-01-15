@@ -17,12 +17,6 @@
           "Castle.Core": "5.1.1"
         }
       },
-      "FluentAssertions": {
-        "type": "Direct",
-        "requested": "[8.0.0, )",
-        "resolved": "8.0.0",
-        "contentHash": "qVCJIpukyFb9TO9W3vC4/sQF8lfrQksJbo4071uk3YfmHyKKlCZTTpyYhmCnnTZ2LVfFP1JgxM652nolCFjZDw=="
-      },
       "JetBrains.Annotations": {
         "type": "Direct",
         "requested": "[2024.3.0, )",
@@ -55,6 +49,12 @@
         "resolved": "6.0.0",
         "contentHash": "+/SsmiySsXJlvQLCGBqaZKNVt3s/Y/HbAdwtop7Km2CnuZbaScoqkWJEBQ5Cy9ebkn6kCYKrHsXgwrFdTgcb3g=="
       },
+      "NUnit": {
+        "type": "Direct",
+        "requested": "[4.3.2, )",
+        "resolved": "4.3.2",
+        "contentHash": "puVXayXNmEu7MFQSUswGmUjOy3M3baprMbkLl5PAutpeDoGTr+jPv33qAYsqxywi2wJCq8l/O3EhHoLulPE1iQ=="
+      },
       "NUnit3TestAdapter": {
         "type": "Direct",
         "requested": "[4.6.0, )",
@@ -66,6 +66,16 @@
         "requested": "[3.0.271, )",
         "resolved": "3.0.271",
         "contentHash": "I7e5kx5prSV99g+rM/xO5KMhwBQL/b+NlUY76RhbutXJ0tgiuMoqgOFnlTHOxCLrlKmwaMzp3VI8oz05PSlcIA=="
+      },
+      "Shouldly": {
+        "type": "Direct",
+        "requested": "[4.2.1, )",
+        "resolved": "4.2.1",
+        "contentHash": "dKAKiSuhLKqD2TXwLKtqNg1nwzJcIKOOMncZjk9LYe4W+h+SCftpWdxwR79YZUIHMH+3Vu9s0s0UHNrgICLwRQ==",
+        "dependencies": {
+          "DiffEngine": "11.3.0",
+          "EmptyFiles": "4.4.0"
+        }
       },
       "Verify": {
         "type": "Direct",
@@ -259,12 +269,6 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.1"
         }
-      },
-      "NUnit": {
-        "type": "CentralTransitive",
-        "requested": "[4.3.2, )",
-        "resolved": "4.3.2",
-        "contentHash": "puVXayXNmEu7MFQSUswGmUjOy3M3baprMbkLl5PAutpeDoGTr+jPv33qAYsqxywi2wJCq8l/O3EhHoLulPE1iQ=="
       },
       "OneOf": {
         "type": "CentralTransitive",

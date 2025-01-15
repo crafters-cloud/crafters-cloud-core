@@ -1,6 +1,4 @@
 ﻿using CraftersCloud.Core.Tests.Shared;
-using FluentAssertions;
-using NUnit.Framework;
 
 namespace CraftersCloud.Core.TestUtilities.Tests;
 
@@ -18,9 +16,9 @@ public class TestTimeProviderFixture
         var fixedNowSecondCall = timeProvider.FixedUtcNow;
         var nowSecondCall = timeProvider.UtcNow;
 
-        fixedNowFirstCall.Should().Be(fixedNowSecondCall);
-        nowFirstCall.Should().NotBe(nowSecondCall);
-        nowSecondCall.Should().BeAfter(nowFirstCall);
+        fixedNowFirstCall.ShouldBe(fixedNowSecondCall);
+        nowFirstCall.ShouldNotBe(nowSecondCall);
+        nowSecondCall.ShouldBeGreaterThan(nowFirstCall);
     }
 
     [Test]
@@ -30,7 +28,7 @@ public class TestTimeProviderFixture
         var timeProvider = new TestTimeProvider();
         timeProvider.SetNow(now);
 
-        timeProvider.FixedUtcNow.Should().Be(now);
-        timeProvider.UtcNow.Should().Be(now);
+        timeProvider.FixedUtcNow.ShouldBe(now);
+        timeProvider.UtcNow.ShouldBe(now);
     }
 }

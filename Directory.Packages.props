@@ -17,7 +17,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
     <PackageVersion Include="FakeItEasy" Version="8.3.0" />
-    <PackageVersion Include="FluentAssertions" Version="8.0.0" />
     <PackageVersion Include="FluentValidation" Version="11.11.0" />
     <PackageVersion Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageVersion Include="JetBrains.Annotations" Version="2024.3.0" />
@@ -55,6 +54,7 @@
     <PackageVersion Include="OneOf.SourceGenerator" Version="3.0.271" />
     <PackageVersion Include="Respawn" Version="6.2.1" />
     <PackageVersion Include="Serilog" Version="4.2.0" />
+    <PackageVersion Include="Shouldly" Version="4.2.1" />
     <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageVersion Include="System.Linq.Dynamic.Core" Version="1.5.1" />
     <PackageVersion Include="System.Text.Encodings.Web" Version="9.0.1" />

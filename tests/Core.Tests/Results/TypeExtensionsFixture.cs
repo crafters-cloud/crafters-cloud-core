@@ -1,6 +1,4 @@
 ﻿using CraftersCloud.Core.Results;
-using FluentAssertions;
-using NUnit.Framework;
 using OneOf;
 
 namespace CraftersCloud.Core.Tests.Results;
@@ -12,14 +10,14 @@ public class TypeExtensionsFixture
     public void GivenClassWithInvalidResult_HasInvalidResultType_Returns_True()
     {
         var result = typeof(AClassWithBadRequestResult);
-        result.IsDerivedFromOneOfType<BadRequestResult>().Should().BeTrue();
+        result.IsDerivedFromOneOfType<BadRequestResult>().ShouldBeTrue();
     }
 
     [Test]
     public void GivenClassWithoutInvalidResult_HasInvalidResultType_Returns_False()
     {
         var result = typeof(AClassWithoutBadRequestResult);
-        result.IsDerivedFromOneOfType<BadRequestResult>().Should().BeFalse();
+        result.IsDerivedFromOneOfType<BadRequestResult>().ShouldBeFalse();
     }
 
     [Test]
@@ -27,7 +25,7 @@ public class TypeExtensionsFixture
     {
         var invalidResult = new BadRequestResult([]);
         var result = invalidResult.MapToOneOf<AClassWithBadRequestResult>();
-        result.Value.Should().Be(invalidResult);
+        result.Value.ShouldBe(invalidResult);
     }
 
     [Test]
@@ -35,7 +33,7 @@ public class TypeExtensionsFixture
     {
         var invalidResult = new BadRequestResult([]);
         var resultFunc = () => invalidResult.MapToOneOf<AClassWithoutBadRequestResult>();
-        resultFunc.Should().Throw<InvalidOperationException>().WithMessage(
+        resultFunc.ShouldThrow<InvalidOperationException>().Message.ShouldBe(
             "No implicit conversion operator found. Maybe 'AClassWithoutBadRequestResult' class does not inherits from OneOfBase with 'BadRequestResult'.");
     }
 }

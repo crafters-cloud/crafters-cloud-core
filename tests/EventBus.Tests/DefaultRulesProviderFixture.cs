@@ -1,8 +1,6 @@
 ﻿using Azure.Messaging.ServiceBus.Administration;
 using CraftersCloud.Core.EventBus.ServiceBus.Rules;
 using CraftersCloud.Core.IntegrationEvents;
-using FluentAssertions;
-using NUnit.Framework;
 
 namespace CraftersCloud.Core.EventBus.Tests;
 
@@ -21,7 +19,7 @@ public class DefaultRulesProviderFixture
     {
         var rules = GetRules<TestClasses.TestHandler>();
 
-        rules.Count.Should().Be(1);
+        rules.Count.ShouldBe(1);
 
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName') and user.OriginatorId != 'TxfBackendSubscriptionClient'");
@@ -32,7 +30,7 @@ public class DefaultRulesProviderFixture
     {
         var rules = GetRules<TestClasses.TestHandlerOnlyProcessFromSelf>();
 
-        rules.Count.Should().Be(1);
+        rules.Count.ShouldBe(1);
 
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName')");
@@ -43,7 +41,7 @@ public class DefaultRulesProviderFixture
     {
         var rules = GetRules<TestClasses.TestHandlerWithEmptyClient>();
 
-        rules.Count.Should().Be(1);
+        rules.Count.ShouldBe(1);
 
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName') and user.OriginatorId != 'TxfBackendSubscriptionClient'");
@@ -54,7 +52,7 @@ public class DefaultRulesProviderFixture
     {
         var rules = GetRules<TestClasses.TestHandlerWithEmptyClientAndProcessFromSelf>();
 
-        rules.Count.Should().Be(1);
+        rules.Count.ShouldBe(1);
 
         AssertRuleContainsSqlExpression(rules.First(), "sys.Label in ('eventName')");
     }
@@ -64,7 +62,7 @@ public class DefaultRulesProviderFixture
     {
         var rules = GetRules<TestClasses.TestHandlerWithSingleClient>();
 
-        rules.Count.Should().Be(1);
+        rules.Count.ShouldBe(1);
 
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName') and user.OriginatorId != 'TxfBackendSubscriptionClient' and user.OriginatorId in ('SomeClientName')");
@@ -75,7 +73,7 @@ public class DefaultRulesProviderFixture
     {
         var rules = GetRules<TestClasses.TestHandlerWithSingleClientAndProcessFromSelf>();
 
-        rules.Count.Should().Be(1);
+        rules.Count.ShouldBe(1);
 
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName') and user.OriginatorId in ('SomeClientName')");
@@ -86,7 +84,7 @@ public class DefaultRulesProviderFixture
     {
         var rules = GetRules<TestClasses.TestHandlerWithMultipleClients>();
 
-        rules.Count.Should().Be(1);
+        rules.Count.ShouldBe(1);
 
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName') and user.OriginatorId != 'TxfBackendSubscriptionClient' and user.OriginatorId in ('SomeClientName', 'AnotherClientName')");
@@ -97,7 +95,7 @@ public class DefaultRulesProviderFixture
     {
         var rules = GetRules<TestClasses.TestHandlerWithMultipleClientsAndProcessFromSelf>();
 
-        rules.Count.Should().Be(1);
+        rules.Count.ShouldBe(1);
 
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('eventName') and user.OriginatorId in ('SomeClientName', 'AnotherClientName')");
@@ -108,7 +106,7 @@ public class DefaultRulesProviderFixture
     {
         var rules = GetRules<TestClasses.TestHandlerWithEventNameAttribute>();
 
-        rules.Count.Should().Be(1);
+        rules.Count.ShouldBe(1);
 
         AssertRuleContainsSqlExpression(rules.First(),
             "sys.Label in ('SomeEventName') and user.OriginatorId != 'TxfBackendSubscriptionClient'");
@@ -119,7 +117,7 @@ public class DefaultRulesProviderFixture
     {
         var rules = GetRules<TestClasses.TestHandlerWithEventNameAttributeAndProcessFromSelf>();
 
-        rules.Count.Should().Be(1);
+        rules.Count.ShouldBe(1);
 
         AssertRuleContainsSqlExpression(rules.First(), "sys.Label in ('SomeEventName')");
     }
@@ -129,9 +127,9 @@ public class DefaultRulesProviderFixture
 
     private static void AssertRuleContainsSqlExpression(CreateRuleOptions rule, string expectedSqlExpression)
     {
-        rule.Filter.Should().BeOfType<SqlRuleFilter>();
+        rule.Filter.ShouldBeOfType<SqlRuleFilter>();
         var sqlFilter = (SqlRuleFilter) rule.Filter;
-        sqlFilter.SqlExpression.Should().Be(expectedSqlExpression);
+        sqlFilter.SqlExpression.ShouldBe(expectedSqlExpression);
     }
 
 

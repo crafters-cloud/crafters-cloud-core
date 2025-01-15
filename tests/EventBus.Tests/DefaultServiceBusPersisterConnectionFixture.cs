@@ -1,6 +1,4 @@
 ﻿using CraftersCloud.Core.EventBus.ServiceBus;
-using FluentAssertions;
-using NUnit.Framework;
 
 namespace CraftersCloud.Core.EventBus.Tests;
 
@@ -17,7 +15,7 @@ public class DefaultServiceBusPersisterConnectionFixture
         string expectedTopicName)
     {
         var topicName = DefaultServiceBusPersisterConnection.ExtractTopicName(connectionString);
-        topicName.Should().Be(expectedTopicName);
+        topicName.ShouldBe(expectedTopicName);
     }
 
     [TestCase(
