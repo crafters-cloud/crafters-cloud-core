@@ -5,49 +5,18 @@ namespace CraftersCloud.Core.Entities;
 [PublicAPI]
 public static class QueryableExtensions
 {
-    public static IQueryable<T> QueryById<T>(this IQueryable<T> query, IStronglyTypedId<Guid> id)
-        where T : EntityWithTypedId<IStronglyTypedId<Guid>> =>
-        query.Where(e => e.Id == id);
+    public static IQueryable<T> QueryById<T, TId>(this IQueryable<T> query, TId id)
+        where T : EntityWithTypedId<TId>
+        where TId : struct
+        => query.Where(e => e.Id.Equals(id));
 
-    public static IQueryable<T> QueryById<T>(this IQueryable<T> query, IStronglyTypedId<int> id)
-        where T : EntityWithTypedId<IStronglyTypedId<int>> =>
-        query.Where(e => e.Id == id);
+    public static IQueryable<T> QueryExceptWithId<T, TId>(this IQueryable<T> query, TId? id)
+        where T : EntityWithTypedId<TId>
+        where TId : struct
+        => query.Where(e => !e.Id.Equals(id));
 
-    public static IQueryable<T> QueryById<T>(this IQueryable<T> query, Guid id) where T : EntityWithTypedId<Guid> =>
-        query.Where(e => e.Id == id);
-
-    public static IQueryable<T> QueryById<T>(this IQueryable<T> query, int id) where T : EntityWithTypedId<int> =>
-        query.Where(e => e.Id == id);
-
-    public static IQueryable<T> QueryExceptWithId<T>(this IQueryable<T> query, IStronglyTypedId<Guid> id)
-        where T : EntityWithTypedId<IStronglyTypedId<Guid>> =>
-        query.Where(e => e.Id != id);
-
-    public static IQueryable<T> QueryExceptWithId<T>(this IQueryable<T> query, IStronglyTypedId<int> id)
-        where T : EntityWithTypedId<IStronglyTypedId<int>> =>
-        query.Where(e => e.Id != id);
-
-    public static IQueryable<T> QueryExceptWithId<T>(this IQueryable<T> query, Guid? id)
-        where T : EntityWithTypedId<Guid> =>
-        query.Where(e => e.Id != id);
-
-    public static IQueryable<T> QueryExceptWithId<T>(this IQueryable<T> query, int? id)
-        where T : EntityWithTypedId<int> =>
-        query.Where(e => e.Id != id);
-
-    public static IQueryable<T> QueryByIds<T>(this IQueryable<T> query, IEnumerable<IStronglyTypedId<Guid>> ids)
-        where T : EntityWithTypedId<IStronglyTypedId<Guid>> =>
-        query.Where(e => ids.Contains(e.Id));
-
-    public static IQueryable<T> QueryByIds<T>(this IQueryable<T> query, IEnumerable<IStronglyTypedId<int>> ids)
-        where T : EntityWithTypedId<IStronglyTypedId<int>> =>
-        query.Where(e => ids.Contains(e.Id));
-
-    public static IQueryable<T> QueryByIds<T>(this IQueryable<T> query, IEnumerable<Guid> ids)
-        where T : EntityWithTypedId<Guid> =>
-        query.Where(e => ids.Contains(e.Id));
-
-    public static IQueryable<T> QueryByIds<T>(this IQueryable<T> query, IEnumerable<int> ids)
-        where T : EntityWithTypedId<int> =>
+    public static IQueryable<T> QueryByIds<T, TId>(this IQueryable<T> query, IEnumerable<TId> ids)
+        where T : EntityWithTypedId<TId>
+        where TId : struct =>
         query.Where(e => ids.Contains(e.Id));
 }

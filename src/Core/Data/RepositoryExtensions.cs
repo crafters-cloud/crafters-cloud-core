@@ -12,20 +12,9 @@ public static class RepositoryExtensions
             repository.Add(entity);
         }
     }
-    
-    public static bool QueryExists<T>(this IRepository<T> repository, IStronglyTypedId<Guid> id)
-        where T : EntityWithTypedId<IStronglyTypedId<Guid>> =>
-        repository.QueryAll().QueryById(id).Any();
-    
-    public static bool QueryExists<T>(this IRepository<T> repository, IStronglyTypedId<int> id)
-        where T : EntityWithTypedId<IStronglyTypedId<int>> =>
-        repository.QueryAll().QueryById(id).Any();
 
-    public static bool QueryExists<T>(this IRepository<T> repository, Guid id)
-        where T : EntityWithTypedId<Guid> =>
-        repository.QueryAll().QueryById(id).Any();
-    
-    public static bool QueryExists<T>(this IRepository<T> repository, int id)
-        where T : EntityWithTypedId<int> =>
+    public static bool ExistsById<T, TId>(this IRepository<T> repository, TId id)
+        where T : EntityWithTypedId<TId>
+        where TId : struct =>
         repository.QueryAll().QueryById(id).Any();
 }
