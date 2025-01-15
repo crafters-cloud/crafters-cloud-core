@@ -1,5 +1,6 @@
 ﻿namespace CraftersCloud.Core.Entities;
 
+[PublicAPI]
 public abstract class Entity
 {
     // needs to be private so that EF does not map the field

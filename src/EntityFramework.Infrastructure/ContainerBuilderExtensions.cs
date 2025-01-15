@@ -20,7 +20,7 @@ public static class ContainerBuilderExtensions
         builder.RegisterAssemblyTypes(assemblies)
             .Where(
                 type =>
-                    ImplementsInterface(typeof(IEntityRepository<>), type) ||
+                    ImplementsInterface(typeof(IRepository<>), type) ||
                     type.Name.EndsWith("Repository", StringComparison.InvariantCulture)
             ).AsImplementedInterfaces().InstancePerLifetimeScope();
     }

@@ -5,13 +5,8 @@ using Microsoft.EntityFrameworkCore;
 namespace CraftersCloud.Core.EntityFramework.Infrastructure;
 
 [UsedImplicitly]
-public class EntityFrameworkRepository<T>(DbContext context)
-    : EntityFrameworkRepository<T, Guid>(context), IRepository<T>
-    where T : EntityWithTypedId<Guid>;
-
-[UsedImplicitly]
-public class EntityFrameworkRepository<T, TId>(DbContext context) : IRepository<T, TId>
-    where T : EntityWithTypedId<TId>
+public class EntityFrameworkRepository<T>(DbContext context) : IRepository<T>
+    where T : Entity
 {
     protected DbSet<T> DbSet { get; } = context.Set<T>();
 
@@ -21,6 +16,16 @@ public class EntityFrameworkRepository<T, TId>(DbContext context) : IRepository<
 
     public virtual void Add(T entity) => DbSet.Add(entity);
 
+    public virtual void Delete(T entity) => DbSet.Remove(entity);
+
+    public virtual void DeleteRange(IEnumerable<T> entities) => DbSet.RemoveRange(entities);
+}
+
+[UsedImplicitly]
+public class EntityFrameworkRepository<T, TId>(DbContext context)
+    : EntityFrameworkRepository<T>(context), IRepository<T, TId>
+    where T : EntityWithTypedId<TId>
+{
     public virtual void DeleteById(TId id)
     {
         var item = FindById(id);
@@ -38,10 +43,6 @@ public class EntityFrameworkRepository<T, TId>(DbContext context) : IRepository<
             Delete(item);
         }
     }
-
-    public virtual void Delete(T item) => DbSet.Remove(item);
-
-    public virtual void DeleteRange(IEnumerable<T> entities) => DbSet.RemoveRange(entities);
 
     private T? FindById(TId id) => DbSet.Find(id);
 
