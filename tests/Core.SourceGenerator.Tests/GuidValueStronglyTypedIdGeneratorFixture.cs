@@ -6,7 +6,7 @@ namespace CraftersCloud.Core.SourceGenerator.Tests;
 [Category("unit")]
 public class GuidValueStronglyTypedIdGeneratorFixture
 {
-    private readonly GuidId _id = GuidId.New();
+    private readonly GuidId _id = GuidId.CreateNew();
 
     [Test]
     public void GetValue() => _id.Value.Should().NotBe(Guid.Empty);

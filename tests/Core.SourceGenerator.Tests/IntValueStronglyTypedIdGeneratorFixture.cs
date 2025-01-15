@@ -6,10 +6,10 @@ namespace CraftersCloud.Core.SourceGenerator.Tests;
 [Category("unit")]
 public class IntValueStronglyTypedIdGeneratorFixture
 {
-    private readonly IntId _id = IntId.New();
+    private readonly IntId _id = IntId.Create(10);
     
     [Test]
-    public void GetValue() => _id.Value.Should().Be(0);
+    public void GetValue() => _id.Value.Should().Be(10);
 
     [Test]
     public void ImplementsStronglyTypedIdInterface() => _id.Should().BeAssignableTo<IStronglyTypedId<int>>();

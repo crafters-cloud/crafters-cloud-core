@@ -32,7 +32,7 @@ public static class StronglyTypedIdAttributeHelper
                                               [AttributeUsage(AttributeTargets.Struct, Inherited = false, AllowMultiple = false)]
                                               internal sealed class {{AttributeName}}(ValueKind valueKind) : Attribute
                                               {
-                                                  public ValueKind ValueKind { get; } = valueKind;
+                                                  internal ValueKind ValueKind { get; } = valueKind;
                                               }
                                           }
 

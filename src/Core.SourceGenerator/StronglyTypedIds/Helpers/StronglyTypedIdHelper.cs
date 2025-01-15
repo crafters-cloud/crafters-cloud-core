@@ -15,7 +15,15 @@ public static class StronglyTypedIdHelper
             1 => "Int32",
             _ => throw new InvalidOperationException($"Invalid value valueKind: {valueKind}")
         };
-        var valueTypeFactory = valueKind == 0 ? "SequentialGuidGenerator.Generate()" : "default";
+        
+        StringBuilder createNewStatement = new($"public static {className} Create({valueType} value) => new {className}(value);");
+        
+        // If the valueKind is Guid, we need to generate a CreateNew method. Adding CreateNew for Int makes no sense.
+        if(valueKind == 0)
+        {
+            createNewStatement.AppendLine();
+            createNewStatement.Append($"  public static {className} CreateNew() => new {className}(SequentialGuidGenerator.Generate());");
+        }
 
         StringBuilder source = new($$"""
 
@@ -34,7 +42,7 @@ public static class StronglyTypedIdHelper
                                      
                                         public override string ToString() => Value.ToString();
                                         
-                                        public static {{className}} New() => new({{valueTypeFactory}});
+                                        {{createNewStatement}}
                                         
                                         public static bool TryParse(string value, out {{className}} result)
                                         {
