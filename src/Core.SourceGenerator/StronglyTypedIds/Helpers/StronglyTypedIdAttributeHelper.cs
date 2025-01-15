@@ -13,7 +13,7 @@ public static class StronglyTypedIdAttributeHelper
                                           
                                           namespace {{AttributeNamespace}}
                                           {
-                                              public enum ValueKind
+                                              internal enum ValueKind
                                               {
                                                   Guid = 0,
                                                   Int = 1,
