@@ -1,5 +1,5 @@
 using System.Reflection;
-using System.Text.Json.Serialization;
+using Argon;
 using CraftersCloud.Core.StronglyTypedIds;
 
 namespace CraftersCloud.Core.Tests.Shared.StronglyTypedIds;
