@@ -13,15 +13,20 @@ public static class EntityTypeBuilderExtensions
     /// Configures the entity to have SmartEnum as primary key
     /// </summary>
     /// <param name="builder">Entity type builder</param>
+    /// <param name="nameMaxLength">Max lenght of name property</param>
     /// <typeparam name="T">Typeof entity</typeparam>
     /// <typeparam name="TId">Typeof id</typeparam>
-    public static void HasEnumId<T, TId>(this EntityTypeBuilder<T> builder)
+    public static EntityTypeBuilder<T> ConfigureEntityWithEnumId<T, TId>(this EntityTypeBuilder<T> builder, int nameMaxLength)
         where T : EntityWithEnumId<TId> where TId : SmartEnum<TId>
     {
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id)
             .HasSmartEnumConversion()
             .ValueGeneratedNever();
+
+        builder.Property(x => x.Name).IsRequired().HasMaxLength(nameMaxLength);
+
+        return builder;
     }
 
     /// <summary>

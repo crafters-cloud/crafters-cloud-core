@@ -3,7 +3,7 @@ using CraftersCloud.Core.EntityFramework.Seeding;
 using CraftersCloud.Core.SmartEnums.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CraftersCloud.Core.SmartEnums.EntityFramework.Seeding;
+namespace CraftersCloud.Core.SmartEnums.EntityFramework;
 
 /// <summary>
 /// Defines seeding for entities with SmartEnum as primary key
@@ -11,7 +11,7 @@ namespace CraftersCloud.Core.SmartEnums.EntityFramework.Seeding;
 /// <typeparam name="T">Typeof entity</typeparam>
 /// <typeparam name="TId">Typeof id</typeparam>
 [PublicAPI]
-public class EntityWithEnumIdSeeding<T, TId> : ISeeding
+public class EntityWithEnumIdSeeding<T, TId> : IModelBuilderSeeding
     where T : EntityWithEnumId<TId>
     where TId : SmartEnum<TId>
 {

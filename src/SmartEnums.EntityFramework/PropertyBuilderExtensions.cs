@@ -7,17 +7,6 @@ namespace CraftersCloud.Core.SmartEnums.EntityFramework;
 public static class PropertyBuilderExtensions
 {
     /// <summary>
-    /// Adds a conversion for a SmartEnum to an integer
-    /// </summary>
-    /// <param name="propertyBuilder">Property builder</param>
-    /// <typeparam name="TProperty">Type of property</typeparam>
-    /// <returns></returns>
-    public static PropertyBuilder<TProperty> HasSmartEnumConversion<TProperty>(
-        this PropertyBuilder<TProperty> propertyBuilder)
-        where TProperty : SmartEnum<TProperty, int> =>
-        propertyBuilder.HasSmartEnumConversion<TProperty, int>();
-
-    /// <summary>
     /// Adds a conversion for a nullable SmartEnum to an integer
     /// </summary>
     /// <param name="propertyBuilder">Property builder</param>
@@ -27,6 +16,17 @@ public static class PropertyBuilderExtensions
         propertyBuilder.HasConversion(
             p => p == null ? (int?) null : p.Value,
             p => p.HasValue ? SmartEnum<TProperty>.FromValue(p.Value) : null);
+
+    /// <summary>
+    /// Adds a conversion for a SmartEnum to an integer
+    /// </summary>
+    /// <param name="propertyBuilder">Property builder</param>
+    /// <typeparam name="TProperty">Type of property</typeparam>
+    /// <returns></returns>
+    public static PropertyBuilder<TProperty> HasSmartEnumConversion<TProperty>(
+        this PropertyBuilder<TProperty> propertyBuilder)
+        where TProperty : SmartEnum<TProperty, int> =>
+        propertyBuilder.HasSmartEnumConversion<TProperty, int>();
 
     /// <summary>
     /// Adds a conversion for a SmartEnum to a value
