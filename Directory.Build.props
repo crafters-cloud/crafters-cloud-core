@@ -10,7 +10,8 @@
     <Copyright>Copyright © 2025 Crafters Cloud</Copyright>
     <Company>Crafters Cloud</Company>
     <MinVerTagPrefix>v</MinVerTagPrefix>
-    <MinVerDefaultPreReleaseIdentifiers>pre.0</MinVerDefaultPreReleaseIdentifiers>
+    <MinVerDefaultPreReleaseIdentifiers>pre</MinVerDefaultPreReleaseIdentifiers>
+    
 
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <PackageIcon>icon-128x92.png</PackageIcon>
