@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <Product>CraftersCloud.Core.AspireTests.Shared</Product>
+    <Description>Shared code for Aspire Tests</Description>
+    <RootNamespace>CraftersCloud.Core.AspireTests.Shared</RootNamespace>
+    <PackageId>CraftersCloud.Core.AspireTests.Shared</PackageId>
+    <AssemblyName>CraftersCloud.Core.AspireTests.Shared</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.Testing" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.Testing" />
+    <PackageReference Include="Shouldly" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
