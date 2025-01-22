@@ -72,6 +72,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.SourceGenerator.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireTests.Shared", "src\AspireTests.Shared\AspireTests.Shared.csproj", "{D0FC30AD-AC0D-494C-98F5-90AE17D5D53B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.SystemTextJson", "src\Core.SystemTextJson\Core.SystemTextJson.csproj", "{D7D5FA0A-6F65-4B63-AC0A-8EBEEA5062E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -162,6 +164,10 @@ Global
 		{D0FC30AD-AC0D-494C-98F5-90AE17D5D53B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0FC30AD-AC0D-494C-98F5-90AE17D5D53B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0FC30AD-AC0D-494C-98F5-90AE17D5D53B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D5FA0A-6F65-4B63-AC0A-8EBEEA5062E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D5FA0A-6F65-4B63-AC0A-8EBEEA5062E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D5FA0A-6F65-4B63-AC0A-8EBEEA5062E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D5FA0A-6F65-4B63-AC0A-8EBEEA5062E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -192,5 +198,6 @@ Global
 		{3AC92E56-31F3-40AE-975E-DA30E42773BD} = {18E0523E-397A-4487-BB9F-ABF9D1E36A01}
 		{5B952ACF-A334-4700-B2B0-FA66EB896849} = {A06EBB9D-63A5-439B-BC34-D89B39D19625}
 		{D0FC30AD-AC0D-494C-98F5-90AE17D5D53B} = {18E0523E-397A-4487-BB9F-ABF9D1E36A01}
+		{D7D5FA0A-6F65-4B63-AC0A-8EBEEA5062E1} = {18E0523E-397A-4487-BB9F-ABF9D1E36A01}
 	EndGlobalSection
 EndGlobal
