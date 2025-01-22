@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.Logging" />
   </ItemGroup>
 
@@ -19,6 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Core.Caching.Abstractions\Core.Caching.Abstractions.csproj" />
+    <ProjectReference Include="..\Core.Caching\Core.Caching.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 

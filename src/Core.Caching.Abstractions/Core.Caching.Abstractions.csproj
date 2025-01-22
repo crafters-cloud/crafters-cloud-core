@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <Product>CraftersCloud.Core.Caching.Abstractions</Product>
+    <Description>Caching abstractions</Description>
+    <RootNamespace>CraftersCloud.Core.Caching.Abstractions</RootNamespace>
+    <PackageId>CraftersCloud.Core.Caching.Abstractions</PackageId>
+    <AssemblyName>CraftersCloud.Core.Caching.Abstractions</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+  </ItemGroup>
+
+</Project>

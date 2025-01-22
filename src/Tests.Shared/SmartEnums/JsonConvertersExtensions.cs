@@ -12,7 +12,7 @@ public static class JsonConvertersExtensions
     /// </summary>
     /// <param name="converters">List of converters to add converters to</param>
     /// <param name="assembliesWithSmartEnums">Assemblies containing SmartEnums</param>
-    public static void AddCoreSmartEnumJsonConverters(this IList<JsonConverter> converters,
+    public static void AddCoreVerifyTestsSmartEnumJsonConverters(this IList<JsonConverter> converters,
         IEnumerable<Assembly> assembliesWithSmartEnums)
     {
         var smartEnums = assembliesWithSmartEnums.FindSmartEnums();

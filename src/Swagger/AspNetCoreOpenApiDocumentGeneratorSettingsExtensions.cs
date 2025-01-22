@@ -1,4 +1,5 @@
-﻿using NSwag.Generation.AspNetCore;
+﻿using NJsonSchema.Generation;
+using NSwag.Generation.AspNetCore;
 
 namespace CraftersCloud.Core.Swagger;
 
@@ -11,7 +12,7 @@ public static class AspNetCoreOpenApiDocumentGeneratorSettingsExtensions
         settings.Title = appTitle;
         settings.Version = appVersion;
         settings.SchemaSettings.SchemaNameGenerator = new CustomSwaggerSchemaNameGenerator();
-
+        settings.SchemaSettings.SchemaProcessors.Add(new StronglyTypeIdSwaggerSchemaProcessor());
         configureSettings?.Invoke(settings);
     }
 

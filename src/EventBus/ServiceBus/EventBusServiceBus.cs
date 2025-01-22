@@ -9,7 +9,6 @@ using CraftersCloud.Core.IntegrationEvents;
 using Microsoft.Extensions.Logging;
 
 namespace CraftersCloud.Core.EventBus.ServiceBus;
-
 internal class EventBusServiceBus : IEventBus, IDisposable
 {
     private const string AutofacScopeName = "event_bus_service_bus";
