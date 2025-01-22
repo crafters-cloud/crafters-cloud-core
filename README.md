@@ -1,4 +1,9 @@
-# CraftersCloud Core
+# Crafters Cloud Core
+
+![CI](https://github.com/crafters-cloud/crafters-cloud-core/workflows/CI/badge.svg)
+[![NuGet](https://img.shields.io/nuget/dt/CraftersCloud.Core.svg)](https://www.nuget.org/packages/CraftersCloud.Core)
+[![NuGet](https://img.shields.io/nuget/vpre/CraftersCloud.Core.svg)](https://www.nuget.org/packages/CraftersCloud.Core)
+[![MyGet (dev)](https://img.shields.io/myget/crafters-cloud/v/CraftersCloud.Core.svg)](https://myget.org/gallery/crafters-cloud)
 
 CraftersCloud Core is a set of .NET libraries that provides infrastructure and utilities for building applications with
 Minimal Api, Entity Framework and MediatR.
