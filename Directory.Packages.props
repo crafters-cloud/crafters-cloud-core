@@ -1,79 +1,79 @@
 <Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <AspireVersion>9.0.0</AspireVersion>
-    <EFcoreVersion>9.0.2</EFcoreVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Ardalis.SmartEnum" Version="8.2.0" />
     <PackageVersion Include="Ardalis.SmartEnum.EFCore" Version="8.2.0" />
     <PackageVersion Include="Ardalis.SmartEnum.SystemTextJson" Version="8.1.0" />
-    <PackageVersion Include="Aspire.Hosting.Testing" Version="$(AspireVersion)" />
+    <PackageVersion Include="Aspire.Hosting.Testing" Version="9.4.1" />
+    <PackageVersion Include="AspNetCore.HealthChecks.Publisher.ApplicationInsights" Version="9.0.0" />
     <PackageVersion Include="AspNetCore.HealthChecks.System" Version="9.0.0" />
-    <PackageVersion Include="Autofac" Version="8.2.0" />
-    <PackageVersion Include="Azure.Identity" Version="1.13.2" />
-    <PackageVersion Include="Azure.Messaging.ServiceBus" Version="7.18.4" />
+    <PackageVersion Include="Autofac" Version="8.4.0" />
+    <PackageVersion Include="Azure.Identity" Version="1.15.0" />
+    <PackageVersion Include="Azure.Messaging.ServiceBus" Version="7.20.1" />
     <PackageVersion Include="Ben.Demystifier" Version="0.4.1" />
     <PackageVersion Include="coverlet.collector" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
     <PackageVersion Include="FakeItEasy" Version="8.3.0" />
-    <PackageVersion Include="FluentValidation" Version="11.11.0" />
-    <PackageVersion Include="FluentValidation.AspNetCore" Version="11.3.0" />
-    <PackageVersion Include="JetBrains.Annotations" Version="2024.3.0" />
-    <PackageVersion Include="MediatR" Version="12.4.1" />
+    <PackageVersion Include="FluentValidation" Version="12.0.0" />
+    <PackageVersion Include="FluentValidation.AspNetCore" Version="11.3.1" />
+    <PackageVersion Include="JetBrains.Annotations" Version="2025.2.0" />
+    <PackageVersion Include="MediatR" Version="13.0.0" />
+    <PackageVersion Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.23.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0">
+    <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.13.0">
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0">
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing.NUnit" Version="1.1.2" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.13.0" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="$(EFcoreVersion)" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="$(EFcoreVersion)" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(EFcoreVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Caching.Abstractions" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.FileExtensions" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.Diagnostics.Testing" Version="9.2.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.14.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Abstractions" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.FileExtensions" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Diagnostics.Testing" Version="9.8.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
     <PackageVersion Include="MinVer" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <PackageVersion Include="NSwag.AspNetCore" Version="14.2.0" />
-    <PackageVersion Include="NSwag.Generation.AspNetCore" Version="14.2.0" />
-    <PackageVersion Include="NUnit" Version="4.3.2" />
-    <PackageVersion Include="NUnit3TestAdapter" Version="5.0.0">
+    <PackageVersion Include="NSwag.AspNetCore" Version="14.5.0" />
+    <PackageVersion Include="NSwag.Generation.AspNetCore" Version="14.5.0" />
+    <PackageVersion Include="NUnit" Version="4.4.0" />
+    <PackageVersion Include="NUnit3TestAdapter" Version="5.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
     <PackageVersion Include="OneOf" Version="3.0.271" />
     <PackageVersion Include="OneOf.SourceGenerator" Version="3.0.271" />
     <PackageVersion Include="Respawn" Version="6.2.1" />
-    <PackageVersion Include="Serilog" Version="4.2.0" />
+    <PackageVersion Include="Serilog" Version="4.3.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
-    <PackageVersion Include="StackExchange.Redis" Version="2.8.24" />
+    <PackageVersion Include="StackExchange.Redis" Version="2.8.58" />
     <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageVersion Include="System.Linq.Dynamic.Core" Version="1.6.0.2" />
-    <PackageVersion Include="System.Text.Encodings.Web" Version="9.0.2" />
-    <PackageVersion Include="System.Text.Json" Version="9.0.2" />
+    <PackageVersion Include="System.Linq.Dynamic.Core" Version="1.6.7" />
+    <PackageVersion Include="System.Text.Encodings.Web" Version="9.0.8" />
+    <PackageVersion Include="System.Text.Json" Version="9.0.8" />
     <PackageVersion Include="System.Net.Http.Json" Version="9.0.0" />
-    <PackageVersion Include="Verify" Version="28.12.0" />
-    <PackageVersion Include="Verify.NUnit" Version="28.12.0" />
-    <PackageVersion Include="ZiggyCreatures.FusionCache" Version="2.1.0" />
-    <PackageVersion Include="ZiggyCreatures.FusionCache.Serialization.SystemTextJson" Version="2.1.0" />
+    <PackageVersion Include="Verify" Version="30.6.1" />
+    <PackageVersion Include="Verify.NUnit" Version="30.6.1" />
+    <PackageVersion Include="ZiggyCreatures.FusionCache" Version="2.3.0" />
+    <PackageVersion Include="ZiggyCreatures.FusionCache.Serialization.SystemTextJson" Version="2.3.0" />
   </ItemGroup>
 </Project>
