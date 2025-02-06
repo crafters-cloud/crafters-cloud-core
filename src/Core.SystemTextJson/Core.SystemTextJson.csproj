@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <Product>CraftersCloud.Core.SystemTextJson</Product>
+    <Description>Core SystemTextJson</Description>
+    <RootNamespace>CraftersCloud.Core.SystemTextJson</RootNamespace>
+    <PackageId>CraftersCloud.Core.SystemTextJson</PackageId>
+    <AssemblyName>CraftersCloud.Core.SystemTextJson</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+</Project>
