@@ -100,6 +100,14 @@ Flurl.Http is licensed under the MIT License (https://github.com/tmenier/Flurl/b
 
 Copyright (c) 2025 Todd Menier
 
+## FusionCache
+
+URL: https://github.com/ZiggyCreatures/FusionCache
+
+FusionCache is licensed under the MIT License (https://github.com/ZiggyCreatures/FusionCache/blob/main/LICENSE.md)
+ 
+Copyright (c) 2020-2025 Jody Donetti
+
 ## JetBrains.Annotations
 
 URL: https://github.com/JetBrains/JetBrains.Annotations
