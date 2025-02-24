@@ -16,7 +16,6 @@
   <ItemGroup>
     <PackageReference Include="Ben.Demystifier" />
     <PackageReference Include="FluentValidation.AspNetCore" />
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
     <PackageReference Include="Serilog" />
     <PackageReference Include="System.Text.Json" />
   </ItemGroup>
