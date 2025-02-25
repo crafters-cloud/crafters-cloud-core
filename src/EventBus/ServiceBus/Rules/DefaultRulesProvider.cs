@@ -35,7 +35,7 @@ public class DefaultRulesProvider : IServiceBusRulesProvider
 
         if (clients.Any())
         {
-            var clientsNames = clients.Select(c => $"'{c}'").JoinString(", ");
+            var clientsNames = clients.Select(c => $"'{c}'").JoinStrings(", ");
             filter.Append($" and user.{MessagePropertiesKeys.MessageSenderOriginator} in ({clientsNames})");
         }
 
