@@ -11,12 +11,20 @@ public static partial class StringExtensions
     private const string EmailRegex =
         @"^ *[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](.?[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*.?[a-zA-Z0-9])+((\.(\w){2,})+) *$";
 
-    //return true if the string is null or empty
-
-
     public static bool HasContent([NotNullWhen(true)] this string? value) => !IsNullOrEmpty(value);
 
     public static string ToEmptyIfNull(this string? value) => value ?? Empty;
+    
+    public static string RemoveAfter(this string? value, char character)
+    {
+        if (IsNullOrEmpty(value))
+        {
+            return Empty;
+        }
+    
+        var index = value.IndexOf(character);
+        return index == -1 ? value : value[..index];
+    }
 
     public static string ToCamelCase(this string s)
     {
