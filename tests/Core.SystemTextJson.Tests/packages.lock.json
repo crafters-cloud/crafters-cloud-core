@@ -77,28 +77,28 @@
       },
       "Verify": {
         "type": "Direct",
-        "requested": "[28.10.1, )",
-        "resolved": "28.10.1",
-        "contentHash": "2B/VtFN5jtF5g28kaM4GdJZTwb3pisd4+wL2NEPi9ZYe2lghWsCzS30V6LF1ILApLBfAorAstkU/Vw3sDWRqrg==",
+        "requested": "[28.12.0, )",
+        "resolved": "28.12.0",
+        "contentHash": "seJKwtd4uZ0BoGkHNGVNrhwZCPB0KU9exk4EyXLsrISt/mpuKFjVJIfmCIoYUAqVu7OV9eDo+HwrLkH7gqlSUQ==",
         "dependencies": {
           "Argon": "0.26.0",
           "DiffEngine": "15.9.0",
           "SimpleInfoName": "3.1.0",
-          "System.IO.Hashing": "9.0.1"
+          "System.IO.Hashing": "9.0.2"
         }
       },
       "Verify.NUnit": {
         "type": "Direct",
-        "requested": "[28.10.1, )",
-        "resolved": "28.10.1",
-        "contentHash": "fBzkRwMAJH5d7K7zdWqIx+YZ2WrBPmH97/3+Fnrc0PMkQvCOtB5rihdQ4Ynsdv9Ns8VfEP8yE0C8ckfFXIKTSw==",
+        "requested": "[28.12.0, )",
+        "resolved": "28.12.0",
+        "contentHash": "IAITxyIhwL7Syea611PSIvsHc7Vq3CXDeejU6F5ecgnrzeHHt+tiIXdkwlv+4FUl4Lg8aKw6JDIoYTe2YqXKKQ==",
         "dependencies": {
           "Argon": "0.26.0",
           "DiffEngine": "15.9.0",
           "NUnit": "4.3.2",
           "SimpleInfoName": "3.1.0",
-          "System.IO.Hashing": "9.0.1",
-          "Verify": "28.10.1"
+          "System.IO.Hashing": "9.0.2",
+          "Verify": "28.12.0"
         }
       },
       "Argon": {
@@ -242,8 +242,8 @@
       },
       "System.IO.Hashing": {
         "type": "Transitive",
-        "resolved": "9.0.1",
-        "contentHash": "jY+E/PElNWQiazN0YHqZGvcSedcZ4Wt0Os1nnJ2SzR3gWZlhNRDkSXOhuHJcLuImD8SrJQQ8TfU0W4mVcit2hg=="
+        "resolved": "9.0.2",
+        "contentHash": "OimMksgZG1QnnbIO4K3cEGac4lDkUfCqigDYxCieqKRIX59XANl0R+V9qmmsqxN1mbk/SAk7t4G0z2x0zR/D6Q=="
       },
       "System.Management": {
         "type": "Transitive",
@@ -265,12 +265,6 @@
           "JetBrains.Annotations": "[2024.3.0, )",
           "MediatR": "[12.4.1, )",
           "OneOf": "[3.0.271, )"
-        }
-      },
-      "CraftersCloud.Core.SourceGenerator": {
-        "type": "Project",
-        "dependencies": {
-          "JetBrains.Annotations": "[2024.3.0, )"
         }
       },
       "CraftersCloud.Core.SystemTextJson": {
@@ -298,7 +292,7 @@
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions": {
         "type": "CentralTransitive",
-        "requested": "[9.0.1, )",
+        "requested": "[9.0.2, )",
         "resolved": "8.0.0",
         "contentHash": "cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg=="
       },

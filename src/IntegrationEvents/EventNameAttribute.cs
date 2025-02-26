@@ -1,8 +1,25 @@
 ﻿namespace CraftersCloud.Core.IntegrationEvents;
 
+/// <summary>
+/// Attribute to specify a custom event name for integration events.
+/// </summary>
 [PublicAPI]
-// EventName attribute allows us to subscribe to events coming from unknown sources (where we cannot hold reference to actual integration event type class)
-public class EventNameAttribute(string eventName) : Attribute
+[AttributeUsage(AttributeTargets.Class)]
+public class EventNameAttribute : Attribute
 {
-    public string EventName { get; } = eventName;
+    /// <summary>
+    /// The custom event name.
+    /// </summary>
+    public string EventName { get; }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EventNameAttribute"/> class with the specified event name.
+    /// </summary>
+    /// <param name="eventName">The custom event name.</param>
+    /// <exception cref="ArgumentException">Thrown when <paramref name="eventName"/> is null or empty.</exception>
+    public EventNameAttribute(string eventName)
+    {
+        ArgumentException.ThrowIfNullOrEmpty(eventName);
+        EventName = eventName;
+    }
 }

@@ -11,7 +11,7 @@ namespace CraftersCloud.Core.EventBus;
 
 public class EventBusModule : Module
 {
-    public Assembly[] AssembliesWithIntegrationEvents { get; set; } = Array.Empty<Assembly>();
+    public Assembly[] AssembliesWithIntegrationEvents { get; set; } = [];
     public EventBusSettings EventBusSettings { get; set; } = new();
 
     protected override void Load(ContainerBuilder builder)
