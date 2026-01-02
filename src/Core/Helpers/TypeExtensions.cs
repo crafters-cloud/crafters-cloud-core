@@ -3,11 +3,10 @@
 public static class TypeExtensions
 {
     public static bool ImplementsInterface(this Type concreteType, Type interfaceType) =>
-        concreteType.GetInterfaces().Any(
-            t =>
-                (interfaceType.IsGenericTypeDefinition && t.IsGenericType
-                    ? t.GetGenericTypeDefinition()
-                    : t) == interfaceType);
+        concreteType.GetInterfaces().Any(t =>
+            (interfaceType.IsGenericTypeDefinition && t.IsGenericType
+                ? t.GetGenericTypeDefinition()
+                : t) == interfaceType);
 
     public static TAttribute? FindAttribute<TAttribute>(this Type type) where TAttribute : class
     {

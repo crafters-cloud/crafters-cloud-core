@@ -1,0 +1,47 @@
+<Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/ci.yml" />
+  </Folder>
+  <Folder Name="/scripts/">
+    <File Path="build.ps1" />
+    <File Path="push.ps1" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="nuget.config" />
+    <File Path="README.md" />
+    <File Path="Tests.Build.props" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/AspireTests.Shared/AspireTests.Shared.csproj" />
+    <Project Path="src/AspNetCore/AspNetCore.csproj" />
+    <Project Path="src/Core.Caching.Abstractions/Core.Caching.Abstractions.csproj" />
+    <Project Path="src/Core.Caching/Core.Caching.csproj" />
+    <Project Path="src/Core.MediatR/Core.MediatR.csproj" />
+    <Project Path="src/Core.SourceGenerator/Core.SourceGenerator.csproj" />
+    <Project Path="src/Core.SystemTextJson/Core.SystemTextJson.csproj" />
+    <Project Path="src/Core/Core.csproj" />
+    <Project Path="src/EntityFramework.Infrastructure/EntityFramework.Infrastructure.csproj" />
+    <Project Path="src/EntityFramework/EntityFramework.csproj" />
+    <Project Path="src/EventBus/EventBus.csproj" />
+    <Project Path="src/HealthChecks/HealthChecks.csproj" />
+    <Project Path="src/Infrastructure/Infrastructure.csproj" />
+    <Project Path="src/IntegrationEvents/IntegrationEvents.csproj" />
+    <Project Path="src/SmartEnums.EntityFramework/SmartEnums.EntityFramework.csproj" />
+    <Project Path="src/SmartEnums.Swagger/SmartEnums.Swagger.csproj" />
+    <Project Path="src/SmartEnums.SystemTextJson/SmartEnums.SystemTextJson.csproj" />
+    <Project Path="src/SmartEnums/SmartEnums.csproj" />
+    <Project Path="src/Swagger/Swagger.csproj" />
+    <Project Path="src/Tests.Shared/Tests.Shared.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Core.SourceGenerator.Tests/Core.SourceGenerator.Tests.csproj" />
+    <Project Path="tests/Core.SystemTextJson.Tests/Core.SystemTextJson.Tests.csproj" />
+    <Project Path="tests/Core.Tests/Core.Tests.csproj" />
+    <Project Path="tests/EventBus.Tests/EventBus.Tests.csproj" />
+    <Project Path="tests/Tests.Shared.Tests/Tests.Shared.Tests.csproj" />
+  </Folder>
+</Solution>

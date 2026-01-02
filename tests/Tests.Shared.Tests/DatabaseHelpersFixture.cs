@@ -6,9 +6,17 @@ namespace CraftersCloud.Core.TestUtilities.Tests;
 public class DatabaseHelpersFixture
 {
     [Test]
-    public void DropAllSql()
+    public void DropAllSqlServer()
     {
-        var sql = DatabaseHelpers.DropAllSql;
+        var sql = DatabaseHelpers.DropAllSqlServerScript;
+
+        sql.ShouldNotBeNullOrEmpty();
+    }
+    
+    [Test]
+    public void DropAllPostgreSql()
+    {
+        var sql = DatabaseHelpers.DropAllPostgreSqlScript;
 
         sql.ShouldNotBeNullOrEmpty();
     }

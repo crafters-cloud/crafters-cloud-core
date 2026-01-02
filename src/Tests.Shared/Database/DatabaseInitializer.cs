@@ -1,6 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using NUnit.Framework;
 using Respawn;
 using Respawn.Graph;
@@ -12,7 +11,7 @@ public static class DatabaseInitializer
 {
     public static async Task RecreateDatabaseAsync(DbContext dbContext, DatabaseInitializerOptions options)
     {
-        if (HasSchemaChanges(dbContext))
+        if (HasPendingMigrations(dbContext))
         {
             RecreateDatabase(dbContext);
         }
@@ -22,26 +21,11 @@ public static class DatabaseInitializer
         }
     }
 
-    private static bool HasSchemaChanges(DbContext dbContext)
-    {
-        try
-        {
-            var dbDoesNotExist =
-                !dbContext.Database
-                    .CanConnect(); // this will throw SqlException if connection to server can not be made, and true / false depending if db exists
-            return dbDoesNotExist || dbContext.Database.GetPendingMigrations().Any();
-        }
-        catch (SqlException ex)
-        {
-            WriteLine("Error connecting to SqlServer:");
-            WriteLine(ex.ToString());
-            throw;
-        }
-    }
+    private static bool HasPendingMigrations(DbContext dbContext) => dbContext.Database.GetPendingMigrations().Any();
 
     private static void RecreateDatabase(DbContext dbContext)
     {
-        DropAllDbObjects(dbContext.Database);
+        DropAllDbObjects(dbContext);
         dbContext.Database.Migrate();
     }
 
@@ -53,16 +37,20 @@ public static class DatabaseInitializer
 
     private static async Task DeleteDataAsync(DbContext dbContext, ResetDataOptions options)
     {
-        var connectionString = dbContext.Database.GetConnectionString() ?? string.Empty;
+        var dbConnection = dbContext.Database.GetDbConnection();
+        if (dbConnection.State != ConnectionState.Open)
+        {
+            await dbConnection.OpenAsync();   
+        }
 
-        var respawner = await Respawner.CreateAsync(connectionString,
+        var respawner = await Respawner.CreateAsync(dbConnection,
             new RespawnerOptions
             {
                 TablesToIgnore = options.TablesToIgnore.Select(name => new Table(name)).ToArray(),
                 WithReseed = options.ReseedIdentityColumns
             });
 
-        await respawner.ResetAsync(connectionString);
+        await respawner.ResetAsync(dbConnection);
     }
 
     private static void RunCustomQuery(DbContext dbContext, string customSqlQuery)
@@ -73,31 +61,29 @@ public static class DatabaseInitializer
         }
     }
 
-    private static void DropAllDbObjects(DatabaseFacade database)
+    private static void DropAllDbObjects(DbContext dbContext)
     {
-        try
+        string dropAllSql;
+        if (dbContext.IsSqlServer())
         {
-            var dropAllSql = DatabaseHelpers.DropAllSql;
-            foreach (var statement in dropAllSql.SplitStatements())
-            {
-                database.ExecuteSqlRaw(statement);
-            }
+            dropAllSql = DatabaseHelpers.DropAllSqlServerScript;    
         }
-        catch (SqlException ex)
+        else if (dbContext.IsPostgres())
         {
-            const int cannotOpenDatabaseErrorNumber = 4060;
-            if (ex.Number == cannotOpenDatabaseErrorNumber)
-            {
-                WriteLine("Error while trying to drop all objects from database. Maybe database does not exist.");
-                WriteLine("Continuing...");
-                WriteLine(ex.ToString());
-            }
-            else
-            {
-                throw;
-            }
+            dropAllSql = DatabaseHelpers.DropAllPostgreSqlScript;    
+        }
+        else
+        {
+            throw new NotSupportedException($"Database type {dbContext.Database.ProviderName} is not supported.");
+        }
+        
+        foreach (var statement in dropAllSql.SplitStatements())
+        {
+            dbContext.Database.ExecuteSqlRaw(statement);
         }
     }
 
     private static void WriteLine(string message) => TestContext.WriteLine(message);
+    
+    
 }

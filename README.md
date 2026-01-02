@@ -15,25 +15,25 @@ implementations, health-checks, authentication/authorization, unit testing and m
 
 ### AspNetCore
 
-  - Minimal Api
-  - Authorization
-  - Error handling
-  - Validation
+- Minimal Api
+- Authorization
+- Error handling
+- Validation
 
 ### Core
 
-  - Domain events
-  - Entities, Repositories, Unit of work
-  - Paging
-  - Command/Queries (CQRS)
-  - Entities
-  - Results
-  - StronglyTypedIds
-  - Various utilities and extensions
+- Domain events
+- Entities, Repositories, Unit of work
+- Paging
+- Command/Queries (CQRS)
+- Entities
+- Results
+- StronglyTypedIds
+- Various utilities and extensions
 
 ### Core.Mediatr
 
- - Mediatr integration (e.g. Validation, Logging)
+- Mediatr integration (e.g. Validation, Logging)
 
 ### Core.SourceGenerator
 
@@ -41,17 +41,18 @@ implementations, health-checks, authentication/authorization, unit testing and m
 
 ### EntityFramework
 
-  - Seeding
-  - IQueryable extensions
+- Seeding
+- IQueryable extensions
 
 ### EntityFramework.Infrastructure
 
-  - MediatR pipeline for the transaction management
-  - Unit of work implementation
-  - Entity framework repository implementation
-  - MediatR pipeline for the publishing of the domain events
+- MediatR pipeline for the transaction management
+- Unit of work implementation
+- Entity framework repository implementation
+- MediatR pipeline for the publishing of the domain events
 
 ### EventBus
+
     - TBD
 
 ### HealthChecks
@@ -60,28 +61,36 @@ implementations, health-checks, authentication/authorization, unit testing and m
     - HealthChecks registration extensions
 
 ### Infrastructure
+
     - Common infrastructure utilities
     - Default TimeProvider implementation
 
 ### IntegrationEvents
+
     - Support for the integration events
 
 ### SmartEnums
+
     - Provides support for Smart enums (based on Ardalis.SmartEnum library)
 
 ### SmartEnums.EntityFramework
+
     - Provides support for persisting smart enums with Entity Framework
 
 ### SmartEnums.Swagger
+
     - Provides support for generating Swagger documentation for smart enums
 
 ### SmartEnums.SystemTextJson
+
     - Provides support for (de)serialization of SmartEnums
 
 ### Swagger
+
     - NSwag generation utilities
 
 ### Tests.Shared
+
     - Shared classes for tests
 
 ## Getting Started

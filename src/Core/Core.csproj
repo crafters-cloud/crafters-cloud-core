@@ -14,7 +14,7 @@
     <PackageReference Include="MediatR" />
     <PackageReference Include="OneOf" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <InternalsVisibleTo Include="CraftersCloud.Core.Swagger" />
     <InternalsVisibleTo Include="CraftersCloud.Core.Tests.Shared" />

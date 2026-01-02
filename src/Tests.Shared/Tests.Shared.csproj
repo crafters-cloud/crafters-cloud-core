@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <Product>CraftersCloud.Core.Tests.Shared</Product>
-    <Description>Shared functionality for Tests </Description>
+    <Description>Shared functionality for Tests</Description>
     <RootNamespace>CraftersCloud.Core.Tests.Shared</RootNamespace>
     <PackageId>CraftersCloud.Core.Tests.Shared</PackageId>
     <AssemblyName>CraftersCloud.Core.Tests.Shared</AssemblyName>
@@ -17,17 +17,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Database\DropAllSql.sql" />
-    <EmbeddedResource Include="Database\DropAllSql.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\SmartEnums\SmartEnums.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Database\DropAllSqlServer.sql" />
+    <EmbeddedResource Include="Database\DropAllSqlServer.sql" />
+    <None Remove="Database\DropAllPostgreSql.sql" />
+    <EmbeddedResource Include="Database\DropAllPostgreSql.sql" />
   </ItemGroup>
 
 </Project>
