@@ -13,7 +13,7 @@ public static class HttpContextExtensions
     {
         var environment = context.Resolve<IHostEnvironment>();
         var errorDetail = environment.IsDevelopment()
-            ? exception.Demystify().ToString()
+            ? exception.ToString()
             : "The instance value should be used to identify the problem when calling customer support";
 
         var problemDetails = new ProblemDetails
