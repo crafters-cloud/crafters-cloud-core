@@ -12,11 +12,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Shouldly" />
-    <PackageReference Include="Verify" />
-    <PackageReference Include="Verify.NUnit" />
   </ItemGroup>
 
   <ItemGroup>
+    <Using Include="NUnit.Framework" />
     <Using Include="Shouldly" />
   </ItemGroup>
 </Project>
