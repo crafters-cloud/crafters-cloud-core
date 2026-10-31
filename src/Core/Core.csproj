@@ -12,6 +12,7 @@
   <ItemGroup>
     <PackageReference Include="FluentValidation" />
     <PackageReference Include="MediatR" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" VersionOverride="10.0.14" />
     <PackageReference Include="OneOf" />
   </ItemGroup>
 
