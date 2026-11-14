@@ -16,14 +16,14 @@
       },
       "NSwag.Generation.AspNetCore": {
         "type": "Direct",
-        "requested": "[14.7.1, )",
-        "resolved": "14.7.1",
-        "contentHash": "nd1DXN9SwnzdJKtR+EqXHGE6cbkbKjo3AViwpGIBurrLEnYevC8vqkRSKdfhuHViSsihqWXF+Q9rR19yyNFiOA==",
+        "requested": "[14.8.0, )",
+        "resolved": "14.8.0",
+        "contentHash": "VqtnC2TsoJL5DRRmunekwGB26Ye++hTquq1e444dWaG19N60sUsyIc6mlDvGZSTWGwtSOCpmzbzlWt6VAJPjdw==",
         "dependencies": {
-          "NJsonSchema": "11.6.1",
-          "NJsonSchema.NewtonsoftJson": "11.6.1",
-          "NSwag.Generation": "14.7.1",
-          "Namotion.Reflection": "3.5.0",
+          "NJsonSchema": "11.6.2",
+          "NJsonSchema.NewtonsoftJson": "11.6.2",
+          "NSwag.Generation": "14.8.0",
+          "Namotion.Reflection": "3.5.1",
           "Newtonsoft.Json": "13.0.3"
         }
       },
@@ -34,8 +34,8 @@
       },
       "Namotion.Reflection": {
         "type": "Transitive",
-        "resolved": "3.5.0",
-        "contentHash": "FnASiAaTGSmB4SaSroIwnK4ph9noFIXZpPOMezDqWw5S/TNakzSnawPeM7u0Auq1/EqJXeqG4s6UjfrGBH33Ow=="
+        "resolved": "3.5.1",
+        "contentHash": "CGXrV11PhO+56wOlp8nqPMgy+RFHetMQ+FD/We8CrIMYo0yEFiOoN8QekE6qMSuZZtJzqQW2OWKLQJZOw75Pag=="
       },
       "Newtonsoft.Json": {
         "type": "Transitive",
@@ -44,56 +44,57 @@
       },
       "NJsonSchema": {
         "type": "Transitive",
-        "resolved": "11.6.1",
-        "contentHash": "miqvNY4OSXCWVqaMqt0A8VUkij0UH1oPosHMLP+t6/nWNSSzWDPmm7G2DjVW7M9evy0x5DE2pS/DDTtKCpbzSQ==",
+        "resolved": "11.6.2",
+        "contentHash": "AnJ5QFeBVPdVplRPT4Z692y7+q5wegWXzyv6Wp4kBP3UUXmTYNLLWhihbQjZDHsA7KC/dWqAIndH61pzcP8oIQ==",
         "dependencies": {
-          "NJsonSchema.Annotations": "11.6.1",
+          "NJsonSchema.Annotations": "11.6.2",
           "Namotion.Reflection": "3.5.0",
           "Newtonsoft.Json": "13.0.3"
         }
       },
       "NJsonSchema.Annotations": {
         "type": "Transitive",
-        "resolved": "11.6.1",
-        "contentHash": "WA4z8iK+0SOh2/qoo7rtEanj/LjJZ8oWWoXI8u1xcYMk6VzHONqpabJBYGrzqDO41ld+VQHOFL+B8MXncIVSSA=="
+        "resolved": "11.6.2",
+        "contentHash": "C0CfVivVJjyEr/m/z2QXuzPnChVwFLqd+5kM+cE4gkM5ukF+QI30IPrep88wSPeYaeQL3LB/RG5PFGOxVsdHNg=="
       },
       "NJsonSchema.NewtonsoftJson": {
         "type": "Transitive",
-        "resolved": "11.6.1",
-        "contentHash": "yuGwViKjNT7BAosX1UAl2asAczupUS0v1IZ0/cO5UXonhjUgE1LmAjAMqHjpbaXiDM+HrQIkJh3bv/2faY2aJg==",
+        "resolved": "11.6.2",
+        "contentHash": "a5NSI8s7ON7xS/mKmtMRJB9yR1MmzBwIYVvXBkmWCNf37eXD6PiKlblcM3ot3gCy290O4/+i8Di7uc0vOmrHug==",
         "dependencies": {
-          "NJsonSchema": "11.6.1",
+          "NJsonSchema": "11.6.2",
           "Newtonsoft.Json": "13.0.3"
         }
       },
       "NSwag.Core": {
         "type": "Transitive",
-        "resolved": "14.7.1",
-        "contentHash": "iwwAeMZ3kugAKCokuOdHzKK/OHdp19vUP/B32CJO10HHzVgC+O4M7HXtHuDf9tloC3OEJ2wkUV4/cYrX4Mr98g==",
+        "resolved": "14.8.0",
+        "contentHash": "i8J4WtEa4vrbSGPtsW7tnvyRZ8EpC8Sx/GjsNQN0XXbH7f+zo6madEXW4KPobI52BIu8MoeNeVdCY71LqtGeOQ==",
         "dependencies": {
-          "NJsonSchema": "11.6.1",
-          "Namotion.Reflection": "3.5.0",
+          "NJsonSchema": "11.6.2",
+          "Namotion.Reflection": "3.5.1",
           "Newtonsoft.Json": "13.0.3"
         }
       },
       "NSwag.Generation": {
         "type": "Transitive",
-        "resolved": "14.7.1",
-        "contentHash": "+c7KhqBYoDkuEwuzkTG2FYYX6IuBRsXhOVuzO4QcFCwLXqNIzN1v+zAAdNjpd751I8jurpIes4Y7FoFuei/Uag==",
+        "resolved": "14.8.0",
+        "contentHash": "qTWJkP26A76aNA+NjwVSc7elYg6dnZ0pTV1v4/d76XYM/zTPH0b59R0bZpFSeLd8MH2+UPjiJ06k9E1fl1bBpQ==",
         "dependencies": {
-          "NJsonSchema": "11.6.1",
-          "NJsonSchema.NewtonsoftJson": "11.6.1",
-          "NSwag.Core": "14.7.1",
-          "Namotion.Reflection": "3.5.0",
+          "NJsonSchema": "11.6.2",
+          "NJsonSchema.NewtonsoftJson": "11.6.2",
+          "NSwag.Core": "14.8.0",
+          "Namotion.Reflection": "3.5.1",
           "Newtonsoft.Json": "13.0.3"
         }
       },
       "CraftersCloud.Core": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "[12.1.1, )",
+          "FluentValidation": "[12.2.0, )",
           "JetBrains.Annotations": "[2026.2.0, )",
           "MediatR": "[12.5.0, )",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "[10.0.15, )",
           "OneOf": "[3.0.271, )"
         }
       },
@@ -113,9 +114,9 @@
       },
       "FluentValidation": {
         "type": "CentralTransitive",
-        "requested": "[12.1.1, )",
-        "resolved": "12.1.1",
-        "contentHash": "EPpkIe1yh1a0OXyC100oOA8WMbZvqUu5plwhvYcb7oSELfyUZzfxV48BLhvs3kKo4NwG7MGLNgy1RJiYtT8Dpw=="
+        "requested": "[12.2.0, )",
+        "resolved": "12.2.0",
+        "contentHash": "DR3lFbdnKucaaj1/8zMNOACMz/64igzox1yVZSFVsLxYB5mxAB+wFP1WZ8fjwrZnbU1KA1DoMzHKYKxUfuZ4wQ=="
       },
       "MediatR": {
         "type": "CentralTransitive",
@@ -129,9 +130,9 @@
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions": {
         "type": "CentralTransitive",
-        "requested": "[10.0.12, )",
-        "resolved": "8.0.0",
-        "contentHash": "cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg=="
+        "requested": "[10.0.15, )",
+        "resolved": "10.0.15",
+        "contentHash": "KczR2nV7ooeimtZxAawPht/FJUHnX+uoWy7y4pba+iaRQBwUM2NwtiqZg+/FpZDHUf2RkkzveGkhMTWDNzmDUA=="
       },
       "OneOf": {
         "type": "CentralTransitive",
