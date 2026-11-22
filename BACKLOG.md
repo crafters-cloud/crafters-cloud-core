@@ -14,27 +14,33 @@ Open work for `crafters-cloud-core`. Completed items are in [BACKLOG-DONE.md](BA
 
 Added: 2026-11-22
 
-NuGet audit fails restore on vulnerabilities published since 3.1.0-preview.3: `Aspire.Hosting` / `Aspire.Hosting.AppHost` 13.6.0 (high), `MessagePack` 2.5.302 (moderate, via Aspire), `System.Security.Cryptography.Pkcs` 9.0.11 (high). Dependabot PRs #16–#19 overlap with this: #17 and #18 pass CI, #16 (microsoft group) fails, #19 is Aspire 17 (major version, fails).
+NuGet audit fails restore on vulnerabilities published since 3.1.0-preview.3: `Aspire.Hosting` / `Aspire.Hosting.AppHost` 13.6.0 (high), `MessagePack` 2.5.302 (moderate, via Aspire), `System.Security.Cryptography.Pkcs` 9.0.11 (high). Stay on Aspire 13.x (13.6.5 fixes it); Aspire 17 comes with CORE-012. Review Dependabot PRs #16–#18 (#17 and #18 pass CI, #16 fails).
 
-### CORE-002 Release a patched version
+### CORE-002 Release stable 3.1.0
 
 Added: 2026-11-22
 
-After CORE-001, release `3.1.0-preview.4` or `3.1.0` stable. Consumers of 3.1.0-preview.3 currently get vulnerable transitive packages (e.g. `System.Security.Cryptography.Pkcs` 10.0.10 via EF Core 10.0.12).
+After CORE-001, release `3.1.0` stable on .NET 10 with the dependency fixes only. Consumers of 3.1.0-preview.3 currently get vulnerable transitive packages, and stable-only consumers are still on 3.0.2 (.NET 9, out of support).
 
 ## Medium
+
+### CORE-012 4.0.0: move to .NET 11
+
+Added: 2026-11-22
+
+Target `net11.0` only (no multi-targeting; .NET 10 users stay on 3.1.x). One upgrade covering .NET 11 / C# 15, EF Core 11, Aspire 17 and the other new major versions. Breaking change, hence 4.0.0.
+
+### CORE-013 Redesign the `Result` types with union types
+
+Added: 2026-11-22
+
+After CORE-012, rework the `Result` hierarchy (`SuccessResult`, `NotFoundResult`, `BadRequestResult`, …) using C# union types; check what C# 15 offers first. Also consider replacing `OneOf`. As part of this, remove the FluentValidation dependency from `Core`: `BadRequestResult` should carry a core-owned error type, with `Core.MediatR` and `AspNetCore` converting from `ValidationFailure`.
 
 ### CORE-003 A MyGet failure must not block the NuGet push
 
 Added: 2026-11-22
 
-In `ci.yml`, "Push to NuGet" is skipped when "Push to MyGet" fails. On 2026-10-03 MyGet returned 403 and nothing was published until the API key was fixed.
-
-### CORE-004 Protect the `main` branch
-
-Added: 2026-11-22
-
-`main` allows force-pushes and direct pushes. Require a PR with passing CI and block force-pushes.
+In `ci.yml`, "Push to NuGet" is skipped when "Push to MyGet" fails. On 2026-10-03 MyGet returned 403 and nothing was published until the API key was fixed. Keep MyGet (it gets packages out faster), but let its step fail without blocking NuGet.
 
 ### CORE-005 Create GitHub Releases on `v*` tags
 
@@ -42,40 +48,28 @@ Added: 2026-11-22
 
 Releases are only tags plus packages; the last GitHub Release is v2.1.0. Have CI create a GitHub Release (pre-release for `-preview` tags) with generated notes.
 
-### CORE-006 Triage old pull requests and branches
-
-Added: 2026-11-22
-
-PRs #1–#3 (from 2024-11) are open with no activity: authorization behavior, database extensions, queryable extensions. Merge or close them and delete their branches. `features/3.0` is merged and can be deleted.
-
 ## Low
 
-### CORE-007 Remove the FluentValidation dependency from Core
+### CORE-014 Authorization on commands and queries
 
 Added: 2026-11-22
 
-`Core` references FluentValidation only so `BadRequestResult` can carry `ValidationFailure`. Breaking change; do in a major version.
+Permissions are only checked at HTTP endpoints (`UserHasPermission`). A MediatR behavior with per-request authorization rules would also protect commands sent from background jobs or message handlers. Closed PR #1 has a starting point (`AuthorizationBehavior`, `IAuthorizationRule`).
 
-### CORE-008 Reconsider the Autofac dependency
-
-Added: 2026-11-22
-
-Used for repository registration (`EntityFramework.Infrastructure`) and `EventBus`. The built-in DI container plus assembly scanning could replace it and drop a dependency for consumers.
-
-### CORE-009 Evaluate built-in OpenAPI instead of NSwag
+### CORE-004 Protect the `main` branch
 
 Added: 2026-11-22
 
-`Swagger` and `SmartEnums.Swagger` use NSwag. .NET 10 has built-in OpenAPI 3.1 document generation with schema transformers.
+`main` allows direct pushes and force-pushes. Postponed while there is a single contributor; when that changes, require a PR with passing CI and block force-pushes.
 
-### CORE-010 Plan the next target framework
+### CORE-009 Revisit NSwag vs built-in OpenAPI
 
 Added: 2026-11-22
 
-Stay on .NET 10 (LTS, supported until 2028-11-14). .NET 11 is STS with the same end of support, so no multi-targeting unless a consumer needs it. Move to .NET 12 (LTS, expected 2027-11).
+Keep NSwag (`Swagger`, `SmartEnums.Swagger`). Revisit if NSwag stops supporting a new .NET version or limits us; the alternative is built-in OpenAPI with schema transformers.
 
 ### CORE-011 Revisit the Verify 32.x pin
 
 Added: 2026-11-22
 
-Verify 33+ adds a build-time SponsorCheck that fails builds, and `Tests.Shared` would pass it on to consumers. Decide between sponsoring/declaring an exemption, staying on 32.x, or dropping Verify from `Tests.Shared`.
+Verify 33+ adds a build-time SponsorCheck that fails builds, and `Tests.Shared` would pass it on to consumers. Decided to stay on 32.x; revisit if 32.x stops getting fixes or a 33+ feature is needed.
