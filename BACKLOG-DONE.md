@@ -2,6 +2,12 @@
 
 Newest first. Open work is in [BACKLOG.md](BACKLOG.md).
 
+### CORE-001 Fix vulnerable dependencies
+
+Completed: 2026-11-22 · PR #21
+
+Aspire 13.6.5, EF Core / ASP.NET Core 10.0.15 and other patch/minor bumps fix the audit failures (Aspire.Hosting, MessagePack, System.Security.Cryptography.Pkcs). Dependabot now ignores major versions of `Microsoft.*`, `System.*` and `Aspire.*` until CORE-012. Replaced Dependabot PRs #16–#18.
+
 ### CORE-006 Triage old pull requests and branches
 
 Completed: 2026-11-22

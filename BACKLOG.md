@@ -10,17 +10,19 @@ Open work for `crafters-cloud-core`. Completed items are in [BACKLOG-DONE.md](BA
 
 ## High
 
-### CORE-001 Fix vulnerable dependencies — `main` no longer builds
-
-Added: 2026-11-22
-
-NuGet audit fails restore on vulnerabilities published since 3.1.0-preview.3: `Aspire.Hosting` / `Aspire.Hosting.AppHost` 13.6.0 (high), `MessagePack` 2.5.302 (moderate, via Aspire), `System.Security.Cryptography.Pkcs` 9.0.11 (high). Stay on Aspire 13.x (13.6.5 fixes it); Aspire 17 comes with CORE-012. Review Dependabot PRs #16–#18 (#17 and #18 pass CI, #16 fails).
-
 ### CORE-002 Release stable 3.1.0
 
 Added: 2026-11-22
 
-After CORE-001, release `3.1.0` stable on .NET 10 with the dependency fixes only. Consumers of 3.1.0-preview.3 currently get vulnerable transitive packages, and stable-only consumers are still on 3.0.2 (.NET 9, out of support).
+Release `3.1.0` stable on .NET 10 with the dependency fixes only. Consumers of 3.1.0-preview.3 currently get vulnerable transitive packages, and stable-only consumers are still on 3.0.2 (.NET 9, out of support).
+
+Status: `v3.1.0` is tagged and on MyGet, but not on NuGet: the push failed because the NuGet API key expired. To finish: create a new key on nuget.org, update the `NUGET_CRAFTERS_CLOUD_CORE_CI_API_KEY` secret, merge CORE-003, tag `v3.1.1`.
+
+### CORE-003 A MyGet failure must not block the NuGet push
+
+Added: 2026-11-22 · PR #22
+
+In `ci.yml`, "Push to NuGet" is skipped when "Push to MyGet" fails, and `push.ps1` fails on versions already on the feed, so a release can't be re-run. Keep MyGet (it gets packages out faster), but let its step fail without blocking NuGet, and push with `--skip-duplicate`. Blocks CORE-002.
 
 ## Medium
 
@@ -35,12 +37,6 @@ Target `net11.0` only (no multi-targeting; .NET 10 users stay on 3.1.x). One upg
 Added: 2026-11-22
 
 After CORE-012, rework the `Result` hierarchy (`SuccessResult`, `NotFoundResult`, `BadRequestResult`, …) using C# union types; check what C# 15 offers first. Also consider replacing `OneOf`. As part of this, remove the FluentValidation dependency from `Core`: `BadRequestResult` should carry a core-owned error type, with `Core.MediatR` and `AspNetCore` converting from `ValidationFailure`.
-
-### CORE-003 A MyGet failure must not block the NuGet push
-
-Added: 2026-11-22
-
-In `ci.yml`, "Push to NuGet" is skipped when "Push to MyGet" fails. On 2026-10-03 MyGet returned 403 and nothing was published until the API key was fixed. Keep MyGet (it gets packages out faster), but let its step fail without blocking NuGet.
 
 ### CORE-005 Create GitHub Releases on `v*` tags
 
