@@ -1,6 +1,8 @@
-﻿namespace CraftersCloud.Core.Results;
+namespace CraftersCloud.Core.Results;
 
-public class NotFoundResult : IErrorResult<string>
-{
-    public IEnumerable<string> Errors { get; init; } = [];
-}
+/// <summary>
+/// The requested resource was not found (HTTP 404).
+/// </summary>
+/// <param name="Errors">Optional error messages.</param>
+[PublicAPI]
+public sealed record NotFoundResult(params IReadOnlyList<string> Errors);

@@ -2,6 +2,12 @@
   "version": 2,
   "dependencies": {
     "net11.0": {
+      "FluentValidation": {
+        "type": "Direct",
+        "requested": "[12.2.0, )",
+        "resolved": "12.2.0",
+        "contentHash": "DR3lFbdnKucaaj1/8zMNOACMz/64igzox1yVZSFVsLxYB5mxAB+wFP1WZ8fjwrZnbU1KA1DoMzHKYKxUfuZ4wQ=="
+      },
       "JetBrains.Annotations": {
         "type": "Direct",
         "requested": "[2026.2.0, )",
@@ -76,10 +82,8 @@
       "CraftersCloud.Core": {
         "type": "Project",
         "dependencies": {
-          "FluentValidation": "[12.2.0, )",
           "JetBrains.Annotations": "[2026.2.0, )",
-          "MediatR": "[12.5.0, )",
-          "OneOf": "[3.0.271, )"
+          "MediatR": "[12.5.0, )"
         }
       },
       "CraftersCloud.Core.Caching": {
@@ -104,12 +108,6 @@
           "CraftersCloud.Core": "[1.0.0, )",
           "JetBrains.Annotations": "[2026.2.0, )"
         }
-      },
-      "FluentValidation": {
-        "type": "CentralTransitive",
-        "requested": "[12.2.0, )",
-        "resolved": "12.2.0",
-        "contentHash": "DR3lFbdnKucaaj1/8zMNOACMz/64igzox1yVZSFVsLxYB5mxAB+wFP1WZ8fjwrZnbU1KA1DoMzHKYKxUfuZ4wQ=="
       },
       "Microsoft.Extensions.Caching.StackExchangeRedis": {
         "type": "CentralTransitive",
@@ -160,12 +158,6 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration.Binder": "11.0.0"
         }
-      },
-      "OneOf": {
-        "type": "CentralTransitive",
-        "requested": "[3.0.271, )",
-        "resolved": "3.0.271",
-        "contentHash": "pqpqeK8xQGggExhr4tesVgJkjdn+9HQAO0QgrYV2hFjE3y90okzk1kQMntMiUOGfV7FrCUfKPaVvPBD4IANqKg=="
       },
       "StackExchange.Redis": {
         "type": "CentralTransitive",

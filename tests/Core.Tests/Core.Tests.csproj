@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <RootNamespace>CraftersCloud.Core.Tests</RootNamespace>
@@ -8,11 +8,10 @@
   <Import Project="..\..\Tests.Build.props" />
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\AspNetCore\AspNetCore.csproj" />
     <ProjectReference Include="..\..\src\Core\Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="OneOf.SourceGenerator" />
+    <ProjectReference Include="..\..\src\Core.Caching\Core.Caching.csproj" />
+    <ProjectReference Include="..\..\src\Core.MediatR\Core.MediatR.csproj" />
   </ItemGroup>
 
 </Project>

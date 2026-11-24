@@ -10,9 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" />
     <PackageReference Include="MediatR" />
-    <PackageReference Include="OneOf" />
   </ItemGroup>
 
   <ItemGroup>

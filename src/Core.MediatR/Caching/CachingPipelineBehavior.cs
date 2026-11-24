@@ -1,37 +1,31 @@
-﻿using CraftersCloud.Core.Caching.Abstractions;
+﻿using System.Runtime.CompilerServices;
+using CraftersCloud.Core.Caching.Abstractions;
+using CraftersCloud.Core.Results;
 using MediatR;
-using Microsoft.Extensions.Caching.Hybrid;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ZiggyCreatures.Caching.Fusion;
 
 namespace CraftersCloud.Core.MediatR.Caching;
 
 /// <summary>
-/// Represents a MediatR pipeline behavior that integrates caching capabilities for query handling.
+/// A pipeline behavior that caches the responses of queries implementing <see cref="ICachedQuery"/>.
 /// </summary>
 /// <typeparam name="TRequest">
 /// The type of the request object, which must implement the <see cref="ICachedQuery"/> interface.
 /// </typeparam>
-/// <typeparam name="TResponse">
-/// The type of the response object returned by the request's handler.
-/// </typeparam>
+/// <typeparam name="TResponse">The type of the response object returned by the request handler.</typeparam>
 /// <remarks>
-/// This class is responsible for handling the caching behavior during the MediatR pipeline execution.
-/// It retrieves a cached response if available; otherwise, executes the next pipeline delegate to get the response
-/// and stores the result in the cache for future use.
+/// The cache key and tags come from <see cref="ICachedQuery.CachingOptions"/>, the expirations from
+/// <see cref="CacheSettings"/>. When the response is a union holding a failure case (e.g. <see cref="NotFoundResult"/>
+/// in a <see cref="QueryResult{T}"/>), it is cached only if that case is configured in
+/// <see cref="CacheSettings.DefaultFailureCases"/> or <see cref="CacheEntrySetting.FailureCases"/>, with its own expiration.
 /// </remarks>
-/// <example>
-/// Implements the caching mechanism using <see cref="HybridCache"/> to ensure performant and consistent data access
-/// with specific caching options provided by the request.
-/// </example>
-/// <threadsafety>
-/// This class is thread-safe when used in a concurrent environment.
-/// </threadsafety>
 /// <seealso cref="ICachedQuery"/>
-/// <seealso cref="IPipelineBehavior{TRequest,TResponse}"/>
+/// <seealso cref="CacheSettings"/>
 [PublicAPI]
 public class CachingPipelineBehavior<TRequest, TResponse>(
-    HybridCache cache,
+    IFusionCache cache,
     ILogger<CachingPipelineBehavior<TRequest, TResponse>> logger,
     IOptions<CacheSettings> cacheSettingsOptions,
     ILogger<CacheSettings> cacheSettingsLogger)
@@ -41,19 +35,44 @@ public class CachingPipelineBehavior<TRequest, TResponse>(
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
+        var cacheSettings = cacheSettingsOptions.Value;
         var cachingOptions = request.CachingOptions;
-        var (cacheKey, setting) = cacheSettingsOptions.Value.GetCacheKeyAndSetting(cachingOptions.CacheKey, cacheSettingsLogger);
-        var tags = cachingOptions.Tags;
+        var (cacheKey, setting) = cacheSettings.GetCacheKeyAndSetting(cachingOptions.CacheKey, cacheSettingsLogger);
 
-        return await cache.GetOrCreateAsync<TResponse>(cacheKey.FullKey, async _ =>
+        var entryOptions = cache.CreateEntryOptions(options =>
+        {
+            options.Duration = setting.LocalCacheExpiration;
+            options.DistributedCacheDuration = setting.Expiration;
+        });
+
+        return await cache.GetOrSetAsync<TResponse>(cacheKey.FullKey, async (context, _) =>
         {
             logger.LogDebug("Object not found in cache by {Key}. Continuing the pipeline execution to get the object",
                 cacheKey.FullKey);
-            return await next();
-        }, new HybridCacheEntryOptions
-        {
-            LocalCacheExpiration = setting.LocalCacheExpiration,
-            Expiration = setting.Expiration
-        }, cancellationToken: cancellationToken, tags: tags);
+            var response = await next();
+
+            if (response is IUnion union && Result.IsFailure(union.Value))
+            {
+                var failureCase = union.Value!.GetType().Name;
+                var expiration = cacheSettings.GetFailureCaseExpiration(setting, failureCase);
+                if (expiration is { } failureExpiration)
+                {
+                    logger.LogDebug("Caching {FailureCase} for {Key} for {Expiration}", failureCase, cacheKey.FullKey,
+                        failureExpiration);
+                    context.Options.Duration = Min(failureExpiration, setting.LocalCacheExpiration);
+                    context.Options.DistributedCacheDuration = failureExpiration;
+                }
+                else
+                {
+                    logger.LogDebug("Not caching {FailureCase} for {Key}", failureCase, cacheKey.FullKey);
+                    context.Options.SkipMemoryCacheWrite = true;
+                    context.Options.SkipDistributedCacheWrite = true;
+                }
+            }
+
+            return response;
+        }, options: entryOptions, tags: cachingOptions.Tags, token: cancellationToken);
     }
+
+    private static TimeSpan Min(TimeSpan a, TimeSpan b) => a < b ? a : b;
 }

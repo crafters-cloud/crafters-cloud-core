@@ -1,8 +1,7 @@
-using FluentValidation.Results;
-
 namespace CraftersCloud.Core.Results;
 
-public class BadRequestResult(IReadOnlyCollection<ValidationFailure> errors) : IErrorResult<ValidationFailure>
-{
-    public IEnumerable<ValidationFailure> Errors { get; } = errors;
-}
+/// <summary>
+/// The request is invalid (HTTP 400).
+/// </summary>
+[PublicAPI]
+public sealed record BadRequestResult(params IReadOnlyList<ValidationError> Errors);

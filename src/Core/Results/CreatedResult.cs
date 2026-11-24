@@ -1,6 +1,7 @@
-﻿namespace CraftersCloud.Core.Results;
+namespace CraftersCloud.Core.Results;
 
-public class CreatedResult<T>(T value) : IValueResult<T>
-{
-    public T Value { get; } = value;
-}
+/// <summary>
+/// A new resource was created (HTTP 201).
+/// </summary>
+[PublicAPI]
+public sealed record CreatedResult<T>(T Value);

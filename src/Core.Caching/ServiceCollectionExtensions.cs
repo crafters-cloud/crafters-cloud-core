@@ -72,7 +72,9 @@ public static class ServiceCollectionExtensions
         var options = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            PropertyNameCaseInsensitive = false
+            PropertyNameCaseInsensitive = false,
+            // C# unions (e.g. QueryResult<T>) must round-trip through the distributed cache
+            Converters = { new UnionJsonConverterFactory() }
         };
         cachingOptions.ConfigureJsonSerializerOptions(options);
         return options;
