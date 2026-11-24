@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A set of .NET 10 libraries (published as `CraftersCloud.Core.*` NuGet packages) providing infrastructure for apps built on Minimal API + EF Core + MediatR. There is no runnable app here — only `src/` libraries and `tests/`.
+A set of .NET 11 libraries (published as `CraftersCloud.Core.*` NuGet packages) providing infrastructure for apps built on Minimal API + EF Core + MediatR. There is no runnable app here — only `src/` libraries and `tests/`.
 
 ## Commands
 
@@ -21,7 +21,7 @@ CI (`.github/workflows/ci.yml`) runs `build.ps1` on every push; pushes to `relea
 
 ## Build rules that will bite you
 
-- `Directory.Build.props` sets `TreatWarningsAsErrors`, `EnforceCodeStyleInBuild`, `AnalysisLevel 10.0` and `Features=strict` — analyzer/style warnings (incl. `.editorconfig` rules) fail the build.
+- `Directory.Build.props` sets `TreatWarningsAsErrors`, `EnforceCodeStyleInBuild`, `AnalysisLevel 11.0` and `Features=strict` — analyzer/style warnings (incl. `.editorconfig` rules) fail the build.
 - Central package management: versions live in `Directory.Packages.props`; `<PackageReference>` in csproj files must not carry a `Version`.
 - `RestorePackagesWithLockFile` is on — every project has a `packages.lock.json` that must be updated (by restoring) when dependencies change.
 - Versioning is via MinVer from git tags with prefix `v` (no version in project files).
