@@ -32,11 +32,20 @@ Added: 2026-11-22
 
 Target `net11.0` only (no multi-targeting; .NET 10 users stay on 3.1.x). One upgrade covering .NET 11 / C# 15, EF Core 11, Aspire 17 and the other new major versions. Breaking change, hence 4.0.0.
 
+Status: draft PR #23 (no code changes needed). Merge only after `v3.1.1` is tagged from `main` (CORE-002).
+
 ### CORE-013 Redesign the `Result` types with union types
 
 Added: 2026-11-22
 
-After CORE-012, rework the `Result` hierarchy (`SuccessResult`, `NotFoundResult`, `BadRequestResult`, …) using C# union types; check what C# 15 offers first. Also consider replacing `OneOf`. As part of this, remove the FluentValidation dependency from `Core`: `BadRequestResult` should carry a core-owned error type, with `Core.MediatR` and `AspNetCore` converting from `ValidationFailure`.
+After CORE-012, rework the `Result` types with C# 15 unions. Decided 2026-11-24 (see also Milan Jovanović, "Can C# 15 Union Types Replace the Result Pattern?"):
+
+1. Core ships `QueryResult<T>(T, NotFoundResult)`, `CreateResult<T>(CreatedResult<T>, BadRequestResult)`, `UpdateResult(NoContentResult, NotFoundResult, BadRequestResult)` and `CommandResult<T, TError>(T, TError, BadRequestResult)` for use cases with their own failure records. Apps can declare their own unions.
+2. Case types keep their `*Result` names (no clash with ASP.NET `HttpResults`) and become sealed records. Drop `IResult`, `IValueResult<T>`, `IErrorResult<T>` and `SuccessResult<T>`; keep the `Result.*` factory.
+3. `BadRequestResult` carries a core-owned `ValidationError(PropertyName, Message, Code?)`; FluentValidation leaves `Core` and stays in `Core.MediatR` and `AspNetCore`.
+4. Remove OneOf completely. `ValidationBehavior` builds the `BadRequestResult` case through the union's constructor (`IUnion`).
+5. `Core.AspNetCore` ships `ToMinimalApiResult` helpers for the three standard unions; endpoints `switch` over `CommandResult<T, TError>` themselves.
+6. Caching: a JSON converter makes unions round-trip through the distributed cache. Failure cases are not cached by default; configuration (`DefaultFailureCases`, per entry `FailureCases`) can cache them per query type with their own expiration.
 
 ### CORE-005 Create GitHub Releases on `v*` tags
 
