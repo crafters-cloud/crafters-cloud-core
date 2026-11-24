@@ -16,16 +16,9 @@ updates:
       # Verify 33+ fails the build without a sponsorship declaration (SponsorCheck)
       - dependency-name: Verify
         versions: [">=33.0.0"]
-      # Source generator must not require a newer Roslyn than the oldest supported .NET 10 SDK
+      # Source generator must not require a newer Roslyn than the oldest supported .NET 11 SDK
       - dependency-name: Microsoft.CodeAnalysis.CSharp
       - dependency-name: Microsoft.CodeAnalysis.Analyzers
-      # 3.x stays on .NET 10; .NET 11 / Aspire 17 major versions come with 4.0.0 (CORE-012), remove then
-      - dependency-name: "Microsoft.*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "System.*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "Aspire.*"
-        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:

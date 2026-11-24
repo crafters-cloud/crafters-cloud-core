@@ -1,13 +1,13 @@
 <Project>
 
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net11.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <Features>strict</Features>
 
     <Authors>Srdjan Zivojinovic</Authors>
-    <Copyright>Copyright © 2025 Crafters Cloud</Copyright>
+    <Copyright>Copyright © 2026 Crafters Cloud</Copyright>
     <Company>Crafters Cloud</Company>
     <MinVerTagPrefix>v</MinVerTagPrefix>
     <MinVerDefaultPreReleaseIdentifiers>preview.0</MinVerDefaultPreReleaseIdentifiers>
@@ -34,7 +34,7 @@
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalysisLevel>10.0</AnalysisLevel>
+    <AnalysisLevel>11.0</AnalysisLevel>
     <LangVersion>latest</LangVersion>
     <UseArtifactsOutput>true</UseArtifactsOutput>
   </PropertyGroup>
