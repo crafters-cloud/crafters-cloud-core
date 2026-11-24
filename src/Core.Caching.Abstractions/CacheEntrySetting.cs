@@ -16,6 +16,8 @@
 /// - <c>Key</c>: Specifies the identifier for the cache entry.
 /// - <c>Expiration</c>: Configures the duration the cache entry is valid in a distributed cache.
 /// - <c>LocalCacheExpiration</c>: Configures the duration the cache entry is valid in a local cache.
+/// - <c>FailureCases</c>: Failure cases (e.g. <c>NotFoundResult</c>) that are cached for this entry, with their expiration.
+///   Overrides <see cref="CacheSettings.DefaultFailureCases"/> per case; <c>00:00:00</c> disables caching of that case.
 /// </remarks>
 [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
 public sealed class CacheEntrySetting
@@ -23,4 +25,5 @@ public sealed class CacheEntrySetting
     public string Key { get; init; } = string.Empty;
     public TimeSpan Expiration { get; init; }
     public TimeSpan LocalCacheExpiration { get; init; }
+    public Dictionary<string, TimeSpan> FailureCases { get; init; } = [];
 }

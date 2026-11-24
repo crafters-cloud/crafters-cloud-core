@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using CraftersCloud.Core.Results;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +29,12 @@ public static class HttpContextExtensions
     }
 
     public static ValidationProblemDetails CreateValidationProblemDetails(this HttpContext context,
-        IEnumerable<ValidationFailure> validationFailures)
+        IEnumerable<ValidationFailure> validationFailures) =>
+        context.CreateValidationProblemDetails(validationFailures.Select(f =>
+            new ValidationError(f.PropertyName, f.ErrorMessage, f.ErrorCode)));
+
+    public static ValidationProblemDetails CreateValidationProblemDetails(this HttpContext context,
+        IEnumerable<ValidationError> validationErrors)
     {
         var problemDetails = new ValidationProblemDetails
         {
@@ -36,7 +42,7 @@ public static class HttpContextExtensions
             Instance = context.Request.Path,
             Status = StatusCodes.Status400BadRequest,
             Detail = "Please refer to the errors property for additional details.",
-            Errors = validationFailures.ToProblemDetailsErrors()
+            Errors = validationErrors.ToProblemDetailsErrors()
         };
 
         return problemDetails;
@@ -50,9 +56,9 @@ public static class HttpContextExtensions
     }
 
     public static IDictionary<string, string[]> ToProblemDetailsErrors(
-        this IEnumerable<ValidationFailure> validationFailures) => validationFailures
+        this IEnumerable<ValidationError> validationErrors) => validationErrors
         .GroupBy(x => x.PropertyName)
         .ToDictionary(
             group => group.Key,
-            group => group.Select(g => g.ErrorMessage).ToArray());
+            group => group.Select(g => g.Message).ToArray());
 }

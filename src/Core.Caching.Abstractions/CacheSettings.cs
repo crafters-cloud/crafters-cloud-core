@@ -27,6 +27,26 @@ public class CacheSettings
     public TimeSpan DefaultExpiration { get; set; } = TimeSpan.FromMinutes(10);
 
     /// <summary>
+    /// Failure cases (by case type name, e.g. <c>NotFoundResult</c>) that are cached for every entry, with their expiration.
+    /// Empty by default: failures are not cached unless configured here or in <see cref="CacheEntrySetting.FailureCases"/>.
+    /// </summary>
+    public Dictionary<string, TimeSpan> DefaultFailureCases { get; set; } = [];
+
+    /// <summary>
+    /// How long a failure case is cached for the given entry, or <c>null</c> if it is not cached.
+    /// </summary>
+    public TimeSpan? GetFailureCaseExpiration(CacheEntrySetting setting, string failureCase)
+    {
+        if (!setting.FailureCases.TryGetValue(failureCase, out var expiration) &&
+            !DefaultFailureCases.TryGetValue(failureCase, out expiration))
+        {
+            return null;
+        }
+
+        return expiration > TimeSpan.Zero ? expiration : null;
+    }
+
+    /// <summary>
     /// Defines an array of cache entry settings, each representing configuration options
     /// for individual cache entries, including keys and expiration durations.
     /// </summary>

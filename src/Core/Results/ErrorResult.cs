@@ -1,6 +1,8 @@
 namespace CraftersCloud.Core.Results;
 
-public class ErrorResult : IErrorResult<string>
-{
-    public IEnumerable<string> Errors { get; init; } = [];
-}
+/// <summary>
+/// The operation failed for a reason other than invalid input (HTTP 500).
+/// </summary>
+/// <param name="Errors">Optional error messages.</param>
+[PublicAPI]
+public sealed record ErrorResult(params IReadOnlyList<string> Errors);

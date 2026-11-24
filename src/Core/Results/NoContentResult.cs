@@ -1,3 +1,7 @@
-﻿namespace CraftersCloud.Core.Results;
+namespace CraftersCloud.Core.Results;
 
-public class NoContentResult : IResult;
+/// <summary>
+/// The operation succeeded and there is nothing to return (HTTP 204).
+/// </summary>
+[PublicAPI]
+public sealed record NoContentResult;

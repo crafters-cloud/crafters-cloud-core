@@ -39,10 +39,10 @@ Test projects import `Tests.Build.props`: NUnit + Shouldly (both globally import
 
 Project dependency layering (namespaces are `CraftersCloud.Core.<ProjectName>`):
 
-- **Core** — the base everything references: entities (`Entity` with domain events, `EntityWithTypedId`), `IRepository`/`IUnitOfWork` abstractions, CQRS marker interfaces (`ICommand`, `IQuery`, handlers) on top of MediatR, `Result` types (Success/Created/NotFound/Forbidden/Error/NoContent/BadRequest), paging, `IStronglyTypedId<T>`.
+- **Core** — the base everything references: entities (`Entity` with domain events, `EntityWithTypedId`), `IRepository`/`IUnitOfWork` abstractions, CQRS marker interfaces (`ICommand`, `IQuery`, handlers) on top of MediatR, results as C# 15 unions (see below), paging, `IStronglyTypedId<T>`.
 - **Core.MediatR** — pipeline behaviors (validation, logging, caching via `Core.Caching*`).
 - **EntityFramework** (EF utilities, seeding) → **EntityFramework.Infrastructure** (`BaseDbContext`, EF repository, `DbContextUnitOfWork`, Autofac registration in `ContainerBuilderExtensions`).
-- **AspNetCore** (Minimal API endpoint discovery via `IEndpoint` + `AddCoreEndpoints`/`MapCoreEndpoints`, permission-based authorization, exception handling, FluentValidation filter), **Swagger** (NSwag), **HealthChecks**, **Infrastructure**.
+- **AspNetCore** (Minimal API endpoint discovery via `IEndpoint` + `AddCoreEndpoints`/`MapCoreEndpoints`, permission-based authorization, exception handling, FluentValidation filter, `ToMinimalApiResult` mapping of the result unions), **Swagger** (NSwag), **HealthChecks**, **Infrastructure**.
 - **SmartEnums** (Ardalis.SmartEnum) with sibling adapters `.EntityFramework`, `.Swagger`, `.SystemTextJson`. **Core.SystemTextJson** is the equivalent adapter for strongly-typed IDs.
 - **IntegrationEvents** → **EventBus** (Azure Service Bus).
 
@@ -51,6 +51,14 @@ Project dependency layering (namespaces are `CraftersCloud.Core.<ProjectName>`):
 1. Commands implement `ICommand`/`ICommand<T>`, which expose `TransactionBehavior` (default: ReadCommitted transaction; override with `CommandTransactionBehavior.NoTransaction` or `TransactionWith(level)`).
 2. `SaveChangesBehavior<TDbContext,...>` (EntityFramework.Infrastructure, abstract — consumers subclass it per DbContext) wraps the handler: skips queries and nested calls when a transaction is already active, otherwise opens a transaction inside EF's execution strategy, runs the handler, calls `IUnitOfWork.SaveChangesAsync`, and commits. Handlers therefore do not call SaveChanges themselves.
 3. `PublishDomainEventsInterceptor` collects domain events from tracked entities *before* save (so deleted entities' events aren't lost) and publishes them via MediatR *after* save.
+
+### Results (C# 15 unions)
+
+- Case types are sealed records in `Core/Results`: `CreatedResult<T>`, `NoContentResult`, `NotFoundResult`, `ForbiddenResult`, `ErrorResult`, `BadRequestResult` (carries the library-independent `ValidationError`, so `Core` doesn't depend on FluentValidation). Keep the `*Result` names: shorter ones clash with ASP.NET's `HttpResults` types. `Microsoft.AspNetCore.Mvc` has same-named classes, so files using both alias the one MVC type they need.
+- Standard unions: `QueryResult<T>(T, NotFoundResult)`, `CreateResult<T>`, `UpdateResult`, and `CommandResult<T, TError>` for use cases with their own failure records.
+- `ValidationBehavior` returns a `BadRequestResult` when `TResponse` is a union (`IUnion`) with a `BadRequestResult` constructor, otherwise throws `ValidationException`.
+- `CachingPipelineBehavior` (FusionCache) doesn't cache failure cases unless `DefaultFailureCases`/`FailureCases` in the cache settings say so. `UnionJsonConverterFactory` (registered on the cache serializer) makes unions round-trip through Redis; the built-in System.Text.Json union support can't tell apart cases that are both JSON objects.
+- A `default` union holds no case: switches over unions need a `null` arm.
 
 ### Strongly-typed IDs source generator
 
