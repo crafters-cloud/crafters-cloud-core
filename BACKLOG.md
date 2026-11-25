@@ -47,6 +47,8 @@ After CORE-012, rework the `Result` types with C# 15 unions. Decided 2026-11-24 
 5. `Core.AspNetCore` ships `ToMinimalApiResult` helpers for the three standard unions; endpoints `switch` over `CommandResult<T, TError>` themselves.
 6. Caching: a JSON converter makes unions round-trip through the distributed cache. Failure cases are not cached by default; configuration (`DefaultFailureCases`, per entry `FailureCases`) can cache them per query type with their own expiration.
 
+Status: implemented in draft PR #24 (stacked on #23). Breaking for consumers; the reference architecture migration is RA-016. Merge after #23, then retarget #24 to `main` so CI runs.
+
 ### CORE-005 Create GitHub Releases on `v*` tags
 
 Added: 2026-11-22
