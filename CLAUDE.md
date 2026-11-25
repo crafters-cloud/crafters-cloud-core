@@ -19,6 +19,10 @@ dotnet test --filter "Name=GetValue"           # one test method
 
 CI (`.github/workflows/ci.yml`) runs `build.ps1` on every push; pushes to `release` or `v*` tags also publish to MyGet and NuGet via `push.ps1`.
 
+## Backlog
+
+Open work is tracked in `BACKLOG.md` (grouped High/Medium/Low, `CORE-nnn` IDs); completed items move to the top of `BACKLOG-DONE.md` with a completed date and PR link. Follow the conventions at the top of `BACKLOG.md` when adding or completing items.
+
 ## Build rules that will bite you
 
 - `Directory.Build.props` sets `TreatWarningsAsErrors`, `EnforceCodeStyleInBuild`, `AnalysisLevel 10.0` and `Features=strict` — analyzer/style warnings (incl. `.editorconfig` rules) fail the build.
