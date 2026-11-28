@@ -4,11 +4,11 @@
     "net10.0": {
       "Ardalis.SmartEnum.SystemTextJson": {
         "type": "Direct",
-        "requested": "[8.1.0, )",
-        "resolved": "8.1.0",
-        "contentHash": "LHEnyxdffnqVw6aBDEGqjZinYdDaASOEMigiza9EeW+0q0TBufANZszt0ocu3MZzN/K3yZge4ppwFQ9/jJhm+w==",
+        "requested": "[9.0.0, )",
+        "resolved": "9.0.0",
+        "contentHash": "USXmnZhpGORjksn91jBeMGEDIBHrWARVwB1asS7QdhqIZ6xs+GYSsazfTwufwuM2otoRyn62T1O17MjQR+j3qw==",
         "dependencies": {
-          "Ardalis.SmartEnum": "8.1.0"
+          "Ardalis.SmartEnum": "9.0.0"
         }
       },
       "JetBrains.Annotations": {
@@ -48,8 +48,8 @@
       "Ardalis.SmartEnum": {
         "type": "CentralTransitive",
         "requested": "[8.2.0, )",
-        "resolved": "8.2.0",
-        "contentHash": "P1CLI2okpzHjOJnZMYLnzcyu1/fUJEYK1X4JSnal2TPmovrUTtXK6Sn78D2JgKUdwjSeWddnRveMj+BEZoksvg=="
+        "resolved": "9.0.0",
+        "contentHash": "n08BGnqTq6YvW2tybmoUyM30VzatTlASnqnO/JhH57jH4vUZmqSMZfGKLUYRDV/1QPOuUeTlWA2oeuMBSt/oUA=="
       },
       "FluentValidation": {
         "type": "CentralTransitive",
