@@ -4,12 +4,12 @@
     "net10.0": {
       "Ardalis.SmartEnum.EFCore": {
         "type": "Direct",
-        "requested": "[8.2.0, )",
-        "resolved": "8.2.0",
-        "contentHash": "6SDTHNZ7EMA8Jbuoy6qNdcvT6VQ2kO68WBgPZWvJshNCYUMab8+Li+SwHrn1HqUDYP1vWFK+2mS60+XXO6hmwg==",
+        "requested": "[9.0.0, )",
+        "resolved": "9.0.0",
+        "contentHash": "aBleP4H9oa9U9DVkh58AJ3OLOyM9vb4oShLnHd/X2b9hAVlaUlsvZyaT7tpSyG+tQJJ02Iy0vRYl+kDy0jXfIA==",
         "dependencies": {
-          "Ardalis.SmartEnum": "8.2.0",
-          "Microsoft.EntityFrameworkCore": "7.0.13"
+          "Ardalis.SmartEnum": "9.0.0",
+          "Microsoft.EntityFrameworkCore": "10.0.15"
         }
       },
       "JetBrains.Annotations": {
@@ -94,8 +94,8 @@
       "Ardalis.SmartEnum": {
         "type": "CentralTransitive",
         "requested": "[8.2.0, )",
-        "resolved": "8.2.0",
-        "contentHash": "P1CLI2okpzHjOJnZMYLnzcyu1/fUJEYK1X4JSnal2TPmovrUTtXK6Sn78D2JgKUdwjSeWddnRveMj+BEZoksvg=="
+        "resolved": "9.0.0",
+        "contentHash": "n08BGnqTq6YvW2tybmoUyM30VzatTlASnqnO/JhH57jH4vUZmqSMZfGKLUYRDV/1QPOuUeTlWA2oeuMBSt/oUA=="
       },
       "FluentValidation": {
         "type": "CentralTransitive",
